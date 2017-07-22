@@ -1,0 +1,10 @@
+﻿Przystawka
+Obiad
+Deser
+Ciasto
+Tort
+Słodycze
+Pieczeń
+Kurczak
+Warzywa
+Kanapka

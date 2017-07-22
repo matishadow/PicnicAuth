@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriGo.Api", "FriGo.Api\FriGo.Api.csproj", "{57AF1C6B-5C73-4C91-8C3A-2505CE495E15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriGo.Db", "FriGo.Db\FriGo.Db.csproj", "{677656D1-A4E1-4236-A438-E74B3104D001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriGo.Interfaces", "FriGo.Interfaces\FriGo.Interfaces.csproj", "{CD679956-2F13-4401-8144-55D0A7254C98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriGo.ServiceInterfaces", "FriGo.ServiceInterfaces\FriGo.ServiceInterfaces.csproj", "{1140E30D-87F0-4BE2-AFAE-45D1466FED0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriGo.Services", "FriGo.Services\FriGo.Services.csproj", "{AE34CA1E-E500-41E4-8EA3-5DE7E3A57B11}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57AF1C6B-5C73-4C91-8C3A-2505CE495E15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57AF1C6B-5C73-4C91-8C3A-2505CE495E15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57AF1C6B-5C73-4C91-8C3A-2505CE495E15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57AF1C6B-5C73-4C91-8C3A-2505CE495E15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{677656D1-A4E1-4236-A438-E74B3104D001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{677656D1-A4E1-4236-A438-E74B3104D001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{677656D1-A4E1-4236-A438-E74B3104D001}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{677656D1-A4E1-4236-A438-E74B3104D001}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD679956-2F13-4401-8144-55D0A7254C98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD679956-2F13-4401-8144-55D0A7254C98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD679956-2F13-4401-8144-55D0A7254C98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD679956-2F13-4401-8144-55D0A7254C98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1140E30D-87F0-4BE2-AFAE-45D1466FED0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1140E30D-87F0-4BE2-AFAE-45D1466FED0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1140E30D-87F0-4BE2-AFAE-45D1466FED0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1140E30D-87F0-4BE2-AFAE-45D1466FED0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE34CA1E-E500-41E4-8EA3-5DE7E3A57B11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE34CA1E-E500-41E4-8EA3-5DE7E3A57B11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE34CA1E-E500-41E4-8EA3-5DE7E3A57B11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE34CA1E-E500-41E4-8EA3-5DE7E3A57B11}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
