@@ -1,4 +1,4 @@
-﻿namespace PicnicAuth.Interfaces.Dependencies
+﻿namespace PicnicAuth.ServiceInterfaces.Dependencies
 {
     public interface ISingleInstanceDependency
     {

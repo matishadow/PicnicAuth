@@ -70,6 +70,7 @@
       <HintPath>..\packages\FluentValidation.WebApi.6.4.0\lib\Net45\FluentValidation.WebApi.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="FriGo.Interfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.7\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -331,16 +332,12 @@
       <Name>PicnicAuth.Database</Name>
     </ProjectReference>
     <ProjectReference Include="..\PicnicAuth.Interfaces\PicnicAuth.Interfaces.csproj">
-      <Project>{cd679956-2f13-4401-8144-55d0a7254c98}</Project>
+      <Project>{1140e30d-87f0-4be2-afae-45d1466fed0d}</Project>
       <Name>PicnicAuth.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PicnicAuth.ServiceInterfaces\PicnicAuth.ServiceInterfaces.csproj">
-      <Project>{1140e30d-87f0-4be2-afae-45d1466fed0d}</Project>
-      <Name>PicnicAuth.ServiceInterfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PicnicAuth.Services\PicnicAuth.Services.csproj">
+    <ProjectReference Include="..\PicnicAuth.Implementations\PicnicAuth.Implementations.csproj">
       <Project>{ae34ca1e-e500-41e4-8ea3-5de7e3a57b11}</Project>
-      <Name>PicnicAuth.Services</Name>
+      <Name>PicnicAuth.Implementations</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

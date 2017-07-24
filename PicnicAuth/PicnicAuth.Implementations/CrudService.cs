@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using PicnicAuth.Database.DAL;
-using PicnicAuth.Interfaces.Dependencies;
+using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Services
 {

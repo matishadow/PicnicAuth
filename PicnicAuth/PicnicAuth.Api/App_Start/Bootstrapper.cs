@@ -6,7 +6,7 @@ using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
 using AutoMapper;
-using PicnicAuth.Interfaces.Dependencies;
+using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Api
 {

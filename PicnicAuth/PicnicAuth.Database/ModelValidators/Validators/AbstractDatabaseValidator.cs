@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using FriGo.Interfaces.Dependencies;
 using PicnicAuth.Database.DAL;
 using PicnicAuth.Database.ModelValidators.Interfaces;
-using PicnicAuth.Interfaces.Dependencies;
 
 namespace PicnicAuth.Database.ModelValidators.Validators
 {
-    public class AbstractDatabaseValidator<TValidatedEntity> : AbstractContinueValidator<TValidatedEntity>, IAbstractDatabaseValidator, IRequestDependency
+    public class AbstractDatabaseValidator<TValidatedEntity> : AbstractContinueValidator<TValidatedEntity>,
+        IAbstractDatabaseValidator, IRequestDependency
     {
         private readonly IUnitOfWork unitOfWork;
 
