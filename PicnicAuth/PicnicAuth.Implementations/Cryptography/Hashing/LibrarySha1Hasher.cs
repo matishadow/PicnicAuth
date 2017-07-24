@@ -4,11 +4,12 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using PicnicAuth.Interfaces.Cryptography.Hashing;
 using PicnicAuth.Interfaces.Encoding;
 
 namespace PicnicAuth.Implementations.Cryptography.Hashing
 {
-    public class LibrarySha1Hasher
+    public class LibrarySha1Hasher : ILibrarySha1Hasher
     {
         private const string HexadecimalFormater = "X2";
         private readonly IUtf8Converter utf8Converter;
