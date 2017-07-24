@@ -7,6 +7,8 @@ namespace PicnicAuth.Implementations.Encoding
     {
         public string Decode(string encodedData)
         {
+            if (encodedData == null) return null;
+
             byte[] encodedBytes = Convert.FromBase64String(encodedData);
             return System.Text.Encoding.UTF8.GetString(encodedBytes);
         }
