@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using PicnicAuth.Database.Models.Authentication;
 
-namespace PicnicAuth.Database.ModelValidators
+namespace PicnicAuth.Database.ModelValidators.Validators
 {
     public class SetPasswordValidator : AbstractValidator<SetPasswordBindingModel>
     {

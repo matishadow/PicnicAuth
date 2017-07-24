@@ -16,19 +16,16 @@ using Swashbuckle.Swagger.Annotations;
 
 namespace PicnicAuth.Api.Controllers
 {
-    [PicnicAuthAuthorize]
     public class AccountController : ApiController 
     {
         private ApplicationUserManager userManager;
-        private readonly IValidatingService validatingService;
 
         private readonly IChangePasswordValidator changePasswordValidator;
         private readonly IRegisterValidator registerValidator;
 
-        public AccountController(IValidatingService validatingService, IChangePasswordValidator changePasswordValidator,
+        public AccountController(IChangePasswordValidator changePasswordValidator,
             IRegisterValidator registerValidator)
         {
-            this.validatingService = validatingService;
             this.changePasswordValidator = changePasswordValidator;
             this.registerValidator = registerValidator;
         }
@@ -44,7 +41,7 @@ namespace PicnicAuth.Api.Controllers
         /// </summary>
         /// <returns>Information about logged user</returns>
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(UserInfoViewModel))]
-        [SwaggerResponse(HttpStatusCode.Unauthorized, Type = typeof(MessageError), Description = "Not logged in")]
+        [SwaggerResponse(HttpStatusCode.Unauthorized, Description = "Not logged in")]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
         public UserInfoViewModel GetUserInfo()
         {
@@ -64,20 +61,16 @@ namespace PicnicAuth.Api.Controllers
         /// <param name="model"></param>
         /// <returns></returns>
         [SwaggerResponse(HttpStatusCode.OK, Description = "Password changed")]
-        [SwaggerResponse(HttpStatusCode.BadRequest, Type = typeof(ValidationError), Description = "Provided data was not valid")]
-        [SwaggerResponse(HttpStatusCode.Unauthorized, Type = typeof(MessageError), Description = "Not logged in")]
+        [SwaggerResponse(HttpStatusCode.BadRequest, Description = "Provided data was not valid")]
+        [SwaggerResponse(HttpStatusCode.Unauthorized, Description = "Not logged in")]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
         [Route("api/Account/ChangePassword")]
         public HttpResponseMessage ChangePassword(ChangePasswordBindingModel model)
         {
-            if (!validatingService.IsValid(changePasswordValidator, model))
-                return Request.CreateResponse(validatingService.GetStatusCode(),
-                    validatingService.GenerateError(changePasswordValidator, model));
-
             IdentityResult result = UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
                 model.NewPassword).Result;
 
-            return !result.Succeeded ? GetErrorResult(result) : Request.CreateResponse(HttpStatusCode.OK);
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         /// <summary>
@@ -86,20 +79,16 @@ namespace PicnicAuth.Api.Controllers
         /// <param name="model"></param>
         /// <returns>Account created</returns>
         [SwaggerResponse(HttpStatusCode.Created, Description = "Account created")]
-        [SwaggerResponse(HttpStatusCode.BadRequest, Type = typeof(ValidationError), Description = "Provided data was not valid")]
+        [SwaggerResponse(HttpStatusCode.BadRequest, Description = "Provided data was not valid")]
         [AllowAnonymous]
         public async Task<HttpResponseMessage> Register(RegisterBindingModel model)
         {
-            if (!validatingService.IsValid(registerValidator, model))
-                return Request.CreateResponse(validatingService.GetStatusCode(),
-                    validatingService.GenerateError(registerValidator, model));
-
             var user = new User {UserName = model.Username, Email = model.Email};
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
             return !result.Succeeded
-                ? Request.CreateErrorResponse(HttpStatusCode.InternalServerError, GetErrorResult(result).ToString())
+                ? Request.CreateResponse(HttpStatusCode.InternalServerError, result)
                 : Request.CreateResponse(HttpStatusCode.Created);
         }
 
@@ -112,21 +101,6 @@ namespace PicnicAuth.Api.Controllers
             }
 
             base.Dispose(disposing);
-        }
-
-        private HttpResponseMessage GetErrorResult(IdentityResult result)
-        {
-            if (result == null)
-                return Request.CreateResponse(HttpStatusCode.InternalServerError);
-            if (result.Succeeded) return null;
-
-            var validationResult = new ValidationResult(new List<ValidationFailure>
-            {
-                new ValidationFailure(nameof(ChangePasswordBindingModel.OldPassword),
-                    Database.Properties.Resources.CurrentPasswordValidationError)
-            });
-
-            return Request.CreateResponse(HttpStatusCode.BadRequest, validationResult);
         }
 
         private class ExternalLoginData

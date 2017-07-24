@@ -61,16 +61,6 @@ namespace PicnicAuth.Database.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap appetizer {
-            get {
-                object obj = ResourceManager.GetObject("appetizer", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to 9CCFA6BD1C364830910E4B024858DDC0.
         /// </summary>
         public static string AppetizerImageId {
@@ -85,15 +75,6 @@ namespace PicnicAuth.Database.Properties {
         public static string AppetizerTags {
             get {
                 return ResourceManager.GetString("AppetizerTags", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 8kEHBEL9iaf/owaRD1nnZXYd6LSMZsoAtQ5dCz3ZktDGTyQ4lFmR8NBQtMVd7geiIxIbrETk9qpafwlk+CZn7jMq17v6iAFojBOuowif0YTDXtCfHxEFkSDDpLhD6bbacSwxtKz5H6SkLpHTClIzjGWtBJKz/OXJoHKxwrrlZw1olk76TFHDuvCMsPjROOkAX7Uo/k+UXAQM+j64kMue/RO3JEkHYL1LLZS3GtQFrAYvqjieDpOzuMiG4bH2wOtAnOTwXJnR7WWbFjfKMStf8vPHsYlIa8kq3LlBtFjT9HBqkyhLpldOW6rAbF+lh5KPEUi4XahYqKTm3yXl0RfjmW2tqHjTycdU/RAO/OBbhvQxUxvwTgtuk6DH6i6LHzT170XIErO6Nu03ElUvQ0TO0v7idEgjG7ZuoIuxNt74ExjM0UFZ2R5Xvkfel53RF7k1xk5AaTZeCQOm1hLA+/kp5QwrkALMd0vX+WPErF/FyHEvtD1cjXDzNI6b1Q2bS6mN [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Base64Image {
-            get {
-                return ResourceManager.GetString("Base64Image", resourceCulture);
             }
         }
         
@@ -184,16 +165,6 @@ namespace PicnicAuth.Database.Properties {
         public static string CurrentPasswordValidationError {
             get {
                 return ResourceManager.GetString("CurrentPasswordValidationError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap dessert {
-            get {
-                object obj = ResourceManager.GetObject("dessert", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -297,16 +268,6 @@ namespace PicnicAuth.Database.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Jajko
-        ///Ryż.
-        /// </summary>
-        public static string IngredientList {
-            get {
-                return ResourceManager.GetString("IngredientList", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Nazwa składnika nie może być pusta..
         /// </summary>
         public static string IngredientNameEmptyValidationMessage {
@@ -375,16 +336,6 @@ namespace PicnicAuth.Database.Properties {
         public static string LoginEmptyValidationMessage {
             get {
                 return ResourceManager.GetString("LoginEmptyValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap main {
-            get {
-                object obj = ResourceManager.GetObject("main", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -470,24 +421,6 @@ namespace PicnicAuth.Database.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Przystawka
-        ///Obiad
-        ///Deser
-        ///Ciasto
-        ///Tort
-        ///Słodycze
-        ///Pieczeń
-        ///Kurczak
-        ///Warzywa
-        ///Kanapka.
-        /// </summary>
-        public static string TagList {
-            get {
-                return ResourceManager.GetString("TagList", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to |.
         /// </summary>
         public static string TagsDelimiter {
@@ -511,16 +444,6 @@ namespace PicnicAuth.Database.Properties {
         public static string UnitExistsValidationMessage {
             get {
                 return ResourceManager.GetString("UnitExistsValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to gram
-        ///mililitr.
-        /// </summary>
-        public static string UnitList {
-            get {
-                return ResourceManager.GetString("UnitList", resourceCulture);
             }
         }
         

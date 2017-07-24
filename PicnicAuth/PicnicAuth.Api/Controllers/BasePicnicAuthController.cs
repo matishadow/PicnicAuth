@@ -7,19 +7,13 @@ using Swashbuckle.Swagger.Annotations;
 namespace PicnicAuth.Api.Controllers
 {
     [SwaggerResponseRemoveDefaults]
-    [PicnicAuthAuthorize]
     public abstract class BasePicnicAuthController : ApiController
     {
         protected readonly IMapper AutoMapper;
-        protected readonly IValidatingService ValidatingService;
-        protected readonly IOwningService OwningService;
 
-        protected BasePicnicAuthController(IMapper autoMapper, IValidatingService validatingService,
-            IOwningService owningService)
+        protected BasePicnicAuthController(IMapper autoMapper)
         {
             AutoMapper = autoMapper;
-            ValidatingService = validatingService;
-            OwningService = owningService;
         }
     }
 }

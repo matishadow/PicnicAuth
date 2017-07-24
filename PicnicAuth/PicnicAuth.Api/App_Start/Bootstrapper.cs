@@ -6,9 +6,6 @@ using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
 using AutoMapper;
-using PicnicAuth.Database.DTO.Recipes;
-using PicnicAuth.Database.Models;
-using PicnicAuth.Database.Models.Recipes;
 using PicnicAuth.Interfaces.Dependencies;
 
 namespace PicnicAuth.Api
@@ -95,23 +92,6 @@ namespace PicnicAuth.Api
             var mapperConfiguration = new MapperConfiguration(configuration =>
             {
                 configuration.CreateMissingTypeMaps = true;
-
-                configuration.CreateMap<KeyValuePair<Recipe, decimal>, Recipe>()
-                    .ConvertUsing(src => src.Key);
-
-                configuration.CreateMap<RateRecipe, Rate>()
-                   .ForMember(dest => dest.Rating, 
-                   opts => opts.MapFrom(src => src.Rate)).ReverseMap();
-
-                configuration.CreateMap<byte[], Image>()
-                    .ConvertUsing(src => new Image{ImageBytes = src});
-
-                configuration.CreateMap<string, Tag>()
-                    .ConvertUsing(src => new Tag{ Name = src });
-
-                configuration.CreateMap<CreateRecipe, Recipe>()
-                    .ForMember(dest => dest.IngredientQuantities, 
-                    opts => opts.MapFrom(src => src.CreateIngredientQuantities));
             });
             IMapper mapper = mapperConfiguration.CreateMapper();
 
