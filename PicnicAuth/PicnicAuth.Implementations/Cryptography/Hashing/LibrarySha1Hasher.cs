@@ -21,7 +21,7 @@ namespace PicnicAuth.Implementations.Cryptography.Hashing
 
         public string ComputeStringHash(string input)
         {
-            if (input == null || !input.Any()) return string.Empty;
+            if (input == null) return null;
 
             using (var sha1 = new SHA1Managed())
             {
