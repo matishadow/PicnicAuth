@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PicnicAuth.Tests</RootNamespace>
     <AssemblyName>PicnicAuth.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
@@ -19,6 +19,7 @@
     <TestProjectType>UnitTest</TestProjectType>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -57,7 +58,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Base64EncoderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -65,8 +66,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PicnicAuth.Implementations\PicnicAuth.Implementations.csproj">
-      <Project>{AE34CA1E-E500-41E4-8EA3-5DE7E3A57B11}</Project>
+      <Project>{ae34ca1e-e500-41e4-8ea3-5de7e3a57b11}</Project>
       <Name>PicnicAuth.Implementations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PicnicAuth.Interfaces\PicnicAuth.Interfaces.csproj">
+      <Project>{1140E30D-87F0-4BE2-AFAE-45D1466FED0D}</Project>
+      <Name>PicnicAuth.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
