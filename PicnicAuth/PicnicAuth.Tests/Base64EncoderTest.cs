@@ -10,7 +10,7 @@ namespace PicnicAuth.Tests
         private Base64Encoder encoder;
 
         [SetUp]
-        public void Init()
+        public void SetUp()
         {
             encoder = new Base64Encoder();
         }

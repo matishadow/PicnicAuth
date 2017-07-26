@@ -49,6 +49,7 @@
     <Compile Include="BaseService.cs" />
     <Compile Include="CrudService.cs" />
     <Compile Include="Cryptography\Hashing\LibrarySha1Hasher.cs" />
+    <Compile Include="Cryptography\Randomness\SecureRandomNumberGenerator.cs" />
     <Compile Include="Encoding\Base64Decoder.cs" />
     <Compile Include="Encoding\Base64Encoder.cs" />
     <Compile Include="Encoding\Utf8Converter.cs" />
