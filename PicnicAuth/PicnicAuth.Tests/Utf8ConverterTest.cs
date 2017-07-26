@@ -10,7 +10,7 @@ namespace PicnicAuth.Tests
         private Utf8Converter converter;
 
         [SetUp]
-        public void Init()
+        public void SetUp()
         {
             converter = new Utf8Converter();
         }

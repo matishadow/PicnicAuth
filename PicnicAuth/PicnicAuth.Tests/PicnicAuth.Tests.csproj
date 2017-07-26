@@ -58,6 +58,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SecureRandomNumberGeneratorTest.cs" />
     <Compile Include="LibrarySha1HasherTest.cs" />
     <Compile Include="Utf8ConverterTest.cs" />
     <Compile Include="Base64DecoderTest.cs" />

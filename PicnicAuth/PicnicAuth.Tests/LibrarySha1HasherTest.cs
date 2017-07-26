@@ -11,7 +11,7 @@ namespace PicnicAuth.Tests
         private LibrarySha1Hasher hasher;
 
         [SetUp]
-        public void Init()
+        public void SetUp()
         {
             var mockUtf8Converter = new Mock<IUtf8Converter>();
             mockUtf8Converter.Setup(p => p.ConvertToBytes("aaa")).Returns(new byte[] {0x61, 0x61, 0x61});
