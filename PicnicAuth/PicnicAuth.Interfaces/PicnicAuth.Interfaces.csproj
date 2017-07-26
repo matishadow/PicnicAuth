@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="Cryptography\Hashing\ILibrarySha1Hasher.cs" />
     <Compile Include="Cryptography\Hashing\ISha1Hasher.cs" />
+    <Compile Include="Cryptography\Randomness\ISecureRandomNumberGenerator.cs" />
     <Compile Include="Dependencies\IDependency.cs" />
     <Compile Include="Dependencies\ILifeTimeDependency.cs" />
     <Compile Include="Dependencies\IMatchingLifeTimeDependency.cs" />
