@@ -58,6 +58,7 @@
     <Compile Include="Cryptography\Randomness\SecureRandomNumberGenerator.cs" />
     <Compile Include="Encoding\Base64Decoder.cs" />
     <Compile Include="Encoding\Base64Encoder.cs" />
+    <Compile Include="Encoding\QrCodeGenerator.cs" />
     <Compile Include="Encoding\Utf8Converter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
