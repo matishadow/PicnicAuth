@@ -1,13 +1,14 @@
 ﻿using System;
 using NUnit.Framework;
 using PicnicAuth.Implementations.Encoding;
+using PicnicAuth.Interfaces.Encoding;
 
 namespace PicnicAuth.Tests
 {
     [TestFixture]
     public class Base64EncoderTest
     {
-        private Base64Encoder encoder;
+        private IBase64Encoder encoder;
 
         [SetUp]
         public void SetUp()

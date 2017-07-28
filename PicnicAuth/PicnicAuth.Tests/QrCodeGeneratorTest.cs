@@ -4,6 +4,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using NUnit.Framework;
 using PicnicAuth.Implementations.Encoding;
+using PicnicAuth.Interfaces.Encoding;
 using QRCoder;
 
 namespace PicnicAuth.Tests
@@ -11,7 +12,7 @@ namespace PicnicAuth.Tests
     [TestFixture]
     public class QrCodeGeneratorTest
     {
-        private QrCodeGenerator generator;
+        private IQrCodeGenerator generator;
 
         [SetUp]
         public void SetUp()

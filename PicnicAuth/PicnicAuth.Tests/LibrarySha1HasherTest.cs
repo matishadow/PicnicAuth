@@ -1,6 +1,7 @@
 ﻿using Moq;
 using NUnit.Framework;
 using PicnicAuth.Implementations.Cryptography.Hashing;
+using PicnicAuth.Interfaces.Cryptography.Hashing;
 using PicnicAuth.Interfaces.Encoding;
 
 namespace PicnicAuth.Tests
@@ -8,7 +9,7 @@ namespace PicnicAuth.Tests
     [TestFixture]
     public class LibrarySha1HasherTest
     {
-        private LibrarySha1Hasher hasher;
+        private ILibrarySha1Hasher hasher;
 
         [SetUp]
         public void SetUp()

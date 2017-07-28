@@ -1,13 +1,14 @@
 ﻿using System;
 using NUnit.Framework;
 using PicnicAuth.Implementations.Encoding;
+using PicnicAuth.Interfaces.Encoding;
 
 namespace PicnicAuth.Tests
 {
     [TestFixture]
     public class Utf8ConverterTest
     {
-        private Utf8Converter converter;
+        private IUtf8Converter converter;
 
         [SetUp]
         public void SetUp()
