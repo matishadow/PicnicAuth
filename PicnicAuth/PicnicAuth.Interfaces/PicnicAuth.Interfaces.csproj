@@ -65,12 +65,6 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\PicnicAuth.Database\PicnicAuth.Database.csproj">
-      <Project>{677656d1-a4e1-4236-a438-e74b3104d001}</Project>
-      <Name>PicnicAuth.Database</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

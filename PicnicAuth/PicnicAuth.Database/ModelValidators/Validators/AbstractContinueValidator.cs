@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using FriGo.Interfaces.Dependencies;
+using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Database.ModelValidators.Validators
 {

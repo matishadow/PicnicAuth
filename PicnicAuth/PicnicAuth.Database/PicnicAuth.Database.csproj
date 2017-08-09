@@ -131,6 +131,12 @@
     <Folder Include="Resources\" />
     <Folder Include="SeedLists\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PicnicAuth.Interfaces\PicnicAuth.Interfaces.csproj">
+      <Project>{1140e30d-87f0-4be2-afae-45d1466fed0d}</Project>
+      <Name>PicnicAuth.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

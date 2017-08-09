@@ -5,10 +5,10 @@ using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Configuration;
 using System.Linq;
 using System.Reflection;
-using FriGo.Interfaces.Dependencies;
 using Microsoft.AspNet.Identity.EntityFramework;
 using PicnicAuth.Database.Models;
 using PicnicAuth.Database.Models.Authentication;
+using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Database
 {

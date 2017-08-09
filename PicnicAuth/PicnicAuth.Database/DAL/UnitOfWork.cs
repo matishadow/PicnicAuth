@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using FriGo.Interfaces.Dependencies;
+using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Database.DAL
 {
