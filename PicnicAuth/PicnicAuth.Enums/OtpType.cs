@@ -1,4 +1,4 @@
-﻿namespace PicnicAuth.Database
+﻿namespace PicnicAuth.Enums
 {
     public enum OtpType
     {
