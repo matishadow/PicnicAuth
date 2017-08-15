@@ -66,6 +66,7 @@
     <Compile Include="Encoding\QrCodeGenerator.cs" />
     <Compile Include="Encoding\Utf8Converter.cs" />
     <Compile Include="Image\ImageConverter.cs" />
+    <Compile Include="OneTimePassword\KeyUriCreator.cs" />
     <Compile Include="OneTimePassword\SecretGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -73,6 +74,10 @@
     <ProjectReference Include="..\PicnicAuth.Database\PicnicAuth.Database.csproj">
       <Project>{677656d1-a4e1-4236-a438-e74b3104d001}</Project>
       <Name>PicnicAuth.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PicnicAuth.Enums\PicnicAuth.Enums.csproj">
+      <Project>{22e102cd-d00b-407e-9c8c-8467d91e7105}</Project>
+      <Name>PicnicAuth.Enums</Name>
     </ProjectReference>
     <ProjectReference Include="..\PicnicAuth.Interfaces\PicnicAuth.Interfaces.csproj">
       <Project>{1140e30d-87f0-4be2-afae-45d1466fed0d}</Project>
