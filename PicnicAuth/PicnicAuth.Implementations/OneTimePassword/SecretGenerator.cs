@@ -1,12 +1,25 @@
-﻿using PicnicAuth.Interfaces.OneTimePassword;
+﻿using PicnicAuth.Interfaces.Cryptography.Randomness;
+using PicnicAuth.Interfaces.Encoding;
+using PicnicAuth.Interfaces.OneTimePassword;
 
 namespace PicnicAuth.Implementations.OneTimePassword
 {
     public class SecretGenerator : ISecretGenerator
     {
+        private const int PreferredNumberOfBytes = 10;
+        private readonly ISecureRandomNumberGenerator randomNumberGenerator;
+        private readonly IBase32Encoder base32Encoder;
+
+        public SecretGenerator(ISecureRandomNumberGenerator randomNumberGenerator, IBase32Encoder base32Encoder)
+        {
+            this.randomNumberGenerator = randomNumberGenerator;
+            this.base32Encoder = base32Encoder;
+        }
+
         public string GenerateSecret()
         {
-            throw new System.NotImplementedException();
+            byte[] randomBytes = randomNumberGenerator.GenerateRandomBytes(PreferredNumberOfBytes);
+            return base32Encoder.Encode(randomBytes);
         }
     }
 }
