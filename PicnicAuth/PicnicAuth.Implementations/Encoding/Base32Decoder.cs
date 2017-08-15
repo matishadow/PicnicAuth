@@ -7,7 +7,10 @@ namespace PicnicAuth.Implementations.Encoding
     {
         public string Decode(string encodedData)
         {
-            throw new NotImplementedException();
+            if (encodedData == null) return null;
+
+            byte[] encodedBytes = Albireo.Base32.Base32.Decode(encodedData);
+            return System.Text.Encoding.UTF8.GetString(encodedBytes);
         }
     }
 }
