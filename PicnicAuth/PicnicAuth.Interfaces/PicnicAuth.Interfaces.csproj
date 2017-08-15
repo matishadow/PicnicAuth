@@ -53,7 +53,9 @@
     <Compile Include="Dependencies\IRequestDependency.cs" />
     <Compile Include="Dependencies\ISelfRequestDependency.cs" />
     <Compile Include="Dependencies\ISingleInstanceDependency.cs" />
+    <Compile Include="Encoding\IBase32Decoder.cs" />
     <Compile Include="Encoding\IBase64Decoder.cs" />
+    <Compile Include="Encoding\IBase32Encoder.cs" />
     <Compile Include="Encoding\IBase64Encoder.cs" />
     <Compile Include="Encoding\IQrCodeGenerator.cs" />
     <Compile Include="Encoding\IUtf8Converter.cs" />

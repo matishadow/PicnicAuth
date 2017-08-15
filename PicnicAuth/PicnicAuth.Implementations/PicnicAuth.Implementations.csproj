@@ -56,7 +56,9 @@
     <Compile Include="CrudService.cs" />
     <Compile Include="Cryptography\Hashing\LibrarySha1Hasher.cs" />
     <Compile Include="Cryptography\Randomness\SecureRandomNumberGenerator.cs" />
+    <Compile Include="Encoding\Base32Decoder.cs" />
     <Compile Include="Encoding\Base64Decoder.cs" />
+    <Compile Include="Encoding\Base32Encoder.cs" />
     <Compile Include="Encoding\Base64Encoder.cs" />
     <Compile Include="Encoding\QrCodeGenerator.cs" />
     <Compile Include="Encoding\Utf8Converter.cs" />
