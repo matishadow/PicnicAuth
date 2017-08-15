@@ -66,6 +66,7 @@
     <Compile Include="Encoding\QrCodeGenerator.cs" />
     <Compile Include="Encoding\Utf8Converter.cs" />
     <Compile Include="Image\ImageConverter.cs" />
+    <Compile Include="OneTimePassword\SecretGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

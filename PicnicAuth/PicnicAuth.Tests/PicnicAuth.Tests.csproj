@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base32DecoderTest.cs" />
+    <Compile Include="SecretGeneratorTest.cs" />
     <Compile Include="Base32EncoderTest.cs" />
     <Compile Include="ImageConverterTest.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
