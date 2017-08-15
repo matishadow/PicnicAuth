@@ -92,6 +92,7 @@
     <Compile Include="ModelValidators\Interfaces\IAbstractDatabaseValidator.cs" />
     <Compile Include="ModelValidators\Interfaces\IChangePasswordValidator.cs" />
     <Compile Include="ModelValidators\Interfaces\IRegisterValidator.cs" />
+    <Compile Include="OtpType.cs" />
     <Compile Include="PicnicAuthContext.cs" />
     <Compile Include="PicnicAuthDatabaseInitializer.cs" />
     <Compile Include="Models\Authentication\ChangePasswordBindingModel.cs" />
