@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base32DecoderTest.cs" />
+    <Compile Include="KeyUriCreatorTest.cs" />
     <Compile Include="SecretGeneratorTest.cs" />
     <Compile Include="Base32EncoderTest.cs" />
     <Compile Include="ImageConverterTest.cs" />
@@ -87,6 +88,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PicnicAuth.Enums\PicnicAuth.Enums.csproj">
+      <Project>{22e102cd-d00b-407e-9c8c-8467d91e7105}</Project>
+      <Name>PicnicAuth.Enums</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PicnicAuth.Implementations\PicnicAuth.Implementations.csproj">
       <Project>{ae34ca1e-e500-41e4-8ea3-5de7e3a57b11}</Project>
       <Name>PicnicAuth.Implementations</Name>
