@@ -7,7 +7,7 @@ namespace PicnicAuth.Implementations.Time
     {
         public long GetUnixTimestamp()
         {
-            throw new NotImplementedException();
+            return DateTimeOffset.Now.ToUnixTimeSeconds();
         }
     }
 }
