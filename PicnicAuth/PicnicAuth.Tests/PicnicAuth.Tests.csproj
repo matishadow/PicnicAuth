@@ -68,6 +68,7 @@
     <Compile Include="Base32DecoderTest.cs" />
     <Compile Include="Image\BitmapComparer.cs" />
     <Compile Include="Image\IBitmapComparer.cs" />
+    <Compile Include="OtpQrCodeGeneratorTest.cs" />
     <Compile Include="UnixTimestampGetterTest.cs" />
     <Compile Include="KeyUriCreatorTest.cs" />
     <Compile Include="SecretGeneratorTest.cs" />
@@ -112,6 +113,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Qr_abc_M.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExampleOtpQrCode.bmp" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -63,6 +63,16 @@ namespace PicnicAuth.Tests.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ExampleOtpQrCode {
+            get {
+                object obj = ResourceManager.GetObject("ExampleOtpQrCode", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Qr_abc_M {
             get {
                 object obj = ResourceManager.GetObject("Qr_abc_M", resourceCulture);
