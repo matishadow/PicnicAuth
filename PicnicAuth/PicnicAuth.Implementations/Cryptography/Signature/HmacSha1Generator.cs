@@ -1,4 +1,5 @@
-﻿using PicnicAuth.Interfaces.Cryptography.Signature;
+﻿using System;
+using PicnicAuth.Interfaces.Cryptography.Signature;
 
 namespace PicnicAuth.Implementations.Cryptography.Signature
 {
@@ -6,7 +7,10 @@ namespace PicnicAuth.Implementations.Cryptography.Signature
     {
         public byte[] GenerateHmacSha1Hash(string input, byte[] key)
         {
-            throw new System.NotImplementedException();
+            if (input == null || key == null) 
+                throw new ArgumentNullException();
+
+            throw new NotImplementedException();
         }
     }
 }
