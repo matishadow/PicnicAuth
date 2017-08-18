@@ -68,6 +68,7 @@
     <Compile Include="Base32DecoderTest.cs" />
     <Compile Include="Image\BitmapComparer.cs" />
     <Compile Include="Image\IBitmapComparer.cs" />
+    <Compile Include="HmacSha1GeneratorTest.cs" />
     <Compile Include="QrCodeGeneratorTest.cs" />
     <Compile Include="UnixTimestampGetterTest.cs" />
     <Compile Include="KeyUriCreatorTest.cs" />
