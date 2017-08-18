@@ -68,6 +68,7 @@
     <Compile Include="Base32DecoderTest.cs" />
     <Compile Include="Image\BitmapComparer.cs" />
     <Compile Include="Image\IBitmapComparer.cs" />
+    <Compile Include="HmacSha1GeneratorTest.cs" />
     <Compile Include="QrCodeGeneratorTest.cs" />
     <Compile Include="UnixTimestampGetterTest.cs" />
     <Compile Include="KeyUriCreatorTest.cs" />
@@ -82,10 +83,11 @@
     <Compile Include="OtpQrCodeGeneratorTest.cs" />
     <Compile Include="SecureRandomNumberGeneratorTest.cs" />
     <Compile Include="LibrarySha1HasherTest.cs" />
-    <Compile Include="Utf8ConverterTest.cs" />
+    <Compile Include="ULongConverterTest.cs" />
     <Compile Include="Base64DecoderTest.cs" />
     <Compile Include="Base64EncoderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utf8ConverterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

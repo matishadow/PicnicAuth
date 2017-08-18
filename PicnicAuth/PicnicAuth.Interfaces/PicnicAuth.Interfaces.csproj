@@ -47,6 +47,7 @@
     <Compile Include="Cryptography\Hashing\ILibrarySha1Hasher.cs" />
     <Compile Include="Cryptography\Hashing\ISha1Hasher.cs" />
     <Compile Include="Cryptography\Randomness\ISecureRandomNumberGenerator.cs" />
+    <Compile Include="Cryptography\Signature\IHmacSha1Generator.cs" />
     <Compile Include="Dependencies\IDependency.cs" />
     <Compile Include="Dependencies\ILifeTimeDependency.cs" />
     <Compile Include="Dependencies\IMatchingLifeTimeDependency.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="Encoding\IBase64Decoder.cs" />
     <Compile Include="Encoding\IBase32Encoder.cs" />
     <Compile Include="Encoding\IBase64Encoder.cs" />
+    <Compile Include="Encoding\IULongConverter.cs" />
     <Compile Include="Encoding\IQrCodeGenerator.cs" />
     <Compile Include="Encoding\IUtf8Converter.cs" />
     <Compile Include="Image\IImageConverter.cs" />
@@ -77,6 +79,7 @@
       <Name>PicnicAuth.Enums</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
