@@ -66,6 +66,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base32DecoderTest.cs" />
+    <Compile Include="Image\BitmapComparer.cs" />
+    <Compile Include="Image\IBitmapComparer.cs" />
     <Compile Include="UnixTimestampGetterTest.cs" />
     <Compile Include="KeyUriCreatorTest.cs" />
     <Compile Include="SecretGeneratorTest.cs" />

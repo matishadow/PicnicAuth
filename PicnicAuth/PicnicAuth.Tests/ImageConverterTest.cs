@@ -31,7 +31,7 @@ namespace PicnicAuth.Tests
         {
             Bitmap bitmap = CreateDummyBitmap();
 
-            Image pngImage = converter.ConvertBitmapToPng(bitmap);
+            System.Drawing.Image pngImage = converter.ConvertBitmapToPng(bitmap);
 
             Assert.True(Equals(pngImage.RawFormat, ImageFormat.Png));
         }

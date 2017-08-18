@@ -5,6 +5,7 @@ using System.IO;
 using NUnit.Framework;
 using PicnicAuth.Implementations.Encoding;
 using PicnicAuth.Interfaces.Encoding;
+using PicnicAuth.Tests.Image;
 using QRCoder;
 
 namespace PicnicAuth.Tests
@@ -14,10 +15,13 @@ namespace PicnicAuth.Tests
     {
         private IQrCodeGenerator generator;
 
+        private IBitmapComparer bitmapComparer;
+
         [SetUp]
         public void SetUp()
         {
             generator = new QrCodeGenerator();
+            bitmapComparer = new BitmapComparer();
         }
 
         [TearDown]
@@ -31,7 +35,7 @@ namespace PicnicAuth.Tests
         {
             Bitmap b = generator?.GenerateQrCode("abc", 20, QRCodeGenerator.ECCLevel.M);
 
-            Assert.That(() => BitmapsEquals(b, Properties.Resources.Qr_abc_M));
+            Assert.That(() => bitmapComparer.BitmapsEquals(b, Properties.Resources.Qr_abc_M));
         }
 
         [Test]
@@ -46,19 +50,6 @@ namespace PicnicAuth.Tests
         {
             Assert.That(() => generator?.GenerateQrCode("a", -20, QRCodeGenerator.ECCLevel.M),
                 Throws.TypeOf<ArgumentException>());
-        }
-
-        private bool BitmapsEquals(Bitmap bitmap1, Bitmap bitmap2)
-        {
-            if (!bitmap1.Size.Equals(bitmap2.Size))
-                return false;
-
-            for (int x = 0; x < bitmap1.Width; ++x)
-                for (int y = 0; y < bitmap1.Height; ++y)
-                    if (bitmap1.GetPixel(x, y) != bitmap2.GetPixel(x, y))
-                        return false;
-
-            return true;
         }
     }
 }
