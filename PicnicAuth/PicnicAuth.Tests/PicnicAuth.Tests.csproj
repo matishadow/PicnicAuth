@@ -68,7 +68,7 @@
     <Compile Include="Base32DecoderTest.cs" />
     <Compile Include="Image\BitmapComparer.cs" />
     <Compile Include="Image\IBitmapComparer.cs" />
-    <Compile Include="OtpQrCodeGeneratorTest.cs" />
+    <Compile Include="QrCodeGeneratorTest.cs" />
     <Compile Include="UnixTimestampGetterTest.cs" />
     <Compile Include="KeyUriCreatorTest.cs" />
     <Compile Include="SecretGeneratorTest.cs" />
@@ -79,7 +79,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="QrCodeGeneratorTest.cs" />
+    <Compile Include="OtpQrCodeGeneratorTest.cs" />
     <Compile Include="SecureRandomNumberGeneratorTest.cs" />
     <Compile Include="LibrarySha1HasherTest.cs" />
     <Compile Include="Utf8ConverterTest.cs" />
