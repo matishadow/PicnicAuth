@@ -16,13 +16,13 @@ namespace PicnicAuth.Tests
             converter = new LongConverter();
         }
 
-        [TestCase(10000, ExpectedResult = new byte[] { 0x27, 0x10 })]
-        [TestCase(0, ExpectedResult = new byte[] {0})]
-        [TestCase(long.MaxValue, 
+        [TestCase(10000U, ExpectedResult = new byte[] {0, 0, 0, 0, 0, 0, 0x27, 0x10})]
+        [TestCase(0U, ExpectedResult = new byte[] {0, 0, 0, 0, 0, 0, 0, 0})]
+        [TestCase(ulong.MaxValue, 
             ExpectedResult = new byte[] {0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff })]
-        public byte[] TestConvertToBytes(long input)
+        public byte[] TestConvertToBytesBigEndian(ulong input)
         {
-            return converter.ConvertToBytes(input);
+            return converter.ConvertToBytesBigEndian(input);
         }
     }
 }

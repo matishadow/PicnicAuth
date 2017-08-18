@@ -78,7 +78,7 @@ namespace PicnicAuth.Tests
             0x91, 0x4e, 0xc, 0x96, 0x34, 0x70, 0xc6, 0xd9, 0x3c, 0x13, 0x10, 0xaa, 0x2a, 0xee, 0x49, 0x88, 0xb1, 0xfb,
             0xf1, 0xb0
         })]
-        public byte[] TestComputeStringHash(long input, byte[] key)
+        public byte[] TestComputeStringHash(ulong input, byte[] key)
         {
             return generator.GenerateHmacSha1Hash(input, key);
         }

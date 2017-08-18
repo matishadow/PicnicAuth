@@ -1,12 +1,17 @@
-﻿using PicnicAuth.Interfaces.Encoding;
+﻿using System;
+using System.Linq;
+using PicnicAuth.Interfaces.Encoding;
 
 namespace PicnicAuth.Implementations.Encoding
 {
     public class LongConverter : ILongConverter
     {
-        public byte[] ConvertToBytes(long input)
+        public byte[] ConvertToBytesBigEndian(ulong input)
         {
-            throw new System.NotImplementedException();
+            byte[] bytes = BitConverter.GetBytes(input);
+            Array.Reverse(bytes);
+
+            return bytes;
         }
     }
 }
