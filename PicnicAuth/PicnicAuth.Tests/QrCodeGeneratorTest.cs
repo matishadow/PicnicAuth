@@ -44,7 +44,7 @@ namespace PicnicAuth.Tests
         [TearDown]
         public void TearDown()
         {
-
+            generator?.Dispose();
         }
     }
 }
