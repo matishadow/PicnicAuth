@@ -14,7 +14,7 @@ namespace PicnicAuth.Implementations.Encoding
             qrCodeGenerator = new QRCodeGenerator();
         }
 
-        public Bitmap GenerateQrCode(string text, int pixelPerModule, QRCodeGenerator.ECCLevel errorCorrectionLevel)
+        public Bitmap GenerateQrCode(string text, int pixelPerModule = 20, QRCodeGenerator.ECCLevel errorCorrectionLevel = QRCodeGenerator.ECCLevel.M)
         {
             if (text == null) throw new ArgumentNullException();
 

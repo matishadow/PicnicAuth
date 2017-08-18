@@ -6,6 +6,6 @@ namespace PicnicAuth.Interfaces.Encoding
 {
     public interface IQrCodeGenerator : IDisposable
     {
-        Bitmap GenerateQrCode(string text, int pixelPerModule, QRCodeGenerator.ECCLevel errorCorrectionLevel);
+        Bitmap GenerateQrCode(string text, int pixelPerModule = 20, QRCodeGenerator.ECCLevel errorCorrectionLevel = QRCodeGenerator.ECCLevel.M);
     }
 }
