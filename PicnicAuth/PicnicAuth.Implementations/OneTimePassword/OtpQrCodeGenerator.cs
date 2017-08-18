@@ -24,5 +24,10 @@ namespace PicnicAuth.Implementations.OneTimePassword
 
             return qrCode;
         }
+
+        public void Dispose()
+        {
+            qrCodeGenerator?.Dispose();
+        }
     }
 }
