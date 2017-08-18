@@ -1,6 +1,6 @@
 ﻿namespace PicnicAuth.Interfaces.Encoding
 {
-    public interface ILongConverter
+    public interface IULongConverter
     {
         byte[] ConvertToBytesBigEndian(ulong input);
     }

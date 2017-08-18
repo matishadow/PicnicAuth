@@ -4,7 +4,7 @@ using PicnicAuth.Interfaces.Encoding;
 
 namespace PicnicAuth.Implementations.Encoding
 {
-    public class LongConverter : ILongConverter
+    public class IULongConverter : Interfaces.Encoding.IULongConverter
     {
         public byte[] ConvertToBytesBigEndian(ulong input)
         {

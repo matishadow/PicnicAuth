@@ -83,7 +83,7 @@
     <Compile Include="OtpQrCodeGeneratorTest.cs" />
     <Compile Include="SecureRandomNumberGeneratorTest.cs" />
     <Compile Include="LibrarySha1HasherTest.cs" />
-    <Compile Include="LongConverterTest.cs" />
+    <Compile Include="ULongConverterTest.cs" />
     <Compile Include="Base64DecoderTest.cs" />
     <Compile Include="Base64EncoderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
