@@ -50,5 +50,12 @@ namespace PicnicAuth.Tests
             Assert.That(() => generator.GenerateHmacSha1Hash(input, key),
                 Throws.TypeOf<ArgumentNullException>());
         }
+
+        [TestCase("", new byte[]{})]
+        public void TestEmptyKeyArgumentGenerateHmacSha1Hash(string input, byte[] key)
+        {
+            Assert.That(() => generator.GenerateHmacSha1Hash(input, key),
+                Throws.TypeOf<ArgumentException>());
+        }
     }
 }
