@@ -67,6 +67,7 @@
     <Compile Include="Encoding\Utf8Converter.cs" />
     <Compile Include="Image\ImageConverter.cs" />
     <Compile Include="OneTimePassword\KeyUriCreator.cs" />
+    <Compile Include="OneTimePassword\OtpQrCodeGenerator.cs" />
     <Compile Include="OneTimePassword\SecretGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Time\UnixTimestampGetter.cs" />
