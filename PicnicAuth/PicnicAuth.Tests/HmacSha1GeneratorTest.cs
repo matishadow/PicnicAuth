@@ -17,7 +17,14 @@ namespace PicnicAuth.Tests
         [SetUp]
         public void SetUp()
         {
-            generator = new HmacSha1Generator();
+            var mockULongConverter = new Mock<IULongConverter>();
+
+            var mockUtf8Converter = new Mock<IUtf8Converter>();
+            mockUtf8Converter.Setup(p => p.ConvertToBytes("aaa")).Returns(new byte[] { 0x61, 0x61, 0x61 });
+            mockUtf8Converter.Setup(p => p.ConvertToBytes("ść")).Returns(new byte[] { 0xc5, 0x9b, 0xc4, 0x87 });
+            mockUtf8Converter.Setup(p => p.ConvertToBytes("")).Returns(new byte[] { });
+
+            generator = new HmacSha1Generator(mockULongConverter.Object, mockUtf8Converter.Object);
         }
 
         [TestCase("aaa", new byte[] {0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x21, 0xde, 0xad, 0xbe, 0xef},
