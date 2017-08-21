@@ -19,7 +19,7 @@ namespace PicnicAuth.Implementations.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -61,11 +61,29 @@ namespace PicnicAuth.Implementations.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to EndIndex cannot be before StartIndex..
+        /// </summary>
+        internal static string ArraySlicerEndBeforeStartExceptionMessage {
+            get {
+                return ResourceManager.GetString("ArraySlicerEndBeforeStartExceptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Key cannot be an empty array..
         /// </summary>
         internal static string HmacSha1EmptyKeyExceptionMessage {
             get {
                 return ResourceManager.GetString("HmacSha1EmptyKeyExceptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sha1 signature must be of length 20..
+        /// </summary>
+        internal static string InvalidSha1LengthExceptionMessage {
+            get {
+                return ResourceManager.GetString("InvalidSha1LengthExceptionMessage", resourceCulture);
             }
         }
     }
