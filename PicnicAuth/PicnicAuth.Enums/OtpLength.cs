@@ -2,7 +2,7 @@
 {
     public enum OtpLength
     {
-        SixDigits,
-        EightDigits
+        SixDigits = 6,
+        EightDigits = 8
     }
 }
