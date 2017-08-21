@@ -13,9 +13,9 @@ namespace PicnicAuth.Implementations.Collections
             if (endIndex <= beginIndex)
                 throw new ArgumentException(Properties.Resources.ArraySlicerEndBeforeStartExceptionMessage);
 
+            int itemsToTake = endIndex - beginIndex;
 
-
-            throw new NotImplementedException();
+            return array.Skip(beginIndex).Take(itemsToTake).ToArray();
         }
     }
 }
