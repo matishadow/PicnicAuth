@@ -59,6 +59,7 @@
     <Compile Include="Encoding\IBase64Decoder.cs" />
     <Compile Include="Encoding\IBase32Encoder.cs" />
     <Compile Include="Encoding\IBase64Encoder.cs" />
+    <Compile Include="Encoding\IUIntConverter.cs" />
     <Compile Include="Encoding\IULongConverter.cs" />
     <Compile Include="Encoding\IQrCodeGenerator.cs" />
     <Compile Include="Encoding\IUtf8Converter.cs" />

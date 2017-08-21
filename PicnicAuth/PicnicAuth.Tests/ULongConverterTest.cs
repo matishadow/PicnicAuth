@@ -2,7 +2,6 @@
 using NUnit.Framework;
 using PicnicAuth.Implementations.Encoding;
 using PicnicAuth.Interfaces.Encoding;
-using IULongConverter = PicnicAuth.Implementations.Encoding.IULongConverter;
 
 namespace PicnicAuth.Tests
 {
@@ -14,7 +13,7 @@ namespace PicnicAuth.Tests
         [SetUp]
         public void SetUp()
         {
-            converter = new IULongConverter();
+            converter = new ULongConverter();
         }
 
         [TestCase(10000U, ExpectedResult = new byte[] {0, 0, 0, 0, 0, 0, 0x27, 0x10})]

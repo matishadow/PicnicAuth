@@ -65,7 +65,8 @@
     <Compile Include="Encoding\Base64Decoder.cs" />
     <Compile Include="Encoding\Base32Encoder.cs" />
     <Compile Include="Encoding\Base64Encoder.cs" />
-    <Compile Include="Encoding\IULongConverter.cs" />
+    <Compile Include="Encoding\UIntConverter.cs" />
+    <Compile Include="Encoding\ULongConverter.cs" />
     <Compile Include="Encoding\QrCodeGenerator.cs" />
     <Compile Include="Encoding\Utf8Converter.cs" />
     <Compile Include="Image\ImageConverter.cs" />
