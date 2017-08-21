@@ -61,6 +61,15 @@ namespace PicnicAuth.Implementations.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to EndIndex cannot be before StartIndex..
+        /// </summary>
+        internal static string ArraySlicerEndBeforeStartExceptionMessage {
+            get {
+                return ResourceManager.GetString("ArraySlicerEndBeforeStartExceptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Key cannot be an empty array..
         /// </summary>
         internal static string HmacSha1EmptyKeyExceptionMessage {

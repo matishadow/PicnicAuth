@@ -9,8 +9,11 @@ namespace PicnicAuth.Implementations.Collections
         public T[] Slice<T>(T[] array, int beginIndex, int endIndex)
         {
             if (array == null) throw new ArgumentNullException();
-            if (beginIndex < byte.MinValue || endIndex >= array.Length)
-                throw new IndexOutOfRangeException();
+            if (beginIndex < byte.MinValue || endIndex >= array.Length) throw new IndexOutOfRangeException();
+            if (endIndex <= beginIndex)
+                throw new ArgumentException(Properties.Resources.ArraySlicerEndBeforeStartExceptionMessage);
+
+
 
             throw new NotImplementedException();
         }
