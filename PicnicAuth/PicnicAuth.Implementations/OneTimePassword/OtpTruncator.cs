@@ -1,4 +1,5 @@
-﻿using PicnicAuth.Enums;
+﻿using System;
+using PicnicAuth.Enums;
 using PicnicAuth.Interfaces.OneTimePassword;
 
 namespace PicnicAuth.Implementations.OneTimePassword
@@ -7,7 +8,9 @@ namespace PicnicAuth.Implementations.OneTimePassword
     {
         public string Truncate(byte[] hmacSignature, OtpLength otpLength = OtpLength.SixDigits)
         {
-            throw new System.NotImplementedException();
+            if (hmacSignature == null) throw new ArgumentNullException();
+
+            throw new NotImplementedException();
         }
     }
 }
