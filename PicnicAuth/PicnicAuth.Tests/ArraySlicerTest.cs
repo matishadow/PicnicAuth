@@ -12,7 +12,6 @@ namespace PicnicAuth.Tests
     [TestFixture]
     public class ArraySlicerTest
     {
-        private static readonly int[] ExampleArray = {1, 2, 3, 4, 5, 6};
         private IArraySlicer slicer;
 
         [SetUp]
@@ -21,24 +20,28 @@ namespace PicnicAuth.Tests
             slicer = new ArraySlicer();
         }
 
-        [TestCase(new[] {1, 2, 3, 4, 5, 6}, 0, 3, ExpectedResult = new[] {1, 2, 3})]
-        [TestCase(new[] {1, 2, 3, 4, 5, 6}, 1, 3, ExpectedResult = new[] {2, 3})]
-        public T[] TestSlice<T>(T[] array, int beginIndex, int endIndex)
+        [Test]
+        public void TestSlice()
         {
-            return slicer.Slice(array, beginIndex, endIndex);
+            var exampleArray = new[] {1, 2, 3, 4, 5, 6};
+            var resultArray1 = new[] {1, 2, 3};
+            var resultArray2 = new[] {2, 3 };
+
+            Assert.AreEqual(slicer.Slice(exampleArray, 0, 3), resultArray1);
+            Assert.AreEqual(slicer.Slice(exampleArray, 1, 3), resultArray2);
         }
 
         [Test]
-        public void TestSliceNullArray<T>()
+        public void TestSliceNullArray()
         {
-            Assert.That(() => slicer.Slice<T>(null, 1, 5),
+            Assert.That(() => slicer.Slice<int>(null, 1, 5),
                 Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
         public void TestSliceEndIndexBeforeStartIndex()
         {
-            Assert.That(() => slicer.Slice(ExampleArray, 2, 1),
+            Assert.That(() => slicer.Slice(new[] { 1, 2, 3, 4, 5, 6 }, 2, 1),
                 Throws.TypeOf<ArgumentException>());
         }
 
