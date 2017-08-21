@@ -44,6 +44,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collections\IArraySlicer.cs" />
     <Compile Include="Cryptography\Hashing\ILibrarySha1Hasher.cs" />
     <Compile Include="Cryptography\Hashing\ISha1Hasher.cs" />
     <Compile Include="Cryptography\Randomness\ISecureRandomNumberGenerator.cs" />
