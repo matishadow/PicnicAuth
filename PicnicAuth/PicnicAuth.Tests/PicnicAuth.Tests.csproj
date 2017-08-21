@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base32DecoderTest.cs" />
+    <Compile Include="OtpTruncatorTest.cs" />
     <Compile Include="Image\BitmapComparer.cs" />
     <Compile Include="Image\IBitmapComparer.cs" />
     <Compile Include="HmacSha1GeneratorTest.cs" />
