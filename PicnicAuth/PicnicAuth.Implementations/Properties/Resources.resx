@@ -120,4 +120,7 @@
   <data name="HmacSha1EmptyKeyExceptionMessage" xml:space="preserve">
     <value>Key cannot be an empty array.</value>
   </data>
+  <data name="InvalidSha1LengthExceptionMessage" xml:space="preserve">
+    <value>Sha1 signature must be of length 20.</value>
+  </data>
 </root>
