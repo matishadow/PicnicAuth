@@ -1,4 +1,5 @@
-﻿using PicnicAuth.Interfaces.Collections;
+﻿using System;
+using PicnicAuth.Interfaces.Collections;
 
 namespace PicnicAuth.Implementations.Collections
 {
@@ -6,7 +7,9 @@ namespace PicnicAuth.Implementations.Collections
     {
         public T[] Slice<T>(T[] array, int beginIndex, int endIndex)
         {
-            throw new System.NotImplementedException();
+            if (array == null) throw new ArgumentNullException();
+
+            throw new NotImplementedException();
         }
     }
 }
