@@ -64,6 +64,7 @@
     <Compile Include="Encoding\IQrCodeGenerator.cs" />
     <Compile Include="Encoding\IUtf8Converter.cs" />
     <Compile Include="Image\IImageConverter.cs" />
+    <Compile Include="OneTimePassword\ITotpGenerator.cs" />
     <Compile Include="OneTimePassword\IHotpGenerator.cs" />
     <Compile Include="OneTimePassword\IKeyUriCreator.cs" />
     <Compile Include="OneTimePassword\IOtpQrCodeGenerator.cs" />
