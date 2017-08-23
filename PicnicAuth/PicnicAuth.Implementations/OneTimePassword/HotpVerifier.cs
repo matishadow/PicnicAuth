@@ -1,4 +1,5 @@
-﻿using PicnicAuth.Interfaces.OneTimePassword;
+﻿using System;
+using PicnicAuth.Interfaces.OneTimePassword;
 
 namespace PicnicAuth.Implementations.OneTimePassword
 {
@@ -13,7 +14,12 @@ namespace PicnicAuth.Implementations.OneTimePassword
 
         public bool IsHotpValid(ulong counter, byte[] secret, string hotp)
         {
-            throw new System.NotImplementedException();
+            if (secret == null || hotp == null)
+                throw new ArgumentNullException();
+            if (secret.Length == byte.MinValue || string.IsNullOrWhiteSpace(hotp))
+                throw new ArgumentException();
+
+            return generator.GenerateHotp(counter, secret) == hotp;
         }
     }
 }
