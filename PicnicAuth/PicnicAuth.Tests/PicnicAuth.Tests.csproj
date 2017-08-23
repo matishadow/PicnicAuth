@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="Base32DecoderTest.cs" />
     <Compile Include="ArraySlicerTest.cs" />
+    <Compile Include="HotpGeneratorTest.cs" />
     <Compile Include="UIntConverterTest.cs" />
     <Compile Include="OtpTruncatorTest.cs" />
     <Compile Include="Image\BitmapComparer.cs" />
