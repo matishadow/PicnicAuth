@@ -71,9 +71,10 @@
     <Compile Include="Base32DecoderTest.cs" />
     <Compile Include="ArraySlicerTest.cs" />
     <Compile Include="CryptoTransformApplierTest.cs" />
+    <Compile Include="DecryptorTest.cs" />
     <Compile Include="KeyDerivationTest.cs" />
     <Compile Include="RijndaelManagedCreatorTest.cs" />
-    <Compile Include="EncrypterTest.cs" />
+    <Compile Include="EncryptorTest.cs" />
     <Compile Include="TotpVerifierTest.cs" />
     <Compile Include="HotpVerifierTest.cs" />
     <Compile Include="TotpGeneratorTest.cs" />
