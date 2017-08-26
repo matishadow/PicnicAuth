@@ -58,6 +58,10 @@
     <Compile Include="BaseService.cs" />
     <Compile Include="Collections\ArraySlicer.cs" />
     <Compile Include="CrudService.cs" />
+    <Compile Include="Cryptography\Encryption\CryptoTransformApplier.cs" />
+    <Compile Include="Cryptography\Encryption\KeyDerivation.cs" />
+    <Compile Include="Cryptography\Encryption\RijndaelManagedCreator.cs" />
+    <Compile Include="Cryptography\Encryption\Encryptor.cs" />
     <Compile Include="Cryptography\Hashing\LibrarySha1Hasher.cs" />
     <Compile Include="Cryptography\Randomness\SecureRandomNumberGenerator.cs" />
     <Compile Include="Cryptography\Signature\HmacSha1Generator.cs" />
@@ -110,6 +114,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
