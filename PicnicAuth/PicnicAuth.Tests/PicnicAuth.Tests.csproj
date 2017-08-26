@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="Base32DecoderTest.cs" />
     <Compile Include="ArraySlicerTest.cs" />
+    <Compile Include="KeyDerivationTest.cs" />
     <Compile Include="RijndaelManagedCreatorTest.cs" />
     <Compile Include="EncrypterTest.cs" />
     <Compile Include="TotpVerifierTest.cs" />

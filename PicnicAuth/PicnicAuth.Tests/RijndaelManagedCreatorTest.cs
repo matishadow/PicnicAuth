@@ -21,7 +21,7 @@ namespace PicnicAuth.Tests
         [TestCase(128, CipherMode.CBC, PaddingMode.PKCS7)]
         [TestCase(192, CipherMode.CBC, PaddingMode.ISO10126)]
         [TestCase(256, CipherMode.CBC, PaddingMode.ANSIX923)]
-        public void CreateRijndaelManaged(int blockSize, CipherMode cipherMode, PaddingMode paddingMode)
+        public void CreateRijndaelManagedTest(int blockSize, CipherMode cipherMode, PaddingMode paddingMode)
         {
             var rijndaelManaged = creator.CreateRijndaelManaged(blockSize, cipherMode, paddingMode);
 
@@ -33,7 +33,7 @@ namespace PicnicAuth.Tests
         [TestCase(100)]
         [TestCase(200)]
         [TestCase(-10)]
-        public void CreateRijndaelManagedInvalidBlockSize(int blockSize)
+        public void CreateRijndaelManagedInvalidBlockSizeTest(int blockSize)
         {
             Assert.That(() => creator.CreateRijndaelManaged(blockSize, It.IsAny<CipherMode>(), It.IsAny<PaddingMode>()),
                 Throws.TypeOf<CryptographicException>());
