@@ -2,6 +2,6 @@
 {
     public interface IKeyDerivation
     {
-        byte[] GetDerivedBytes(byte[] passPhrase, byte[] salt, int iterations, int keySizeInBits);
+        byte[] GetDerivedBytes(byte[] passPhrase, byte[] salt, int iterations, int keySizeInBytes);
     }
 }
