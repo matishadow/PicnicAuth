@@ -8,7 +8,7 @@ using PicnicAuth.Interfaces.Cryptography.Encryption;
 namespace PicnicAuth.Tests
 {
     [TestFixture]
-    public class EncrypterTest
+    public class DecryptorTest
     {
         private const int KeySizeInBits = 256;
         private const CipherMode EncryptorCipherMode = CipherMode.CBC;
@@ -22,7 +22,7 @@ namespace PicnicAuth.Tests
             0xd0, 0x80, 0x79, 0x33, 0xfa, 0x3a, 0xa9, 0x8a, 0x84, 0x95, 0x7f, 0x61, 0xff, 0x3a, 0xf2
         };
 
-        private IEncryptor encryptor;
+        private IDecryptor decryptor;
 
         [SetUp]
         public void SetUp()
@@ -57,16 +57,16 @@ namespace PicnicAuth.Tests
                 158, 34, 25, 149, 147, 187, 77, 251
             });
 
-            encryptor = new Encryptor(mockRijndaelManagedCreator.Object, mockKeyDerivation.Object,
+            decryptor = new Decryptor(mockRijndaelManagedCreator.Object, mockKeyDerivation.Object,
                 mockCryptoTransformApplier.Object);
         }
 
         [Test]
         public void TestEncrypt()
         {
-            byte[] encrypted = encryptor.Encrypt(passwordEncoded, passwordEncoded, ExampleIv, ExampleIv);
+            byte[] decrypted = decryptor.Decrypt(passwordEncoded, passwordEncoded, ExampleIv, ExampleIv);
 
-            Assert.AreEqual(encrypted, new byte[]
+            Assert.AreEqual(decrypted, new byte[]
             {
                 179, 130, 177, 251, 202, 111, 222, 189,
                 148, 81, 244, 199, 196, 115, 87, 240,
@@ -81,7 +81,7 @@ namespace PicnicAuth.Tests
         [TestCase(new byte[] { }, new byte[] { }, new byte[] { }, null)] 
         public void TestEncryptNullArgument(byte[] bytesToEncrypt, byte[] passPhrase, byte[] salt, byte[] iv)
         {
-            Assert.That(() => encryptor.Encrypt(bytesToEncrypt, passPhrase, salt, iv),
+            Assert.That(() => decryptor.Decrypt(bytesToEncrypt, passPhrase, salt, iv),
                 Throws.TypeOf<ArgumentNullException>());
         }
     }
