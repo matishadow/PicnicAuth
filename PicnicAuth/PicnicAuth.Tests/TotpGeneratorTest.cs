@@ -12,7 +12,7 @@ namespace PicnicAuth.Tests
     [TestFixture]
     public class TotpGeneratorTest
     {
-        private const ulong ExampleTimetamp = 50117061;
+        private const ulong ExampleTimetamp = 1503511830;
         private static readonly byte[] ExampleSecret = { 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x21, 0xde, 0xad, 0xbe, 0xef };
         private static readonly byte[] ExampleHmac =
         {
@@ -31,7 +31,7 @@ namespace PicnicAuth.Tests
 
             var mockHmacSha1Generator = new Mock<IHmacSha1Generator>();
             mockHmacSha1Generator.Setup(sha1Generator =>
-                    sha1Generator.GenerateHmacSha1Hash(ExampleTimetamp, ExampleSecret))
+                    sha1Generator.GenerateHmacSha1Hash(ExampleTimetamp / 30, ExampleSecret))
                 .Returns(ExampleHmac);
 
             var mockOtpTruncator = new Mock<IOtpTruncator>();
@@ -45,7 +45,7 @@ namespace PicnicAuth.Tests
 
         [TestCase(new byte[] {0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x21, 0xde, 0xad, 0xbe, 0xef},
             ExpectedResult = "805192")]
-        public string TestGenerateHotp(byte[] secret)
+        public string TestGenerateTotp(byte[] secret)
         {
             return generator.GenerateTotp(secret);
         }
