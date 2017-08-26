@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Collections\IArraySlicer.cs" />
     <Compile Include="Cryptography\Encryption\ICryptoTransformApplier.cs" />
+    <Compile Include="Cryptography\Encryption\IDecryptor.cs" />
     <Compile Include="Cryptography\Encryption\IKeyDerivation.cs" />
     <Compile Include="Cryptography\Encryption\IRijndaelManagedCreator.cs" />
     <Compile Include="Cryptography\Encryption\IEncryptor.cs" />

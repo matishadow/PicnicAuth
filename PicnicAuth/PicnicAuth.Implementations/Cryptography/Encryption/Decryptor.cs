@@ -4,15 +4,13 @@ using PicnicAuth.Interfaces.Cryptography.Encryption;
 
 namespace PicnicAuth.Implementations.Cryptography.Encryption
 {
-    public class Encryptor : RijndaelBasedEncryption, IEncryptor
+    public class Decryptor : RijndaelBasedEncryption, IDecryptor
     {
         private readonly IRijndaelManagedCreator rijndaelManagedCreator;
         private readonly IKeyDerivation keyDerivation;
         private readonly ICryptoTransformApplier cryptoTransformApplier;
 
-        private const int DerivationIterations = 1000;
-
-        public Encryptor(IRijndaelManagedCreator rijndaelManagedCreator, 
+        public Decryptor(IRijndaelManagedCreator rijndaelManagedCreator, 
             IKeyDerivation keyDerivation, ICryptoTransformApplier cryptoTransformApplier)
         {
             this.rijndaelManagedCreator = rijndaelManagedCreator;
@@ -20,9 +18,9 @@ namespace PicnicAuth.Implementations.Cryptography.Encryption
             this.cryptoTransformApplier = cryptoTransformApplier;
         }
 
-        public byte[] Encrypt(byte[] bytesToEncrypt, byte[] passPhrase, byte[] salt, byte[] iv)
+        public byte[] Decrypt(byte[] bytesToDecrypt, byte[] passPhrase, byte[] salt, byte[] iv)
         {
-            if (bytesToEncrypt == null || passPhrase == null || salt == null || iv == null)
+            if (bytesToDecrypt == null || passPhrase == null || salt == null || iv == null)
                 throw new ArgumentNullException();
 
             RijndaelManaged rijndael = null;
@@ -32,12 +30,12 @@ namespace PicnicAuth.Implementations.Cryptography.Encryption
                 byte[] keyBytes = keyDerivation.GetDerivedBytes(passPhrase, salt, DerivationIterations, KeySizeInBytes);
 
                 rijndael = rijndaelManagedCreator.CreateRijndaelManaged();
-                rijndaelEncryptor = rijndael.CreateEncryptor(keyBytes, iv);
+                rijndaelEncryptor = rijndael.CreateDecryptor(keyBytes, iv);
 
-                byte[] encryptedBytes = cryptoTransformApplier
-                    .ApplyCryptoTransform(bytesToEncrypt, rijndaelEncryptor, EncryptorStreamMode);
+                byte[] decryptedBytes = cryptoTransformApplier
+                    .ApplyCryptoTransform(bytesToDecrypt, rijndaelEncryptor, EncryptorStreamMode);
 
-                return encryptedBytes;
+                return decryptedBytes;
             }
             finally
             {

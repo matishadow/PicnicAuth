@@ -59,6 +59,7 @@
     <Compile Include="Collections\ArraySlicer.cs" />
     <Compile Include="CrudService.cs" />
     <Compile Include="Cryptography\Encryption\CryptoTransformApplier.cs" />
+    <Compile Include="Cryptography\Encryption\Decryptor.cs" />
     <Compile Include="Cryptography\Encryption\KeyDerivation.cs" />
     <Compile Include="Cryptography\Encryption\RijndaelBasedEncryption.cs" />
     <Compile Include="Cryptography\Encryption\RijndaelManagedCreator.cs" />
