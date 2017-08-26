@@ -60,6 +60,7 @@
     <Compile Include="CrudService.cs" />
     <Compile Include="Cryptography\Encryption\CryptoTransformApplier.cs" />
     <Compile Include="Cryptography\Encryption\KeyDerivation.cs" />
+    <Compile Include="Cryptography\Encryption\RijndaelBasedEncryption.cs" />
     <Compile Include="Cryptography\Encryption\RijndaelManagedCreator.cs" />
     <Compile Include="Cryptography\Encryption\Encryptor.cs" />
     <Compile Include="Cryptography\Hashing\LibrarySha1Hasher.cs" />

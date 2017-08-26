@@ -15,9 +15,9 @@ namespace PicnicAuth.Implementations.Cryptography.Encryption
         {
             return new RijndaelManaged
             {
-                BlockSize = KeySizeInBits,
-                Mode = EncryptorCipherMode,
-                Padding = EncryptorPaddingMode
+                BlockSize = blockSize,
+                Mode = cipherMode,
+                Padding = paddingMode 
             };
         }
     }
