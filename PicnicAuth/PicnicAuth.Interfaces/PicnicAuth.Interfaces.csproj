@@ -45,6 +45,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections\IArraySlicer.cs" />
+    <Compile Include="Cryptography\Encryption\ICryptoTransformApplier.cs" />
+    <Compile Include="Cryptography\Encryption\IKeyDerivation.cs" />
+    <Compile Include="Cryptography\Encryption\IRijndaelManagedCreator.cs" />
+    <Compile Include="Cryptography\Encryption\IEncryptor.cs" />
     <Compile Include="Cryptography\Hashing\ILibrarySha1Hasher.cs" />
     <Compile Include="Cryptography\Hashing\ISha1Hasher.cs" />
     <Compile Include="Cryptography\Randomness\ISecureRandomNumberGenerator.cs" />
