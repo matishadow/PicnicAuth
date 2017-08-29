@@ -29,7 +29,7 @@ namespace PicnicAuth.Api
 
             // Configure the application for OAuth based flow
             PublicClientId = "self";
-            const string tokenUri = "/api/Tokens";
+            const string tokenUri = "/api/tokens";
             OAuthOptions = new OAuthAuthorizationServerOptions
             {
                 TokenEndpointPath = new PathString(tokenUri),
