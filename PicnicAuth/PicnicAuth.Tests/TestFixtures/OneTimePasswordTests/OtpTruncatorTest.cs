@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Linq;
 using Moq;
 using NUnit.Framework;
 using PicnicAuth.Enums;
-using PicnicAuth.Implementations.Collections;
-using PicnicAuth.Implementations.Cryptography.Signature;
 using PicnicAuth.Implementations.OneTimePassword;
 using PicnicAuth.Interfaces.Collections;
 using PicnicAuth.Interfaces.Encoding;

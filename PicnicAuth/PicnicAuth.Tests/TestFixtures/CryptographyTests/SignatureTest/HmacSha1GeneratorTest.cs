@@ -2,9 +2,7 @@
 using System.Linq;
 using Moq;
 using NUnit.Framework;
-using PicnicAuth.Implementations.Cryptography.Hashing;
 using PicnicAuth.Implementations.Cryptography.Signature;
-using PicnicAuth.Interfaces.Cryptography.Hashing;
 using PicnicAuth.Interfaces.Cryptography.Signature;
 using PicnicAuth.Interfaces.Encoding;
 

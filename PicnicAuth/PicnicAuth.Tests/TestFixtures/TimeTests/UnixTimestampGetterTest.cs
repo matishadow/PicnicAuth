@@ -1,8 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
-using PicnicAuth.Implementations.Encoding;
 using PicnicAuth.Implementations.Time;
-using PicnicAuth.Interfaces.Encoding;
 using PicnicAuth.Interfaces.Time;
 
 namespace PicnicAuth.Tests

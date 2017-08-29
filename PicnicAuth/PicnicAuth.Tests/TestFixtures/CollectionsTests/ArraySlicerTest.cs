@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Linq;
-using Moq;
 using NUnit.Framework;
 using PicnicAuth.Implementations.Collections;
-using PicnicAuth.Implementations.Cryptography.Signature;
 using PicnicAuth.Interfaces.Collections;
-using PicnicAuth.Interfaces.Encoding;
 
 namespace PicnicAuth.Tests
 {

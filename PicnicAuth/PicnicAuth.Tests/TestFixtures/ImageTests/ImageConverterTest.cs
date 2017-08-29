@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.Drawing.Imaging;
 using NUnit.Framework;
-using PicnicAuth.Implementations.Encoding;
 using PicnicAuth.Interfaces.Image;
 using ImageConverter = PicnicAuth.Implementations.Image.ImageConverter;
 

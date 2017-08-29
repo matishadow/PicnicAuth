@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Drawing;
-using System.Drawing.Imaging;
 using NUnit.Framework;
 using PicnicAuth.Implementations.Encoding;
 using PicnicAuth.Interfaces.Encoding;
-using PicnicAuth.Interfaces.Image;
 
 namespace PicnicAuth.Tests
 {

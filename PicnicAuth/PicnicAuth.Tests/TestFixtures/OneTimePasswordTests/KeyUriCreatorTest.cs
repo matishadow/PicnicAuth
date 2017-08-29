@@ -1,9 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 using PicnicAuth.Enums;
-using PicnicAuth.Implementations.Encoding;
 using PicnicAuth.Implementations.OneTimePassword;
-using PicnicAuth.Interfaces.Encoding;
 using PicnicAuth.Interfaces.OneTimePassword;
 
 namespace PicnicAuth.Tests

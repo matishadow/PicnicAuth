@@ -1,8 +1,5 @@
-﻿using System;
-using Moq;
+﻿using Moq;
 using NUnit.Framework;
-using PicnicAuth.Implementations.Cryptography.Randomness;
-using PicnicAuth.Implementations.Encoding;
 using PicnicAuth.Implementations.OneTimePassword;
 using PicnicAuth.Interfaces.Cryptography.Randomness;
 using PicnicAuth.Interfaces.Encoding;

@@ -1,5 +1,4 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using PicnicAuth.Implementations.Encoding;
 using PicnicAuth.Interfaces.Encoding;
 

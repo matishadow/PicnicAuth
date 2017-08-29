@@ -1,5 +1,4 @@
-﻿using System;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using Moq;
 using NUnit.Framework;
 using PicnicAuth.Implementations.Cryptography.Encryption;

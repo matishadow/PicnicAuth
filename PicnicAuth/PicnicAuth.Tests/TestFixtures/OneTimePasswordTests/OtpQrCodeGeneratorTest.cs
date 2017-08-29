@@ -1,9 +1,7 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using Moq;
 using NUnit.Framework;
 using PicnicAuth.Enums;
-using PicnicAuth.Implementations.Encoding;
 using PicnicAuth.Interfaces.Encoding;
 using PicnicAuth.Interfaces.OneTimePassword;
 using PicnicAuth.Tests.Image;
