@@ -124,7 +124,7 @@
     <value>PicnicAuth</value>
   </data>
   <data name="AuthTokenRoute" xml:space="preserve">
-    <value>/api/Tokens</value>
+    <value>/api/tokens</value>
   </data>
   <data name="CorsAllowAllWildcard" xml:space="preserve">
     <value>*</value>
