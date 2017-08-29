@@ -70,7 +70,7 @@ namespace PicnicAuth.Api.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to /api/Tokens.
+        ///   Looks up a localized string similar to /api/tokens.
         /// </summary>
         internal static string AuthTokenRoute {
             get {

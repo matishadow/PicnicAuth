@@ -43,6 +43,7 @@ namespace PicnicAuth.Api.Controllers
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(UserInfoViewModel))]
         [SwaggerResponse(HttpStatusCode.Unauthorized, Description = "Not logged in")]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
+        [Authorize]
         public UserInfoViewModel Get()
         {
             ExternalLoginData externalLogin = ExternalLoginData.FromIdentity(User.Identity as ClaimsIdentity);
