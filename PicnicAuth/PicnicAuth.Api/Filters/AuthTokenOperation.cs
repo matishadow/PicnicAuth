@@ -14,7 +14,7 @@ namespace PicnicAuth.Api.Filters
             {
                 post = new Operation
                 {
-                    tags = new List<string> {Properties.Resources.AccountEndpointName},
+                    tags = new List<string> {Properties.Resources.TokenEndpointName},
                     consumes = new List<string>
                     {
                         Properties.Resources.UrlEncodedContentType

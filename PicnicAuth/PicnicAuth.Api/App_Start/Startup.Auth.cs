@@ -29,11 +29,12 @@ namespace PicnicAuth.Api
 
             // Configure the application for OAuth based flow
             PublicClientId = "self";
+            const string tokenUri = "/api/Tokens";
             OAuthOptions = new OAuthAuthorizationServerOptions
             {
-                TokenEndpointPath = new PathString("/api/Account/Token"),
+                TokenEndpointPath = new PathString(tokenUri),
                 Provider = new ApplicationOAuthProvider(PublicClientId),
-                AuthorizeEndpointPath = new PathString("/api/Account/ExternalLogin"),
+                AuthorizeEndpointPath = new PathString(tokenUri),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
                 // In production mode set AllowInsecureHttp = false
                 AllowInsecureHttp = true

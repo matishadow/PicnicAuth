@@ -19,7 +19,7 @@ namespace PicnicAuth.Api.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -61,24 +61,6 @@ namespace PicnicAuth.Api.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Account.
-        /// </summary>
-        internal static string AccountEndpointName {
-            get {
-                return ResourceManager.GetString("AccountEndpointName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to przystawka|appetizer.
-        /// </summary>
-        internal static string AppetizerTags {
-            get {
-                return ResourceManager.GetString("AppetizerTags", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to PicnicAuth.
         /// </summary>
         internal static string AppName {
@@ -88,7 +70,7 @@ namespace PicnicAuth.Api.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to /api/Account/Token.
+        ///   Looks up a localized string similar to /api/Tokens.
         /// </summary>
         internal static string AuthTokenRoute {
             get {
@@ -115,15 +97,6 @@ namespace PicnicAuth.Api.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wysłany plik nie był formatu graficznego..
-        /// </summary>
-        internal static string FileNotImageMessage {
-            get {
-                return ResourceManager.GetString("FileNotImageMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to application/form-data.
         /// </summary>
         internal static string FormDataMimeType {
@@ -138,15 +111,6 @@ namespace PicnicAuth.Api.Properties {
         internal static string FormDataParameterTypeName {
             get {
                 return ResourceManager.GetString("FormDataParameterTypeName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Rekord o podanym id nie istnieje..
-        /// </summary>
-        internal static string GenericNotFoundMessage {
-            get {
-                return ResourceManager.GetString("GenericNotFoundMessage", resourceCulture);
             }
         }
         
@@ -174,15 +138,6 @@ namespace PicnicAuth.Api.Properties {
         internal static string ImageDataTypeName {
             get {
                 return ResourceManager.GetString("ImageDataTypeName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Nie możesz usunąć zdjęcia którego sam nie dodałeś..
-        /// </summary>
-        internal static string ImageNotAuthorized {
-            get {
-                return ResourceManager.GetString("ImageNotAuthorized", resourceCulture);
             }
         }
         
@@ -223,47 +178,11 @@ namespace PicnicAuth.Api.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Składnik nie znajduje się w naszej bazie..
-        /// </summary>
-        internal static string IngredientNotFoundMessage {
-            get {
-                return ResourceManager.GetString("IngredientNotFoundMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Nie możesz usunąć nie swojego składnika..
-        /// </summary>
-        internal static string IngredientQuantityDeleteForbiddenMessage {
-            get {
-                return ResourceManager.GetString("IngredientQuantityDeleteForbiddenMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Nie możesz edytować nie swojej lodówki..
-        /// </summary>
-        internal static string IngredientQuantityPutForbiddenMessage {
-            get {
-                return ResourceManager.GetString("IngredientQuantityPutForbiddenMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Provided request was invalid.
         /// </summary>
         internal static string InvalidRequestString {
             get {
                 return ResourceManager.GetString("InvalidRequestString", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Request nie jest typu multipart..
-        /// </summary>
-        internal static string IsNotMultipartMessage {
-            get {
-                return ResourceManager.GetString("IsNotMultipartMessage", resourceCulture);
             }
         }
         
@@ -322,15 +241,6 @@ namespace PicnicAuth.Api.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nie możesz podejrzeć czyjejś notatki..
-        /// </summary>
-        internal static string RecipeNoteNotOwnedGetMessage {
-            get {
-                return ResourceManager.GetString("RecipeNoteNotOwnedGetMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Get authorization token (bearer).
         /// </summary>
         internal static string TokenEndpointDescription {
@@ -340,20 +250,20 @@ namespace PicnicAuth.Api.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tokens.
+        /// </summary>
+        internal static string TokenEndpointName {
+            get {
+                return ResourceManager.GetString("TokenEndpointName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Token granted.
         /// </summary>
         internal static string TokenGetString {
             get {
                 return ResourceManager.GetString("TokenGetString", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unit was not found in our database..
-        /// </summary>
-        internal static string UnitNotFoundMessage {
-            get {
-                return ResourceManager.GetString("UnitNotFoundMessage", resourceCulture);
             }
         }
         
