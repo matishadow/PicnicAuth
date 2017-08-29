@@ -2,7 +2,7 @@
 using PicnicAuth.Implementations.Encoding;
 using PicnicAuth.Interfaces.Encoding;
 
-namespace PicnicAuth.Tests
+namespace PicnicAuth.Tests.TestFixtures.EncodingTests
 {
     [TestFixture]
     public class Base64DecoderTest

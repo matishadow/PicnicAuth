@@ -3,7 +3,7 @@ using NUnit.Framework;
 using PicnicAuth.Implementations.Collections;
 using PicnicAuth.Interfaces.Collections;
 
-namespace PicnicAuth.Tests
+namespace PicnicAuth.Tests.TestFixtures.CollectionsTests
 {
     [TestFixture]
     public class ArraySlicerTest

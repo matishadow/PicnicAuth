@@ -3,7 +3,7 @@ using NUnit.Framework;
 using PicnicAuth.Implementations.Cryptography.Encryption;
 using PicnicAuth.Interfaces.Cryptography.Encryption;
 
-namespace PicnicAuth.Tests
+namespace PicnicAuth.Tests.TestFixtures.CryptographyTests.EncryptionTests
 {
     [TestFixture]
     public class KeyDerivationTest

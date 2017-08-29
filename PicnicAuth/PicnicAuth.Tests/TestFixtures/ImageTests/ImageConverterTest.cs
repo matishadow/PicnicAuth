@@ -5,7 +5,7 @@ using NUnit.Framework;
 using PicnicAuth.Interfaces.Image;
 using ImageConverter = PicnicAuth.Implementations.Image.ImageConverter;
 
-namespace PicnicAuth.Tests
+namespace PicnicAuth.Tests.TestFixtures.ImageTests
 {
     [TestFixture]
     public class ImageConverterTest

@@ -5,7 +5,7 @@ using PicnicAuth.Interfaces.Cryptography.Randomness;
 using PicnicAuth.Interfaces.Encoding;
 using PicnicAuth.Interfaces.OneTimePassword;
 
-namespace PicnicAuth.Tests
+namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
 {
     [TestFixture]
     public class SecretGeneratorTest

@@ -6,7 +6,7 @@ using PicnicAuth.Interfaces.Encoding;
 using PicnicAuth.Tests.Image;
 using QRCoder;
 
-namespace PicnicAuth.Tests
+namespace PicnicAuth.Tests.TestFixtures.EncodingTests
 {
     [TestFixture]
     public class QrCodeGeneratorTest

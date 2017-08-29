@@ -6,7 +6,7 @@ using PicnicAuth.Implementations.OneTimePassword;
 using PicnicAuth.Interfaces.Cryptography.Signature;
 using PicnicAuth.Interfaces.OneTimePassword;
 
-namespace PicnicAuth.Tests
+namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
 {
     [TestFixture]
     public class HotpGeneratorTest

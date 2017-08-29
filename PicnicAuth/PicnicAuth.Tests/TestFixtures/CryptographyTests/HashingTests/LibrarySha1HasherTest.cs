@@ -4,7 +4,7 @@ using PicnicAuth.Implementations.Cryptography.Hashing;
 using PicnicAuth.Interfaces.Cryptography.Hashing;
 using PicnicAuth.Interfaces.Encoding;
 
-namespace PicnicAuth.Tests
+namespace PicnicAuth.Tests.TestFixtures.CryptographyTests.HashingTests
 {
     [TestFixture]
     public class LibrarySha1HasherTest

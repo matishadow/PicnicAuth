@@ -3,7 +3,7 @@ using NUnit.Framework;
 using PicnicAuth.Implementations.Cryptography.Randomness;
 using PicnicAuth.Interfaces.Cryptography.Randomness;
 
-namespace PicnicAuth.Tests
+namespace PicnicAuth.Tests.TestFixtures.CryptographyTests.RandomnessTests
 {
     [TestFixture]
     public class SecureRandomNumberGeneratorTest

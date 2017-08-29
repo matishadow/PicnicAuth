@@ -7,7 +7,7 @@ using PicnicAuth.Interfaces.Collections;
 using PicnicAuth.Interfaces.Encoding;
 using PicnicAuth.Interfaces.OneTimePassword;
 
-namespace PicnicAuth.Tests
+namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
 {
     [TestFixture]
     public class OtpTruncatorTest

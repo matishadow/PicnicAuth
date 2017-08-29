@@ -6,7 +6,7 @@ using PicnicAuth.Implementations.Cryptography.Signature;
 using PicnicAuth.Interfaces.Cryptography.Signature;
 using PicnicAuth.Interfaces.Encoding;
 
-namespace PicnicAuth.Tests
+namespace PicnicAuth.Tests.TestFixtures.CryptographyTests.SignatureTest
 {
     [TestFixture]
     public class HmacSha1GeneratorTest

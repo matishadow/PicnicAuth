@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using PicnicAuth.Implementations.Encoding;
 
-namespace PicnicAuth.Tests
+namespace PicnicAuth.Tests.TestFixtures.EncodingTests
 {
     [TestFixture]
     public class ULongConverterTest

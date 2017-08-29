@@ -5,7 +5,7 @@ using PicnicAuth.Implementations.OneTimePassword;
 using PicnicAuth.Interfaces.OneTimePassword;
 using PicnicAuth.Interfaces.Time;
 
-namespace PicnicAuth.Tests
+namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
 {
     [TestFixture]
     public class TotpVerifierTest

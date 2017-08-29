@@ -4,7 +4,7 @@ using NUnit.Framework;
 using PicnicAuth.Implementations.OneTimePassword;
 using PicnicAuth.Interfaces.OneTimePassword;
 
-namespace PicnicAuth.Tests
+namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
 {
     [TestFixture]
     public class HotpVerifierTest

@@ -3,7 +3,7 @@ using NUnit.Framework;
 using PicnicAuth.Implementations.Time;
 using PicnicAuth.Interfaces.Time;
 
-namespace PicnicAuth.Tests
+namespace PicnicAuth.Tests.TestFixtures.TimeTests
 {
     [TestFixture]
     public class UnixTimestampGetterTest

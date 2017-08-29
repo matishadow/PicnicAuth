@@ -7,7 +7,7 @@ using PicnicAuth.Interfaces.OneTimePassword;
 using PicnicAuth.Tests.Image;
 using QRCoder;
 
-namespace PicnicAuth.Tests
+namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
 {
     [TestFixture]
     public class OtpQrCodeGeneratorTest
