@@ -117,17 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AccountEndpointName" xml:space="preserve">
-    <value>Account</value>
-  </data>
-  <data name="AppetizerTags" xml:space="preserve">
-    <value>przystawka|appetizer</value>
+  <data name="TokenEndpointName" xml:space="preserve">
+    <value>Tokens</value>
   </data>
   <data name="AppName" xml:space="preserve">
     <value>PicnicAuth</value>
   </data>
   <data name="AuthTokenRoute" xml:space="preserve">
-    <value>/api/Account/Token</value>
+    <value>/api/Tokens</value>
   </data>
   <data name="CorsAllowAllWildcard" xml:space="preserve">
     <value>*</value>
@@ -135,17 +132,11 @@
   <data name="EntityNotFound" xml:space="preserve">
     <value>{0} was not found in out database.</value>
   </data>
-  <data name="FileNotImageMessage" xml:space="preserve">
-    <value>Wysłany plik nie był formatu graficznego.</value>
-  </data>
   <data name="FormDataMimeType" xml:space="preserve">
     <value>application/form-data</value>
   </data>
   <data name="FormDataParameterTypeName" xml:space="preserve">
     <value>formData</value>
-  </data>
-  <data name="GenericNotFoundMessage" xml:space="preserve">
-    <value>Rekord o podanym id nie istnieje.</value>
   </data>
   <data name="GrantTypeName" xml:space="preserve">
     <value>grant_type</value>
@@ -155,9 +146,6 @@
   </data>
   <data name="ImageDataTypeName" xml:space="preserve">
     <value>file</value>
-  </data>
-  <data name="ImageNotAuthorized" xml:space="preserve">
-    <value>Nie możesz usunąć zdjęcia którego sam nie dodałeś.</value>
   </data>
   <data name="ImageParameterDescription" xml:space="preserve">
     <value>Upload image file</value>
@@ -171,20 +159,8 @@
   <data name="ImagePostOperationId" xml:space="preserve">
     <value>Image_Post</value>
   </data>
-  <data name="IngredientNotFoundMessage" xml:space="preserve">
-    <value>Składnik nie znajduje się w naszej bazie.</value>
-  </data>
-  <data name="IngredientQuantityDeleteForbiddenMessage" xml:space="preserve">
-    <value>Nie możesz usunąć nie swojego składnika.</value>
-  </data>
-  <data name="IngredientQuantityPutForbiddenMessage" xml:space="preserve">
-    <value>Nie możesz edytować nie swojej lodówki.</value>
-  </data>
   <data name="InvalidRequestString" xml:space="preserve">
     <value>Provided request was invalid</value>
-  </data>
-  <data name="IsNotMultipartMessage" xml:space="preserve">
-    <value>Request nie jest typu multipart.</value>
   </data>
   <data name="JpegMediaHeader" xml:space="preserve">
     <value>image/jpeg</value>
@@ -201,9 +177,6 @@
   <data name="TokenGetString" xml:space="preserve">
     <value>Token granted</value>
   </data>
-  <data name="UnitNotFoundMessage" xml:space="preserve">
-    <value>Unit was not found in our database.</value>
-  </data>
   <data name="UrlEncodedContentType" xml:space="preserve">
     <value>application/x-www-form-urlencoded</value>
   </data>
@@ -218,9 +191,6 @@
   </data>
   <data name="JsonMediaHeader" xml:space="preserve">
     <value>application/json</value>
-  </data>
-  <data name="RecipeNoteNotOwnedGetMessage" xml:space="preserve">
-    <value>Nie możesz podejrzeć czyjejś notatki.</value>
   </data>
   <data name="LoginValidationMessage" xml:space="preserve">
     <value>Niepoprawny login lub hasło.</value>
