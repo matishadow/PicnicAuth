@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1140E30D-87F0-4BE2-AFAE-45D1466FED0D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PicnicAuth.Interfaces</RootNamespace>
+    <AssemblyName>PicnicAuth.Interfaces</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentValidation, Version=6.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.6.4.1\lib\Net45\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="QRCoder, Version=1.2.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.2.9\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.2.9\lib\net40\UnityEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Collections\IArraySlicer.cs" />
+    <Compile Include="Cryptography\Encryption\ICryptoTransformApplier.cs" />
+    <Compile Include="Cryptography\Encryption\IDecryptor.cs" />
+    <Compile Include="Cryptography\Encryption\IKeyDerivation.cs" />
+    <Compile Include="Cryptography\Encryption\IRijndaelManagedCreator.cs" />
+    <Compile Include="Cryptography\Encryption\IEncryptor.cs" />
+    <Compile Include="Cryptography\Hashing\ILibrarySha1Hasher.cs" />
+    <Compile Include="Cryptography\Hashing\ISha1Hasher.cs" />
+    <Compile Include="Cryptography\Randomness\ISecureRandomNumberGenerator.cs" />
+    <Compile Include="Cryptography\Signature\IHmacSha1Generator.cs" />
+    <Compile Include="Dependencies\IDependency.cs" />
+    <Compile Include="Dependencies\ILifeTimeDependency.cs" />
+    <Compile Include="Dependencies\IMatchingLifeTimeDependency.cs" />
+    <Compile Include="Dependencies\IRequestDependency.cs" />
+    <Compile Include="Dependencies\ISelfRequestDependency.cs" />
+    <Compile Include="Dependencies\ISingleInstanceDependency.cs" />
+    <Compile Include="Encoding\IBase32Decoder.cs" />
+    <Compile Include="Encoding\IBase64Decoder.cs" />
+    <Compile Include="Encoding\IBase32Encoder.cs" />
+    <Compile Include="Encoding\IBase64Encoder.cs" />
+    <Compile Include="Encoding\IUIntConverter.cs" />
+    <Compile Include="Encoding\IULongConverter.cs" />
+    <Compile Include="Encoding\IQrCodeGenerator.cs" />
+    <Compile Include="Encoding\IUtf8Converter.cs" />
+    <Compile Include="Image\IImageConverter.cs" />
+    <Compile Include="OneTimePassword\ITotpVerifier.cs" />
+    <Compile Include="OneTimePassword\IHotpVerifier.cs" />
+    <Compile Include="OneTimePassword\ITotpGenerator.cs" />
+    <Compile Include="OneTimePassword\IHotpGenerator.cs" />
+    <Compile Include="OneTimePassword\IKeyUriCreator.cs" />
+    <Compile Include="OneTimePassword\IOtpQrCodeGenerator.cs" />
+    <Compile Include="OneTimePassword\IOtpTruncator.cs" />
+    <Compile Include="OneTimePassword\ISecretGenerator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ICrudService.cs" />
+    <Compile Include="Time\IUnixTimestampGetter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PicnicAuth.Enums\PicnicAuth.Enums.csproj">
+      <Project>{22e102cd-d00b-407e-9c8c-8467d91e7105}</Project>
+      <Name>PicnicAuth.Enums</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
