@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace PicnicAuth.Interfaces.Collections
+﻿namespace PicnicAuth.Interfaces.Collections
 {
     public interface IArraySlicer
     {
