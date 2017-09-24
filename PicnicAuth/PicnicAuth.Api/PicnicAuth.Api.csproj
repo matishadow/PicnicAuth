@@ -249,7 +249,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\CompaniesController.cs" />
     <Compile Include="Controllers\BasePicnicAuthController.cs" />
     <Compile Include="Filters\AddFileOperation.cs" />
     <Compile Include="Filters\AuthTokenOperation.cs" />

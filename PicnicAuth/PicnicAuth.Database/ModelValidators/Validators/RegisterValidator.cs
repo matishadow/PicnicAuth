@@ -15,13 +15,13 @@ namespace PicnicAuth.Database.ModelValidators.Validators
                 .WithMessage(Properties.Resources.EmailEmptyValidationMessage)
                 .EmailAddress()
                 .WithMessage(Properties.Resources.EmailRegexValidationMessage)
-                .Must((model, s) => IsFieldUnique<User>(user => user.Email == model.Email))
+                .Must((model, s) => IsFieldUnique<CompanyAccount>(user => user.Email == model.Email))
                 .WithMessage(Properties.Resources.EmailExistsValidationMessage);
 
-            RuleFor(register => register.Username)
+            RuleFor(register => register.Login)
                 .NotEmpty()
                 .WithMessage(Properties.Resources.LoginEmptyValidationMessage)
-                .Must((model, s) => IsFieldUnique<User>(user => user.UserName == model.Username))
+                .Must((model, s) => IsFieldUnique<CompanyAccount>(user => user.UserName == model.Login))
                 .WithMessage(Properties.Resources.UsernameExistsValidationMessage);
 
             const int minimalPasswordLength = 10;

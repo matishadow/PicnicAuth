@@ -8,21 +8,21 @@ using PicnicAuth.Database.Models.Authentication;
 
 namespace PicnicAuth.Api
 {
-    // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
+    // Configure the application user manager used in this application. CompanyManager is defined in ASP.NET Identity and is used by the application.
 
-    public class ApplicationUserManager : UserManager<User>
+    public class CompanyManager : UserManager<CompanyAccount>
     {
-        public ApplicationUserManager(IUserStore<User> store)
+        public CompanyManager(IUserStore<CompanyAccount> store)
             : base(store)
         {
         }
 
-        public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options,
+        public static CompanyManager Create(IdentityFactoryOptions<CompanyManager> options,
             IOwinContext context)
         {
-            var manager = new ApplicationUserManager(new UserStore<User>(context.Get<PicnicAuthContext>()));
+            var manager = new CompanyManager(new UserStore<CompanyAccount>(context.Get<PicnicAuthContext>()));
             // Configure validation logic for usernames
-            manager.UserValidator = new UserValidator<User>(manager)
+            manager.UserValidator = new UserValidator<CompanyAccount>(manager)
             {
                 AllowOnlyAlphanumericUserNames = false,
                 RequireUniqueEmail = true
@@ -40,7 +40,7 @@ namespace PicnicAuth.Api
             if (dataProtectionProvider != null)
             {
                 manager.UserTokenProvider =
-                    new DataProtectorTokenProvider<User>(dataProtectionProvider.Create("ASP.NET Identity"));
+                    new DataProtectorTokenProvider<CompanyAccount>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
             return manager;
         }

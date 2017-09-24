@@ -4,71 +4,73 @@ using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web.Http;
-using FluentValidation.Results;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using PicnicAuth.Api.Filters;
-using PicnicAuth.Database.Models;
 using PicnicAuth.Database.Models.Authentication;
 using PicnicAuth.Database.ModelValidators.Interfaces;
-using PicnicAuth.ServiceInterfaces;
 using Swashbuckle.Swagger.Annotations;
 
 namespace PicnicAuth.Api.Controllers
 {
-    public class UsersController : ApiController 
+    /// <summary>
+    /// 
+    /// </summary>
+    public class CompaniesController : ApiController 
     {
-        private ApplicationUserManager userManager;
+        private CompanyManager companyManager;
 
         private readonly IChangePasswordValidator changePasswordValidator;
         private readonly IRegisterValidator registerValidator;
 
-        public UsersController(IChangePasswordValidator changePasswordValidator,
+        public CompaniesController(IChangePasswordValidator changePasswordValidator,
             IRegisterValidator registerValidator)
         {
             this.changePasswordValidator = changePasswordValidator;
             this.registerValidator = registerValidator;
         }
 
-        public ApplicationUserManager UserManager
+        public CompanyManager CompanyManager
         {
-            get => userManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            private set => userManager = value;
+            get => companyManager ?? Request.GetOwinContext().GetUserManager<CompanyManager>();
+            private set => companyManager = value;
         }
 
         /// <summary>
-        /// Gets information about current user
+        /// Get information about logged company.
         /// </summary>
-        /// <returns>Information about logged user</returns>
-        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(UserInfoViewModel))]
+        /// <returns>Information about logged company</returns>
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(CompanyInfoViewModel))]
         [SwaggerResponse(HttpStatusCode.Unauthorized, Description = "Not logged in")]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
+        [HttpGet]
         [Authorize]
-        public UserInfoViewModel Get()
+        public CompanyInfoViewModel Get()
         {
             ExternalLoginData externalLogin = ExternalLoginData.FromIdentity(User.Identity as ClaimsIdentity);
 
-            return new UserInfoViewModel
+            return new CompanyInfoViewModel
             {
-                Username = User.Identity.GetUserName(),
+                Login = User.Identity.GetUserName(),
                 HasRegistered = externalLogin == null,
                 LoginProvider = externalLogin?.LoginProvider
             };
         }
 
         /// <summary>
-        /// Create a new account
+        /// Create a new company account.
         /// </summary>
         /// <param name="model"></param>
         /// <returns>Account created</returns>
-        [SwaggerResponse(HttpStatusCode.Created, Description = "Account created")]
+        [SwaggerResponse(HttpStatusCode.Created, Description = "Company account created")]
         [SwaggerResponse(HttpStatusCode.BadRequest, Description = "Provided data was not valid")]
+        [Route("api/Companies")]
+        [HttpPost]
         [AllowAnonymous]
         public async Task<HttpResponseMessage> Register(RegisterBindingModel model)
         {
-            var user = new User {UserName = model.Username, Email = model.Email};
+            var user = new CompanyAccount {UserName = model.Login, Email = model.Email};
 
-            IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+            IdentityResult result = await CompanyManager.CreateAsync(user, model.Password);
 
             return !result.Succeeded
                 ? Request.CreateResponse(HttpStatusCode.InternalServerError, result)
@@ -77,10 +79,10 @@ namespace PicnicAuth.Api.Controllers
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && userManager != null)
+            if (disposing && companyManager != null)
             {
-                userManager.Dispose();
-                userManager = null;
+                companyManager.Dispose();
+                companyManager = null;
             }
 
             base.Dispose(disposing);
