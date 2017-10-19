@@ -1,8 +1,8 @@
 ﻿namespace PicnicAuth.Database.Models.Authentication
 {
-    public class UserInfoViewModel
+    public class CompanyInfoViewModel
     {
-        public string Username { get; set; }
+        public string Login { get; set; }
 
         public bool HasRegistered { get; set; }
 

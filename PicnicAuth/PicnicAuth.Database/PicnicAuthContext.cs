@@ -12,7 +12,7 @@ using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Database
 {
-    public class PicnicAuthContext : IdentityDbContext<User, IdentityRole, string, IdentityUserLogin, IdentityUserRole, IdentityUserClaim>, ISelfRequestDependency
+    public class PicnicAuthContext : IdentityDbContext<CompanyAccount, IdentityRole, string, IdentityUserLogin, IdentityUserRole, IdentityUserClaim>, ISelfRequestDependency
     {
         public PicnicAuthContext() : base("picnicauthdb")
         {

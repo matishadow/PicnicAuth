@@ -26,22 +26,22 @@ namespace PicnicAuth.Api.Providers
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
-            var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
+            var userManager = context.OwinContext.GetUserManager<CompanyManager>();
 
-            User user = await userManager.FindAsync(context.UserName, context.Password);
+            CompanyAccount companyAccount = await userManager.FindAsync(context.UserName, context.Password);
 
-            if (user == null)
+            if (companyAccount == null)
             {
                 context.SetError("invalid_grant", Properties.Resources.LoginValidationMessage);
                 return;
             }
 
-            ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(userManager,
+            ClaimsIdentity oAuthIdentity = await companyAccount.GenerateUserIdentityAsync(userManager,
                OAuthDefaults.AuthenticationType);
-            ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager,
+            ClaimsIdentity cookiesIdentity = await companyAccount.GenerateUserIdentityAsync(userManager,
                 CookieAuthenticationDefaults.AuthenticationType);
 
-            AuthenticationProperties properties = CreateProperties(user.UserName);
+            AuthenticationProperties properties = CreateProperties(companyAccount.UserName);
             var ticket = new AuthenticationTicket(oAuthIdentity, properties);
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
