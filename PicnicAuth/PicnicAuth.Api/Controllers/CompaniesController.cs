@@ -42,6 +42,7 @@ namespace PicnicAuth.Api.Controllers
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(CompanyInfoViewModel))]
         [SwaggerResponse(HttpStatusCode.Unauthorized, Description = "Not logged in")]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
+        [Route("api/Companies/Me")]
         [HttpGet]
         [Authorize]
         public CompanyInfoViewModel Get()
