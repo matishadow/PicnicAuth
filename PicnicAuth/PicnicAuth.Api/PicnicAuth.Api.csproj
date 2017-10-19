@@ -151,6 +151,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
     </Reference>
@@ -249,6 +250,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\QrCodesController.cs" />
     <Compile Include="Controllers\CompaniesController.cs" />
     <Compile Include="Controllers\BasePicnicAuthController.cs" />
     <Compile Include="Filters\AddFileOperation.cs" />
@@ -325,6 +327,10 @@
     <ProjectReference Include="..\PicnicAuth.Database\PicnicAuth.Database.csproj">
       <Project>{677656d1-a4e1-4236-a438-e74b3104d001}</Project>
       <Name>PicnicAuth.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PicnicAuth.Implementations\PicnicAuth.Implementations.csproj">
+      <Project>{ae34ca1e-e500-41e4-8ea3-5de7e3a57b11}</Project>
+      <Name>PicnicAuth.Implementations</Name>
     </ProjectReference>
     <ProjectReference Include="..\PicnicAuth.Interfaces\PicnicAuth.Interfaces.csproj">
       <Project>{1140e30d-87f0-4be2-afae-45d1466fed0d}</Project>

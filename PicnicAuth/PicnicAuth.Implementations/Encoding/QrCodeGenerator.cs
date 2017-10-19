@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Drawing;
 using PicnicAuth.Interfaces.Encoding;
+using PicnicAuth.ServiceInterfaces.Dependencies;
 using QRCoder;
 
 namespace PicnicAuth.Implementations.Encoding
 {
-    public class QrCodeGenerator : IQrCodeGenerator
+    public class QrCodeGenerator : IQrCodeGenerator, IRequestDependency
     {
         private readonly QRCodeGenerator qrCodeGenerator;
 

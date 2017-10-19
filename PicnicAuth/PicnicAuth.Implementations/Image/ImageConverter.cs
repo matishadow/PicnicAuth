@@ -3,10 +3,11 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using PicnicAuth.Interfaces.Image;
+using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Implementations.Image
 {
-    public class ImageConverter : IImageConverter
+    public class ImageConverter : IImageConverter, IRequestDependency
     {
         public System.Drawing.Image ConvertBitmapToPng(Bitmap bitmap)
         {
@@ -16,6 +17,15 @@ namespace PicnicAuth.Implementations.Image
             {
                 bitmap.Save(stream, ImageFormat.Png);
                 return System.Drawing.Image.FromStream(stream);
+            }
+        }
+
+        public byte[] PngImageToBytes(System.Drawing.Image image)
+        {
+            using (var memoryStream = new MemoryStream())
+            {
+                image.Save(memoryStream, image.RawFormat);
+                return memoryStream.ToArray();
             }
         }
     }
