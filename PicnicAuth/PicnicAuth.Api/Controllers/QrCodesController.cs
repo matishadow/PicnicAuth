@@ -9,10 +9,15 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using PicnicAuth.Database.DAL;
+using PicnicAuth.Database.Models;
 using PicnicAuth.Database.Models.Authentication;
 using PicnicAuth.Database.ModelValidators.Interfaces;
+using PicnicAuth.Interfaces.Cryptography.Encryption;
 using PicnicAuth.Interfaces.Encoding;
 using PicnicAuth.Interfaces.Image;
+using PicnicAuth.Interfaces.OneTimePassword;
+using PicnicAuth.Interfaces.Web;
 using QRCoder;
 using Swashbuckle.Swagger.Annotations;
 
@@ -24,12 +29,20 @@ namespace PicnicAuth.Api.Controllers
     public class QrCodesController : ApiController
     {
         private readonly IQrCodeGenerator qrCodeGenerator;
-        private readonly IImageConverter imageConverter;
+        private readonly IKeyUriCreator keyUriCreator;
+        private readonly IHttpResponseMessageCreator httpResponseMessageCreator;
+        private readonly IUnitOfWork unitOfWork;
+        private readonly IDpapiDecryptor dpapiDecryptor;
 
-        public QrCodesController(IQrCodeGenerator qrCodeGenerator, IImageConverter imageConverter)
+        public QrCodesController(IQrCodeGenerator qrCodeGenerator,
+            IKeyUriCreator keyUriCreator, IHttpResponseMessageCreator httpResponseMessageCreator,
+            IUnitOfWork unitOfWork, IDpapiDecryptor dpapiDecryptor)
         {
             this.qrCodeGenerator = qrCodeGenerator;
-            this.imageConverter = imageConverter;
+            this.keyUriCreator = keyUriCreator;
+            this.httpResponseMessageCreator = httpResponseMessageCreator;
+            this.unitOfWork = unitOfWork;
+            this.dpapiDecryptor = dpapiDecryptor;
         }
 
         /// <summary>
@@ -42,16 +55,31 @@ namespace PicnicAuth.Api.Controllers
             QRCodeGenerator.ECCLevel level = QRCodeGenerator.ECCLevel.M)
         {
             Bitmap bitmap = qrCodeGenerator.GenerateQrCode(input, pixelPerModule, level);
-            Image pngImage = imageConverter.ConvertBitmapToPng(bitmap);
-            byte[] imageBytes = imageConverter.PngImageToBytes(pngImage);
+            HttpResponseMessage returnMessage = httpResponseMessageCreator.CreatePngResponse(bitmap);
 
-            var returnMessage = new HttpResponseMessage
-            {
-                Content = new ByteArrayContent(pngImage != null ? imageBytes : new byte[] { })
-                {
-                    Headers = {ContentType = new MediaTypeHeaderValue(Properties.Resources.PngMediaHeader)}
-                }
-            };
+            return returnMessage;
+        }
+
+        /// <summary>
+        /// Generate Qr image for a user
+        /// </summary>
+        /// <returns>QR Code in PNG format</returns>
+        [Route("api/QrCodes/{authUserId}")]
+        //[Authorize]
+        [HttpGet]
+        public HttpResponseMessage CreateUserQrImage(Guid authUserId, string issuer = null, 
+            int pixelPerModule = 20, QRCodeGenerator.ECCLevel level = QRCodeGenerator.ECCLevel.M)
+        {
+            AuthUser authUser = unitOfWork.Repository<AuthUser>().GetById(authUserId);
+            if (authUser == null) return new HttpResponseMessage(HttpStatusCode.NotFound);
+
+            string userSecret = dpapiDecryptor.Decrypt(authUser.Secret);
+
+            string keyUri = keyUriCreator
+                .CreateKeyUri(issuer ?? RequestContext.Principal.Identity.GetUserName(), 
+                authUser.UserName, userSecret);
+            Bitmap bitmap = qrCodeGenerator.GenerateQrCode(keyUri, pixelPerModule, level);
+            HttpResponseMessage returnMessage = httpResponseMessageCreator.CreatePngResponse(bitmap);
 
             return returnMessage;
         }

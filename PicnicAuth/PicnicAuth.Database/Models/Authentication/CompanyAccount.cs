@@ -16,5 +16,7 @@ namespace PicnicAuth.Database.Models.Authentication
             // Add custom user claims here
             return companyIdentity;
         }
+
+        public virtual ICollection<AuthUser> AuthUsers { get; set; }
     }
 }
