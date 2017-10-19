@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Security.Cryptography;
 using PicnicAuth.Interfaces.Cryptography.Randomness;
+using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Implementations.Cryptography.Randomness
 {
-    public class SecureRandomNumberGenerator : ISecureRandomNumberGenerator
+    public class SecureRandomNumberGenerator : ISecureRandomNumberGenerator, IRequestDependency
     {
         private const int MinimalNumberOfBytes = 1;
         private readonly RNGCryptoServiceProvider cryptoServiceProvider;

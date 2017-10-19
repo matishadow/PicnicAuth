@@ -81,7 +81,10 @@
     <Compile Include="DAL\IGenericRepository.cs" />
     <Compile Include="DAL\IUnitOfWork.cs" />
     <Compile Include="DAL\UnitOfWork.cs" />
+    <Compile Include="DTO\AddAuthUser.cs" />
+    <Compile Include="DTO\AuthUserDto.cs" />
     <Compile Include="DTO\DtoEntity.cs" />
+    <Compile Include="Models\AuthUser.cs" />
     <Compile Include="ModelValidators\Interfaces\IAbstractDatabaseValidator.cs" />
     <Compile Include="ModelValidators\Interfaces\IChangePasswordValidator.cs" />
     <Compile Include="ModelValidators\Interfaces\IRegisterValidator.cs" />
@@ -92,9 +95,8 @@
     <Compile Include="Models\Authentication\SetPasswordBindingModel.cs" />
     <Compile Include="Models\Authentication\TokenErrorResponse.cs" />
     <Compile Include="Models\Authentication\TokenResponse.cs" />
-    <Compile Include="Models\Authentication\User.cs" />
-    <Compile Include="Models\Authentication\UserInfoViewModel.cs" />
-    <Compile Include="Models\Authentication\UserLoginInfoViewModel.cs" />
+    <Compile Include="Models\Authentication\CompanyAccount.cs" />
+    <Compile Include="Models\Authentication\CompanyInfoViewModel.cs" />
     <Compile Include="Models\Entity.cs" />
     <Compile Include="ModelValidators\Validators\AbstractContinueValidator.cs" />
     <Compile Include="ModelValidators\Validators\AbstractDatabaseValidator.cs" />

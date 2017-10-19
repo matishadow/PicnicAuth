@@ -1,10 +1,11 @@
 ﻿using PicnicAuth.Interfaces.Cryptography.Randomness;
 using PicnicAuth.Interfaces.Encoding;
 using PicnicAuth.Interfaces.OneTimePassword;
+using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Implementations.OneTimePassword
 {
-    public class SecretGenerator : ISecretGenerator
+    public class SecretGenerator : ISecretGenerator, IRequestDependency
     {
         private const int PreferredNumberOfBytes = 10;
         private readonly ISecureRandomNumberGenerator randomNumberGenerator;

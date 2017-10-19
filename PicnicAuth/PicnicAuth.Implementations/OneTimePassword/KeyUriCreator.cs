@@ -1,10 +1,11 @@
 ﻿using System;
 using PicnicAuth.Enums;
 using PicnicAuth.Interfaces.OneTimePassword;
+using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Implementations.OneTimePassword
 {
-    public class KeyUriCreator : IKeyUriCreator
+    public class KeyUriCreator : IKeyUriCreator, IRequestDependency
     {
         private const string KeyUriTemplate = "otpauth://{0}/{1}:{2}?secret={3}&issuer={1}";
         public string CreateKeyUri(string issuer, string user, string secret, OtpType otpType = OtpType.Totp)

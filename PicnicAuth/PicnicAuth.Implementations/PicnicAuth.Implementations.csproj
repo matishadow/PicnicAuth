@@ -48,6 +48,8 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Security" />
     <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\QRCoder.1.2.9\lib\net40\UnityEngine.dll</HintPath>
     </Reference>
@@ -58,6 +60,8 @@
     <Compile Include="CrudService.cs" />
     <Compile Include="Cryptography\Encryption\CryptoTransformApplier.cs" />
     <Compile Include="Cryptography\Encryption\Decryptor.cs" />
+    <Compile Include="Cryptography\Encryption\DpapiDecryptor.cs" />
+    <Compile Include="Cryptography\Encryption\DpapiEncryptor.cs" />
     <Compile Include="Cryptography\Encryption\KeyDerivation.cs" />
     <Compile Include="Cryptography\Encryption\RijndaelBasedEncryption.cs" />
     <Compile Include="Cryptography\Encryption\RijndaelManagedCreator.cs" />
@@ -89,6 +93,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Time\UnixTimestampGetter.cs" />
+    <Compile Include="Web\HttpResponseMessageCreator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PicnicAuth.Database\PicnicAuth.Database.csproj">

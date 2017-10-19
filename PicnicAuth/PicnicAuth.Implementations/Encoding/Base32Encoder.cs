@@ -1,9 +1,10 @@
 ﻿using System;
 using PicnicAuth.Interfaces.Encoding;
+using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Implementations.Encoding
 {
-    public class Base32Encoder : IBase32Encoder
+    public class Base32Encoder : IBase32Encoder, IRequestDependency
     {
         public string Encode(byte[] textBytes)
         {
