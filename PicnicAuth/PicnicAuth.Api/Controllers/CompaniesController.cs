@@ -68,9 +68,9 @@ namespace PicnicAuth.Api.Controllers
         [AllowAnonymous]
         public async Task<HttpResponseMessage> Register(RegisterBindingModel model)
         {
-            var user = new CompanyAccount {UserName = model.Login, Email = model.Email};
+            var companyAccount = new CompanyAccount {UserName = model.Login, Email = model.Email};
 
-            IdentityResult result = await CompanyManager.CreateAsync(user, model.Password);
+            IdentityResult result = await CompanyManager.CreateAsync(companyAccount, model.Password);
 
             return !result.Succeeded
                 ? Request.CreateResponse(HttpStatusCode.InternalServerError, result)
