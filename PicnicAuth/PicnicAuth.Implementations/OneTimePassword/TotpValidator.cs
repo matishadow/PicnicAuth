@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using PicnicAuth.Interfaces.OneTimePassword;
 using PicnicAuth.Interfaces.Time;
+using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Implementations.OneTimePassword
 {
-    public class TotpVerifier : ITotpVerifier
+    public class TotpValidator : ITotpValidator, IRequestDependency
     {
         private const int ValidTimeStepSize = 1;
         private const int TotpTimeWindow = 30;
@@ -14,7 +15,7 @@ namespace PicnicAuth.Implementations.OneTimePassword
         private readonly IUnixTimestampGetter unixTimestampGetter;
         private readonly IHotpGenerator hotpGenerator;
 
-        public TotpVerifier(IUnixTimestampGetter unixTimestampGetter, IHotpGenerator hotpGenerator)
+        public TotpValidator(IUnixTimestampGetter unixTimestampGetter, IHotpGenerator hotpGenerator)
         {
             this.unixTimestampGetter = unixTimestampGetter;
             this.hotpGenerator = hotpGenerator;

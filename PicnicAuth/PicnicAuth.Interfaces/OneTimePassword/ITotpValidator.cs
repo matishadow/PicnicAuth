@@ -1,6 +1,6 @@
 ﻿namespace PicnicAuth.Interfaces.OneTimePassword
 {
-    public interface ITotpVerifier
+    public interface ITotpValidator
     {
         bool IsTotpValid(byte[] secret, string totp);
     }

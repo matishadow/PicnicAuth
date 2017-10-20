@@ -251,7 +251,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\TotpController.cs" />
     <Compile Include="Controllers\AuthUsersController.cs" />
     <Compile Include="Controllers\QrCodesController.cs" />
     <Compile Include="Controllers\CompaniesController.cs" />

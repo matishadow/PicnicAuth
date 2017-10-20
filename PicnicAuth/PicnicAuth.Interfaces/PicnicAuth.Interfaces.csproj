@@ -70,7 +70,7 @@
     <Compile Include="Encoding\IQrCodeGenerator.cs" />
     <Compile Include="Encoding\IUtf8Converter.cs" />
     <Compile Include="Image\IImageConverter.cs" />
-    <Compile Include="OneTimePassword\ITotpVerifier.cs" />
+    <Compile Include="OneTimePassword\ITotpValidator.cs" />
     <Compile Include="OneTimePassword\IHotpVerifier.cs" />
     <Compile Include="OneTimePassword\ITotpGenerator.cs" />
     <Compile Include="OneTimePassword\IHotpGenerator.cs" />

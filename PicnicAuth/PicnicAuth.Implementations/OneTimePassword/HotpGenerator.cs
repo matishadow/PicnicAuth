@@ -1,10 +1,11 @@
 ﻿using System;
 using PicnicAuth.Interfaces.Cryptography.Signature;
 using PicnicAuth.Interfaces.OneTimePassword;
+using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Implementations.OneTimePassword
 {
-    public class HotpGenerator : IHotpGenerator
+    public class HotpGenerator : IHotpGenerator, IRequestDependency
     {
         private readonly IHmacSha1Generator hmacSha1Generator;
         private readonly IOtpTruncator otpTruncator;
