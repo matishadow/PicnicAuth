@@ -85,6 +85,7 @@
     <Compile Include="DTO\AuthUserDto.cs" />
     <Compile Include="DTO\DtoEntity.cs" />
     <Compile Include="Models\AuthUser.cs" />
+    <Compile Include="Models\TotpPassword.cs" />
     <Compile Include="ModelValidators\Interfaces\IAbstractDatabaseValidator.cs" />
     <Compile Include="ModelValidators\Interfaces\IChangePasswordValidator.cs" />
     <Compile Include="ModelValidators\Interfaces\IRegisterValidator.cs" />

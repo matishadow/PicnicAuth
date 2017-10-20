@@ -4,10 +4,11 @@ using PicnicAuth.Enums;
 using PicnicAuth.Interfaces.Collections;
 using PicnicAuth.Interfaces.Encoding;
 using PicnicAuth.Interfaces.OneTimePassword;
+using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Implementations.OneTimePassword
 {
-    public class OtpTruncator : IOtpTruncator
+    public class OtpTruncator : IOtpTruncator, IRequestDependency
     {
         private const int ValidSha1SignatureLength = 20;
         private const int TruncateMask = 0b1111;

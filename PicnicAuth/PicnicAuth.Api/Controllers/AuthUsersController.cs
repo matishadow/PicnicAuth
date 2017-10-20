@@ -14,6 +14,7 @@ using PicnicAuth.Database.Models;
 using PicnicAuth.Database.Models.Authentication;
 using PicnicAuth.Database.ModelValidators.Interfaces;
 using PicnicAuth.Interfaces.Cryptography.Encryption;
+using PicnicAuth.Interfaces.Encoding;
 using PicnicAuth.Interfaces.OneTimePassword;
 using Swashbuckle.Swagger.Annotations;
 

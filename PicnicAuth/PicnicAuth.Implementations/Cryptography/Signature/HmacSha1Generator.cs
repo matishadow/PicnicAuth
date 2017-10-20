@@ -4,10 +4,11 @@ using System.Linq;
 using System.Security.Cryptography;
 using PicnicAuth.Interfaces.Cryptography.Signature;
 using PicnicAuth.Interfaces.Encoding;
+using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Implementations.Cryptography.Signature
 {
-    public class HmacSha1Generator : IHmacSha1Generator
+    public class HmacSha1Generator : IHmacSha1Generator, IRequestDependency
     {
         private readonly IULongConverter uLongConverter;
         private readonly IUtf8Converter utf8Converter;

@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Linq;
 using PicnicAuth.Interfaces.Encoding;
+using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Implementations.Encoding
 {
-    public class ULongConverter : IULongConverter
+    public class ULongConverter : IULongConverter, IRequestDependency
     {
         public byte[] ConvertToBytesBigEndian(ulong input)
         {

@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PicnicAuth.Interfaces.Encoding;
+using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Implementations.Encoding
 {
-    public class Utf8Converter : IUtf8Converter
+    public class Utf8Converter : IUtf8Converter, IRequestDependency
     {
         public byte[] ConvertToBytes(string input)
         {
