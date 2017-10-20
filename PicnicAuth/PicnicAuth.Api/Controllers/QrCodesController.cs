@@ -1,25 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Net;
 using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Security.Claims;
-using System.Threading.Tasks;
 using System.Web.Http;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 using PicnicAuth.Database.DAL;
 using PicnicAuth.Database.Models;
-using PicnicAuth.Database.Models.Authentication;
-using PicnicAuth.Database.ModelValidators.Interfaces;
+using PicnicAuth.Enums;
 using PicnicAuth.Interfaces.Cryptography.Encryption;
 using PicnicAuth.Interfaces.Encoding;
-using PicnicAuth.Interfaces.Image;
 using PicnicAuth.Interfaces.OneTimePassword;
 using PicnicAuth.Interfaces.Web;
 using QRCoder;
-using Swashbuckle.Swagger.Annotations;
 
 namespace PicnicAuth.Api.Controllers
 {
@@ -71,7 +63,8 @@ namespace PicnicAuth.Api.Controllers
         //[Authorize]
         [HttpGet]
         public HttpResponseMessage CreateUserQrImage(Guid authUserId, string issuer = null, 
-            int pixelPerModule = 20, QRCodeGenerator.ECCLevel level = QRCodeGenerator.ECCLevel.M)
+            int pixelPerModule = 20, QRCodeGenerator.ECCLevel level = QRCodeGenerator.ECCLevel.M,
+            OtpType type = OtpType.Totp)
         {
             AuthUser authUser = unitOfWork.Repository<AuthUser>().GetById(authUserId);
             if (authUser == null) return new HttpResponseMessage(HttpStatusCode.NotFound);
@@ -82,7 +75,7 @@ namespace PicnicAuth.Api.Controllers
             Bitmap otpBitmap =
                 otpQrCodeGenerator.GenerateOtpQrCode(issuer
                                                      ?? RequestContext.Principal.Identity.GetUserName(),
-                    authUser.UserName, userSecretBase32);
+                    authUser.UserName, userSecretBase32, type);
             HttpResponseMessage returnMessage = httpResponseMessageCreator.CreatePngResponse(otpBitmap);
 
             return returnMessage;

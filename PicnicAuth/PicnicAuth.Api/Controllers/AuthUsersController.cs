@@ -8,8 +8,11 @@ using PicnicAuth.Database.DAL;
 using PicnicAuth.Database.DTO;
 using PicnicAuth.Database.Models;
 using PicnicAuth.Database.Models.Authentication;
+using PicnicAuth.Enums;
 using PicnicAuth.Interfaces.Cryptography.Encryption;
+using PicnicAuth.Interfaces.Encoding;
 using PicnicAuth.Interfaces.OneTimePassword;
+using PicnicAuth.Interfaces.Web;
 using Swashbuckle.Swagger.Annotations;
 
 namespace PicnicAuth.Api.Controllers
@@ -19,20 +22,23 @@ namespace PicnicAuth.Api.Controllers
     /// </summary>
     public class AuthUsersController : BasePicnicAuthController
     {
-        private readonly string QrCodeUriTemplate = "{0}/api/qrcodes/{1}?issuer={2}";
-
         private readonly IUnitOfWork unitOfWork;
         private readonly ISecretGenerator secretGenerator;
         private readonly IDpapiEncryptor dpapiEncryptor;
         private readonly ITotpGenerator totpGenerator;
         private readonly IDpapiDecryptor dpapiDecryptor;
         private readonly ITotpValidator totpValidator;
+        private readonly IBase32Encoder base32Encoder;
+        private readonly IOtpQrCodeUriGenerator otpQrCodeUriGenerator;
 
-        public AuthUsersController(IMapper autoMapper, IUnitOfWork unitOfWork,
+        public AuthUsersController(IMapper autoMapper, 
+            IUnitOfWork unitOfWork,
             ISecretGenerator secretGenerator,
             IDpapiEncryptor dpapiEncryptor, 
             ITotpGenerator totpGenerator, 
-            IDpapiDecryptor dpapiDecryptor, ITotpValidator totpValidator) : base(autoMapper)
+            IDpapiDecryptor dpapiDecryptor, 
+            ITotpValidator totpValidator, 
+            IBase32Encoder base32Encoder, IOtpQrCodeUriGenerator otpQrCodeUriGenerator) : base(autoMapper)
         {
             this.unitOfWork = unitOfWork;
             this.secretGenerator = secretGenerator;
@@ -40,6 +46,8 @@ namespace PicnicAuth.Api.Controllers
             this.totpGenerator = totpGenerator;
             this.dpapiDecryptor = dpapiDecryptor;
             this.totpValidator = totpValidator;
+            this.base32Encoder = base32Encoder;
+            this.otpQrCodeUriGenerator = otpQrCodeUriGenerator;
         }
 
         /// <summary>
@@ -58,15 +66,17 @@ namespace PicnicAuth.Api.Controllers
             CompanyAccount loggedCompany = repository.GetById(loggedCompanyId);
 
             AuthUser authUser = AutoMapper.Map<AddAuthUser, AuthUser>(addAuthUser);
-            authUser.Secret = dpapiEncryptor.Encrypt(secretGenerator.GenerateSecret());
+            byte[] secret = secretGenerator.GenerateSecret();
+            authUser.Secret = dpapiEncryptor.Encrypt(secret);
             loggedCompany.AuthUsers.Add(authUser);
             repository.Save();
 
             AuthUserDto authUserDto = AutoMapper.Map<AuthUser, AuthUserDto>(authUser);
-            authUserDto.QrCodeUri =
-                new Uri(string.Format(QrCodeUriTemplate,
-                    Request.RequestUri.GetLeftPart(UriPartial.Authority),
-                    authUser.Id, loggedCompany.UserName));
+            authUserDto.TotpQrCodeUri = otpQrCodeUriGenerator
+                .GenerateQrCodeUri(OtpType.Totp, Request, authUser.Id, loggedCompany.UserName);
+            authUserDto.HotpQrCodeUri = otpQrCodeUriGenerator
+                .GenerateQrCodeUri(OtpType.Hotp, Request, authUser.Id, loggedCompany.UserName);
+            authUserDto.SecretInBase32 = base32Encoder.Encode(secret);
 
             return Created(string.Empty, authUserDto);
         }

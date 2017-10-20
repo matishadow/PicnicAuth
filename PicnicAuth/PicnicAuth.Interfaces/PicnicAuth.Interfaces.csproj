@@ -82,6 +82,7 @@
     <Compile Include="ICrudService.cs" />
     <Compile Include="Time\IUnixTimestampGetter.cs" />
     <Compile Include="Web\IHttpResponseMessageCreator.cs" />
+    <Compile Include="Web\IOtpQrCodeUriGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

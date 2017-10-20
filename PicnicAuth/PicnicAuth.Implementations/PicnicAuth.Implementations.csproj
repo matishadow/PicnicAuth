@@ -94,6 +94,7 @@
     </Compile>
     <Compile Include="Time\UnixTimestampGetter.cs" />
     <Compile Include="Web\HttpResponseMessageCreator.cs" />
+    <Compile Include="Web\OtpQrCodeUriGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PicnicAuth.Database\PicnicAuth.Database.csproj">
