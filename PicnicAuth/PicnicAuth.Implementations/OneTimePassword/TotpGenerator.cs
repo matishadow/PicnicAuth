@@ -29,7 +29,7 @@ namespace PicnicAuth.Implementations.OneTimePassword
             if (secret.Length == byte.MinValue)
                 throw new ArgumentException();
 
-            var currentTimestamp = (ulong)unixTimestampGetter.GetUnixTimestamp();
+            long currentTimestamp = unixTimestampGetter.GetUnixTimestamp();
             byte[] hmac = hmacSha1Generator.GenerateHmacSha1Hash(currentTimestamp / TotpTimeWindow, secret);
             string otp = otpTruncator.Truncate(hmac);
 

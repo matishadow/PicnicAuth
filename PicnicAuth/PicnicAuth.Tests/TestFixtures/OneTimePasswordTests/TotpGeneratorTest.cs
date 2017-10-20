@@ -12,7 +12,7 @@ namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
     [TestFixture]
     public class TotpGeneratorTest
     {
-        private const ulong ExampleTimetamp = 1503511830;
+        private const long ExampleTimetamp = 1503511830;
         private static readonly byte[] ExampleSecret = { 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x21, 0xde, 0xad, 0xbe, 0xef };
         private static readonly byte[] ExampleHmac =
         {

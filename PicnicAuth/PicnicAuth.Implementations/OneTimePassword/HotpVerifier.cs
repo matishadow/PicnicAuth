@@ -12,7 +12,7 @@ namespace PicnicAuth.Implementations.OneTimePassword
             this.generator = generator;
         }
 
-        public bool IsHotpValid(ulong counter, byte[] secret, string hotp)
+        public bool IsHotpValid(long counter, byte[] secret, string hotp)
         {
             if (secret == null || hotp == null)
                 throw new ArgumentNullException();

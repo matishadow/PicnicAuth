@@ -73,8 +73,8 @@ namespace PicnicAuth.Api.Controllers
             string userSecretBase32 = base32Encoder.Encode(userSecret);
 
             Bitmap otpBitmap =
-                otpQrCodeGenerator.GenerateOtpQrCode(issuer
-                                                     ?? RequestContext.Principal.Identity.GetUserName(),
+                otpQrCodeGenerator.
+                GenerateOtpQrCode(issuer ?? RequestContext.Principal.Identity.GetUserName(),
                     authUser.UserName, userSecretBase32, type);
             HttpResponseMessage returnMessage = httpResponseMessageCreator.CreatePngResponse(otpBitmap);
 

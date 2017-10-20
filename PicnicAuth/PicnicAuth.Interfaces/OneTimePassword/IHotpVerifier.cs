@@ -2,6 +2,6 @@
 {
     public interface IHotpVerifier
     {
-        bool IsHotpValid(ulong counter, byte[] secret, string hotp);
+        bool IsHotpValid(long counter, byte[] secret, string hotp);
     }
 }

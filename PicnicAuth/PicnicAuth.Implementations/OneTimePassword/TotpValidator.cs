@@ -28,8 +28,8 @@ namespace PicnicAuth.Implementations.OneTimePassword
             if (secret.Length == byte.MinValue || string.IsNullOrWhiteSpace(totp))
                 throw new ArgumentException();
 
-            ulong currentTimestampInput = (ulong) unixTimestampGetter.GetUnixTimestamp() / TotpTimeWindow;
-            IEnumerable<ulong> consideredTimestampInputs = GetConsideredTimestampInputs(currentTimestampInput);
+            long currentTimestampInput = unixTimestampGetter.GetUnixTimestamp() / TotpTimeWindow;
+            IEnumerable<long> consideredTimestampInputs = GetConsideredTimestampInputs(currentTimestampInput);
 
             IEnumerable<string> totps = consideredTimestampInputs
                 .Select(input => hotpGenerator.GenerateHotp(input, secret));
@@ -37,7 +37,7 @@ namespace PicnicAuth.Implementations.OneTimePassword
             return totps.Contains(totp);
         }
 
-        private IEnumerable<ulong> GetConsideredTimestampInputs(ulong currentTimestampInput)
+        private IEnumerable<long> GetConsideredTimestampInputs(long currentTimestampInput)
         {
             return new[]
             {

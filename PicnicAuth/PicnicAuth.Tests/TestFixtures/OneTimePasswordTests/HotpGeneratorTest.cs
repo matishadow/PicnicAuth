@@ -29,7 +29,7 @@ namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
             0x1c, 0xbb, 0x4f, 0xd5, 0xe0, 0x95, 0x19, 0x18, 0x8c, 0x8
         };
 
-        private const ulong ExampleCounter = 1000;
+        private const long ExampleCounter = 1000;
 
         private IHotpGenerator generator;
 
@@ -38,10 +38,10 @@ namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
         {
             var mockHmacSha1Generator = new Mock<IHmacSha1Generator>();
             mockHmacSha1Generator
-                .Setup(sha1Generator => sha1Generator.GenerateHmacSha1Hash(ulong.MinValue, ExampleSecret))
+                .Setup(sha1Generator => sha1Generator.GenerateHmacSha1Hash(long.MinValue, ExampleSecret))
                 .Returns(hmac1);
             mockHmacSha1Generator
-                .Setup(sha1Generator => sha1Generator.GenerateHmacSha1Hash(ulong.MaxValue, ExampleSecret))
+                .Setup(sha1Generator => sha1Generator.GenerateHmacSha1Hash(long.MaxValue, ExampleSecret))
                 .Returns(hmac2);
             mockHmacSha1Generator
                 .Setup(sha1Generator => sha1Generator.GenerateHmacSha1Hash(ExampleCounter, ExampleSecret))
@@ -67,7 +67,7 @@ namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
             ExpectedResult = "939986")]
         [TestCase(ExampleCounter, new byte[] {0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x21, 0xde, 0xad, 0xbe, 0xef}, 
             ExpectedResult = "120699")]
-        public string TestGenerateHotp(ulong input, byte[] secret)
+        public string TestGenerateHotp(long input, byte[] secret)
         {
             return generator.GenerateHotp(input, secret);
         }
@@ -75,14 +75,14 @@ namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
         [Test]
         public void TestGenerateHotpNullSecret()
         {
-            Assert.That(() => generator.GenerateHotp(It.IsAny<ulong>(), null),
+            Assert.That(() => generator.GenerateHotp(It.IsAny<long>(), null),
                 Throws.TypeOf<ArgumentNullException>());
         }
 
         [Test]
         public void TestGenerateHotpEmptySecret()
         {
-            Assert.That(() => generator.GenerateHotp(It.IsAny<ulong>(), new byte[]{}),
+            Assert.That(() => generator.GenerateHotp(It.IsAny<long>(), new byte[]{}),
                 Throws.TypeOf<ArgumentException>());
         }
     }

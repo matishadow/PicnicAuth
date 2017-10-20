@@ -22,9 +22,9 @@ namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
         public void SetUp()
         {
             var mockHotpGenerator = new Mock<IHotpGenerator>();
-            mockHotpGenerator.Setup(generator => generator.GenerateHotp(ulong.MinValue, ExampleSecret))
+            mockHotpGenerator.Setup(generator => generator.GenerateHotp(long.MinValue, ExampleSecret))
                 .Returns(Hotp1);
-            mockHotpGenerator.Setup(generator => generator.GenerateHotp(ulong.MaxValue, ExampleSecret))
+            mockHotpGenerator.Setup(generator => generator.GenerateHotp(long.MaxValue, ExampleSecret))
                 .Returns(Hotp2);
             mockHotpGenerator.Setup(generator => generator.GenerateHotp(1000, ExampleSecret))
                 .Returns(Hotp3);
@@ -44,7 +44,7 @@ namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
             ExpectedResult = false)]
         [TestCase(ExampleCounter, new byte[] { 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x21, 0xde, 0xad, 0xbe, 0xef }, Hotp1,
             ExpectedResult = false)]
-        public bool TestIsHotpValid(ulong counter, byte[] secret, string hotp)
+        public bool TestIsHotpValid(long counter, byte[] secret, string hotp)
         {
             return verifier.IsHotpValid(counter, secret, hotp);
         }
@@ -52,7 +52,7 @@ namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
         [TestCase(ulong.MinValue, null, "334257")]
         [TestCase(ulong.MinValue, new byte[] {0, 0, 0, 0, 0, 0}, null)]
         [TestCase(ulong.MinValue, null, null)]
-        public void TestGenerateHotpNullArgument(ulong counter, byte[] secret, string hotp)
+        public void TestGenerateHotpNullArgument(long counter, byte[] secret, string hotp)
         {
             Assert.That(() => verifier.IsHotpValid(counter, secret, hotp),
                 Throws.TypeOf<ArgumentNullException>());
@@ -61,7 +61,7 @@ namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
         [TestCase(ulong.MinValue, new byte[] { }, "334257")]
         [TestCase(ulong.MinValue, new byte[] {0, 0, 0, 0, 0, 0}, "")]
         [TestCase(ulong.MinValue, new byte[] { }, "")]
-        public void TestGenerateHotpEmptySecretOrHotp(ulong counter, byte[] secret, string hotp)
+        public void TestGenerateHotpEmptySecretOrHotp(long counter, byte[] secret, string hotp)
         {
             Assert.That(() => verifier.IsHotpValid(counter, secret, hotp),
                 Throws.TypeOf<ArgumentException>());

@@ -7,7 +7,7 @@ namespace PicnicAuth.Implementations.Encoding
 {
     public class ULongConverter : IULongConverter, IRequestDependency
     {
-        public byte[] ConvertToBytesBigEndian(ulong input)
+        public byte[] ConvertToBytesBigEndian(long input)
         {
             byte[] bytes = BitConverter.GetBytes(input);
             Array.Reverse(bytes);

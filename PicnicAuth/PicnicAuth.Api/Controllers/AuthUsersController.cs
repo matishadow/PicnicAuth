@@ -26,6 +26,7 @@ namespace PicnicAuth.Api.Controllers
         private readonly ISecretGenerator secretGenerator;
         private readonly IDpapiEncryptor dpapiEncryptor;
         private readonly ITotpGenerator totpGenerator;
+        private readonly IHotpGenerator hotpGenerator;
         private readonly IDpapiDecryptor dpapiDecryptor;
         private readonly ITotpValidator totpValidator;
         private readonly IBase32Encoder base32Encoder;
@@ -38,7 +39,7 @@ namespace PicnicAuth.Api.Controllers
             ITotpGenerator totpGenerator, 
             IDpapiDecryptor dpapiDecryptor, 
             ITotpValidator totpValidator, 
-            IBase32Encoder base32Encoder, IOtpQrCodeUriGenerator otpQrCodeUriGenerator) : base(autoMapper)
+            IBase32Encoder base32Encoder, IOtpQrCodeUriGenerator otpQrCodeUriGenerator, IHotpGenerator hotpGenerator) : base(autoMapper)
         {
             this.unitOfWork = unitOfWork;
             this.secretGenerator = secretGenerator;
@@ -48,6 +49,7 @@ namespace PicnicAuth.Api.Controllers
             this.totpValidator = totpValidator;
             this.base32Encoder = base32Encoder;
             this.otpQrCodeUriGenerator = otpQrCodeUriGenerator;
+            this.hotpGenerator = hotpGenerator;
         }
 
         /// <summary>
@@ -100,9 +102,38 @@ namespace PicnicAuth.Api.Controllers
             if (authUser == null) return NotFound();
             byte[] decryptedSecret = dpapiDecryptor.DecryptToBytes(authUser.Secret);
 
-            var totpPassword = new TotpPassword {TotpValue = totpGenerator.GenerateTotp(decryptedSecret)};
+            var totpPassword = new OneTimePassword {OtpValue = totpGenerator.GenerateTotp(decryptedSecret)};
 
             return Ok(totpPassword);
+        }
+
+        /// <summary>
+        /// Get Totp for a user
+        /// </summary>
+        /// <returns>Totp</returns>
+        [SwaggerResponse(HttpStatusCode.Created, Description = "Company account created")]
+        [SwaggerResponse(HttpStatusCode.BadRequest, Description = "Provided data was not valid")]
+        [Route("api/AuthUsers/{userId}/hotp")]
+        [HttpGet]
+        [Authorize]
+        public IHttpActionResult GetHotpForUser(Guid userId)
+        {
+            IGenericRepository<CompanyAccount> companyRepository = unitOfWork.Repository<CompanyAccount>();
+            IGenericRepository<AuthUser> authUserRepository = unitOfWork.Repository<AuthUser>();
+
+            string loggedCompanyId = RequestContext.Principal.Identity.GetUserId();
+            CompanyAccount loggedCompany = companyRepository.GetById(loggedCompanyId);
+
+            AuthUser authUser = loggedCompany.AuthUsers.SingleOrDefault(user => user.Id == userId);
+            if (authUser == null) return NotFound();
+            byte[] decryptedSecret = dpapiDecryptor.DecryptToBytes(authUser.Secret);
+
+            var hotpPassword = new OneTimePassword { OtpValue = hotpGenerator.GenerateHotp(authUser.HotpCounter, decryptedSecret) };
+            authUser.HotpCounter++;
+            companyRepository.Edit(loggedCompany);
+            companyRepository.Save();
+
+            return Ok(hotpPassword);
         }
 
         /// <summary>

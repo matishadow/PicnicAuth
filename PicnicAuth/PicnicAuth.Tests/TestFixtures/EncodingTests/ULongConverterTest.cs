@@ -18,7 +18,7 @@ namespace PicnicAuth.Tests.TestFixtures.EncodingTests
         [TestCase(0U, ExpectedResult = new byte[] {0, 0, 0, 0, 0, 0, 0, 0})]
         [TestCase(ulong.MaxValue, 
             ExpectedResult = new byte[] {0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff })]
-        public byte[] TestConvertToBytesBigEndian(ulong input)
+        public byte[] TestConvertToBytesBigEndian(long input)
         {
             return converter.ConvertToBytesBigEndian(input);
         }
