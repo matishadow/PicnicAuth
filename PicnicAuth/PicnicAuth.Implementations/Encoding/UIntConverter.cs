@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Linq;
 using PicnicAuth.Interfaces.Encoding;
+using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Implementations.Encoding
 {
-    public class UIntConverter : IUIntConverter
+    public class UIntConverter : IUIntConverter, IRequestDependency
     {
         private const int IntSize = sizeof(int);
 

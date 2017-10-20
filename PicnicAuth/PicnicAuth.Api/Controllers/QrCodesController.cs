@@ -29,20 +29,23 @@ namespace PicnicAuth.Api.Controllers
     public class QrCodesController : ApiController
     {
         private readonly IQrCodeGenerator qrCodeGenerator;
-        private readonly IKeyUriCreator keyUriCreator;
         private readonly IHttpResponseMessageCreator httpResponseMessageCreator;
         private readonly IUnitOfWork unitOfWork;
         private readonly IDpapiDecryptor dpapiDecryptor;
+        private readonly IOtpQrCodeGenerator otpQrCodeGenerator;
+        private readonly IBase32Encoder base32Encoder;
 
         public QrCodesController(IQrCodeGenerator qrCodeGenerator,
-            IKeyUriCreator keyUriCreator, IHttpResponseMessageCreator httpResponseMessageCreator,
-            IUnitOfWork unitOfWork, IDpapiDecryptor dpapiDecryptor)
+            IHttpResponseMessageCreator httpResponseMessageCreator,
+            IUnitOfWork unitOfWork, IDpapiDecryptor dpapiDecryptor, 
+            IOtpQrCodeGenerator otpQrCodeGenerator, IBase32Encoder base32Encoder)
         {
             this.qrCodeGenerator = qrCodeGenerator;
-            this.keyUriCreator = keyUriCreator;
             this.httpResponseMessageCreator = httpResponseMessageCreator;
             this.unitOfWork = unitOfWork;
             this.dpapiDecryptor = dpapiDecryptor;
+            this.otpQrCodeGenerator = otpQrCodeGenerator;
+            this.base32Encoder = base32Encoder;
         }
 
         /// <summary>
@@ -73,13 +76,14 @@ namespace PicnicAuth.Api.Controllers
             AuthUser authUser = unitOfWork.Repository<AuthUser>().GetById(authUserId);
             if (authUser == null) return new HttpResponseMessage(HttpStatusCode.NotFound);
 
-            string userSecret = dpapiDecryptor.Decrypt(authUser.Secret);
+            byte[] userSecret = dpapiDecryptor.DecryptToBytes(authUser.Secret);
+            string userSecretBase32 = base32Encoder.Encode(userSecret);
 
-            string keyUri = keyUriCreator
-                .CreateKeyUri(issuer ?? RequestContext.Principal.Identity.GetUserName(), 
-                authUser.UserName, userSecret);
-            Bitmap bitmap = qrCodeGenerator.GenerateQrCode(keyUri, pixelPerModule, level);
-            HttpResponseMessage returnMessage = httpResponseMessageCreator.CreatePngResponse(bitmap);
+            Bitmap otpBitmap =
+                otpQrCodeGenerator.GenerateOtpQrCode(issuer
+                                                     ?? RequestContext.Principal.Identity.GetUserName(),
+                    authUser.UserName, userSecretBase32);
+            HttpResponseMessage returnMessage = httpResponseMessageCreator.CreatePngResponse(otpBitmap);
 
             return returnMessage;
         }

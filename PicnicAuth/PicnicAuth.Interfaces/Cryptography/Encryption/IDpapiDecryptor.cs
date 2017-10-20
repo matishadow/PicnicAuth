@@ -4,7 +4,10 @@ namespace PicnicAuth.Interfaces.Cryptography.Encryption
 {
     public interface IDpapiDecryptor
     {
-        string Decrypt(byte[] input, byte[] optionalEntropy = null,
+        string DecryptToString(byte[] input, byte[] optionalEntropy = null,
+            DataProtectionScope scope = DataProtectionScope.CurrentUser);
+
+        byte[] DecryptToBytes(byte[] input, byte[] optionalEntropy = null,
             DataProtectionScope scope = DataProtectionScope.CurrentUser);
     }
 }

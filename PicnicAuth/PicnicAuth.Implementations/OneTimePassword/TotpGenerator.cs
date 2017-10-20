@@ -2,10 +2,11 @@
 using PicnicAuth.Interfaces.Cryptography.Signature;
 using PicnicAuth.Interfaces.OneTimePassword;
 using PicnicAuth.Interfaces.Time;
+using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Implementations.OneTimePassword
 {
-    public class TotpGenerator : ITotpGenerator
+    public class TotpGenerator : ITotpGenerator, IRequestDependency
     {
         private const int TotpTimeWindow = 30;
 

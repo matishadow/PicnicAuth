@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Security.Claims;
-using System.Threading.Tasks;
 using System.Web.Http;
 using AutoMapper;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 using PicnicAuth.Database.DAL;
 using PicnicAuth.Database.DTO;
 using PicnicAuth.Database.Models;
 using PicnicAuth.Database.Models.Authentication;
-using PicnicAuth.Database.ModelValidators.Interfaces;
 using PicnicAuth.Interfaces.Cryptography.Encryption;
 using PicnicAuth.Interfaces.OneTimePassword;
 using Swashbuckle.Swagger.Annotations;
@@ -29,14 +24,22 @@ namespace PicnicAuth.Api.Controllers
         private readonly IUnitOfWork unitOfWork;
         private readonly ISecretGenerator secretGenerator;
         private readonly IDpapiEncryptor dpapiEncryptor;
+        private readonly ITotpGenerator totpGenerator;
+        private readonly IDpapiDecryptor dpapiDecryptor;
+        private readonly ITotpValidator totpValidator;
 
-        public AuthUsersController(IMapper autoMapper, IUnitOfWork unitOfWork, 
+        public AuthUsersController(IMapper autoMapper, IUnitOfWork unitOfWork,
             ISecretGenerator secretGenerator,
-            IDpapiEncryptor dpapiEncryptor) : base(autoMapper)
+            IDpapiEncryptor dpapiEncryptor, 
+            ITotpGenerator totpGenerator, 
+            IDpapiDecryptor dpapiDecryptor, ITotpValidator totpValidator) : base(autoMapper)
         {
             this.unitOfWork = unitOfWork;
             this.secretGenerator = secretGenerator;
             this.dpapiEncryptor = dpapiEncryptor;
+            this.totpGenerator = totpGenerator;
+            this.dpapiDecryptor = dpapiDecryptor;
+            this.totpValidator = totpValidator;
         }
 
         /// <summary>
@@ -66,6 +69,55 @@ namespace PicnicAuth.Api.Controllers
                     authUser.Id, loggedCompany.UserName));
 
             return Created(string.Empty, authUserDto);
+        }
+
+        /// <summary>
+        /// Get Totp for a user
+        /// </summary>
+        /// <returns>Totp</returns>
+        [SwaggerResponse(HttpStatusCode.Created, Description = "Company account created")]
+        [SwaggerResponse(HttpStatusCode.BadRequest, Description = "Provided data was not valid")]
+        [Route("api/AuthUsers/{userId}/totp")]
+        [HttpGet]
+        [Authorize]
+        public IHttpActionResult GetTotpForUser(Guid userId)
+        {
+            IGenericRepository<CompanyAccount> repository = unitOfWork.Repository<CompanyAccount>();
+            string loggedCompanyId = RequestContext.Principal.Identity.GetUserId();
+            CompanyAccount loggedCompany = repository.GetById(loggedCompanyId);
+
+            AuthUser authUser = loggedCompany.AuthUsers.SingleOrDefault(user => user.Id == userId);
+            if (authUser == null) return NotFound();
+            byte[] decryptedSecret = dpapiDecryptor.DecryptToBytes(authUser.Secret);
+
+            var totpPassword = new TotpPassword {TotpValue = totpGenerator.GenerateTotp(decryptedSecret)};
+
+            return Ok(totpPassword);
+        }
+
+        /// <summary>
+        /// Get Totp for a user
+        /// </summary>
+        /// <returns>Totp</returns>
+        [SwaggerResponse(HttpStatusCode.Created, Description = "Company account created")]
+        [SwaggerResponse(HttpStatusCode.BadRequest, Description = "Provided data was not valid")]
+        [Route("api/AuthUsers/{userId}/totp/{totp}")]
+        [HttpGet]
+        [Authorize]
+        public IHttpActionResult ValidateTotp(Guid userId, string totp)
+        {
+            IGenericRepository<CompanyAccount> repository = unitOfWork.Repository<CompanyAccount>();
+            string loggedCompanyId = RequestContext.Principal.Identity.GetUserId();
+            CompanyAccount loggedCompany = repository.GetById(loggedCompanyId);
+
+            AuthUser authUser = loggedCompany.AuthUsers.SingleOrDefault(user => user.Id == userId);
+            if (authUser == null) return NotFound();
+            byte[] decryptedSecret = dpapiDecryptor.DecryptToBytes(authUser.Secret);
+
+            bool isOtpValid = totpValidator.IsTotpValid(decryptedSecret, totp);
+            var validationResult = new OtpValidationResult {IsOtpValid = isOtpValid};
+
+            return Ok(validationResult);
         }
     }
 }
