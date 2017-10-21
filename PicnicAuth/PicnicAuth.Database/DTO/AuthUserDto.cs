@@ -2,7 +2,7 @@
 
 namespace PicnicAuth.Database.DTO
 {
-    public class AuthUserDto
+    public class AuthUserDto : DtoEntity
     {
         public string ExternalId { get; set; }
         public string UserName { get; set; }

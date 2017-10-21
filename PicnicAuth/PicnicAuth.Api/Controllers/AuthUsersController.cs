@@ -115,6 +115,39 @@ namespace PicnicAuth.Api.Controllers
         /// <returns>Totp</returns>
         [SwaggerResponse(HttpStatusCode.Created, Description = "Company account created")]
         [SwaggerResponse(HttpStatusCode.BadRequest, Description = "Provided data was not valid")]
+        [Route("api/AuthUsers/{userId}/secret")]
+        [HttpPatch]
+        [Authorize]
+        public IHttpActionResult GenerateNewSecret(Guid userId)
+        {
+            IGenericRepository<CompanyAccount> companyRepository = unitOfWork.Repository<CompanyAccount>();
+
+            string loggedCompanyId = RequestContext.Principal.Identity.GetUserId();
+            CompanyAccount loggedCompany = companyRepository.GetById(loggedCompanyId);
+
+            AuthUser authUser = loggedCompany.AuthUsers.SingleOrDefault(user => user.Id == userId);
+            if (authUser == null) return NotFound();
+
+            byte[] secret = secretGenerator.GenerateSecret();
+            authUser.Secret = dpapiEncryptor.Encrypt(secret);
+            companyRepository.Save();
+
+            AuthUserDto authUserDto = AutoMapper.Map<AuthUser, AuthUserDto>(authUser);
+            authUserDto.TotpQrCodeUri = otpQrCodeUriGenerator
+                .GenerateQrCodeUri(OtpType.Totp, Request, authUser.Id, loggedCompany.UserName);
+            authUserDto.HotpQrCodeUri = otpQrCodeUriGenerator
+                .GenerateQrCodeUri(OtpType.Hotp, Request, authUser.Id, loggedCompany.UserName);
+            authUserDto.SecretInBase32 = base32Encoder.Encode(secret);
+
+            return Ok(authUserDto);
+        }
+
+        /// <summary>
+        /// Get Totp for a user
+        /// </summary>
+        /// <returns>Totp</returns>
+        [SwaggerResponse(HttpStatusCode.Created, Description = "Company account created")]
+        [SwaggerResponse(HttpStatusCode.BadRequest, Description = "Provided data was not valid")]
         [Route("api/AuthUsers/{userId}/hotp")]
         [HttpGet]
         [Authorize]
