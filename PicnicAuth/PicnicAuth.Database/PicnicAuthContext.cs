@@ -14,7 +14,7 @@ namespace PicnicAuth.Database
 {
     public class PicnicAuthContext : IdentityDbContext<CompanyAccount, IdentityRole, string, IdentityUserLogin, IdentityUserRole, IdentityUserClaim>, ISelfRequestDependency
     {
-        public PicnicAuthContext() : base("picnicauthdb")
+        public PicnicAuthContext() : base("name=picnicauthdb")
         {
             System.Data.Entity.Database.SetInitializer(new PicnicAuthDatabaseInitializer());
         }
