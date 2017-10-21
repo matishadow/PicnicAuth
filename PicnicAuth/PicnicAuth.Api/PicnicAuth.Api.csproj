@@ -243,7 +243,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\Bootstrapper.cs" />
+    <Compile Include="App_Start\IocInstaller.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -333,6 +333,10 @@
       <Project>{677656d1-a4e1-4236-a438-e74b3104d001}</Project>
       <Name>PicnicAuth.Database</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PicnicAuth.Dto\PicnicAuth.Dto.csproj">
+      <Project>{c9c28516-9531-4e89-95a7-856f4e9a8890}</Project>
+      <Name>PicnicAuth.Dto</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PicnicAuth.Enums\PicnicAuth.Enums.csproj">
       <Project>{22E102CD-D00B-407E-9C8C-8467D91E7105}</Project>
       <Name>PicnicAuth.Enums</Name>
@@ -344,6 +348,10 @@
     <ProjectReference Include="..\PicnicAuth.Interfaces\PicnicAuth.Interfaces.csproj">
       <Project>{1140e30d-87f0-4be2-afae-45d1466fed0d}</Project>
       <Name>PicnicAuth.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PicnicAuth.Models\PicnicAuth.Models.csproj">
+      <Project>{7e859755-a618-4875-90ce-c85d00a84af5}</Project>
+      <Name>PicnicAuth.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

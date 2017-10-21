@@ -1,6 +1,6 @@
 ﻿using System;
+using PicnicAuth.Interfaces.Dependencies;
 using PicnicAuth.Interfaces.Encoding;
-using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Implementations.Encoding
 {

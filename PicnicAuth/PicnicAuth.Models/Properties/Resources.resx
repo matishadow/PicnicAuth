@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppetizerImageId" xml:space="preserve">
+    <value>9CCFA6BD1C364830910E4B024858DDC0</value>
+  </data>
+  <data name="AppetizerTags" xml:space="preserve">
+    <value>przystawka|appetizer</value>
+  </data>
+  <data name="ConfirmPasswordEmptyValidationMessage" xml:space="preserve">
+    <value>Pole 'Potwierdź hasło' nie może być puste.</value>
+  </data>
+  <data name="ConfirmPasswordValidationMessage" xml:space="preserve">
+    <value>Wartości w polach nowe hasło oraz potwierdzenie nowego hasła są różne.</value>
+  </data>
+  <data name="CreateRecipeDescriptionEmptyValidationMessage" xml:space="preserve">
+    <value>Opis przepisu nie może być pusty.</value>
+  </data>
+  <data name="CreateRecipeDescriptionLengthValidationMessage" xml:space="preserve">
+    <value>Opis przepisu nie może przekraczać {0} znaków.</value>
+  </data>
+  <data name="CreateRecipeIngredientsEmptyValidationMessage" xml:space="preserve">
+    <value>W przepisie musi znajdować się przynajmniej jeden składnik.</value>
+  </data>
+  <data name="CreateRecipeIngredientsExistsValidationMessage" xml:space="preserve">
+    <value>Przynajmniej jeden ze składników nie znajduje się w bazie danych.</value>
+  </data>
+  <data name="CreateRecipeTitleEmptyValidationMessage" xml:space="preserve">
+    <value>Nazwa przepisu nie może być pusta.</value>
+  </data>
+  <data name="CreateRecipeTitleLengthValidationMessage" xml:space="preserve">
+    <value>Nazwa przepisu nie może przekraczać 100 znaków.</value>
+  </data>
+  <data name="CurrentPasswordEmptyValidationMessage" xml:space="preserve">
+    <value>Pole 'Hasło' nie może być puste.</value>
+  </data>
+  <data name="CurrentPasswordValidationError" xml:space="preserve">
+    <value>Podane hasło nie jest poprawne.</value>
+  </data>
+  <data name="DessertImageId" xml:space="preserve">
+    <value>43410B819BFB4FDC8F5BF892976FEE47</value>
+  </data>
+  <data name="DessertTags" xml:space="preserve">
+    <value>deser|desssert|sweet</value>
+  </data>
+  <data name="DiGgeRetsae" xml:space="preserve">
+    <value>F62716B6F62716B6F62716B6F62716B6</value>
+  </data>
+  <data name="EditIngredientQuantityDescriptionValidationMessage" xml:space="preserve">
+    <value>Długość opisu nie może przekraczać 100 znaków.</value>
+  </data>
+  <data name="EmailEmptyValidationMessage" xml:space="preserve">
+    <value>Pole 'Adres e-mail' nie może być puste.</value>
+  </data>
+  <data name="EmailExistsValidationMessage" xml:space="preserve">
+    <value>Podany adres email jest już zajęty.</value>
+  </data>
+  <data name="EmailRegexValidationMessage" xml:space="preserve">
+    <value>Podany adres email nie przechodzi walidacji wyrażeniem regularnym.</value>
+  </data>
+  <data name="EmptyCommentValidationMessage" xml:space="preserve">
+    <value>Komentarz nie może być pusty.</value>
+  </data>
+  <data name="EmptyGenericValidationMessage" xml:space="preserve">
+    <value>Pole {0} nie może być puste.</value>
+  </data>
+  <data name="GenericNotOwnerDeleteMessage" xml:space="preserve">
+    <value>Nie możesz usunąć czyjegoś rekordu.</value>
+  </data>
+  <data name="GenericNowOwnerPutMessage" xml:space="preserve">
+    <value>Nie możesz edytować czyjegoś rekordu.</value>
+  </data>
+  <data name="IngredientNameEmptyValidationMessage" xml:space="preserve">
+    <value>Nazwa składnika nie może być pusta.</value>
+  </data>
+  <data name="IngredientNameLengthValidationMessage" xml:space="preserve">
+    <value>Nazwa składnika musi mieścić się w granicach 1-100 znaków.</value>
+  </data>
+  <data name="IngredientNameUniqueValidationMessage" xml:space="preserve">
+    <value>Mamy już składnik o takiej nazwie i w tej jednostce.</value>
+  </data>
+  <data name="IngredientQuantityIngredientValidationMessage" xml:space="preserve">
+    <value>Składnik o podanym Id nie istnieje.</value>
+  </data>
+  <data name="IngredientQuantityQuantityValidationMessage" xml:space="preserve">
+    <value>Ilość musi być liczbą dodatnią.</value>
+  </data>
+  <data name="IngredientUnitExistMessage" xml:space="preserve">
+    <value>Jednostka o podanym Id nie istnieje.</value>
+  </data>
+  <data name="InputCommentValidationMessage" xml:space="preserve">
+    <value>Komentarz nie może przekraczać {0} znaków.</value>
+  </data>
+  <data name="LoginEmptyValidationMessage" xml:space="preserve">
+    <value>Pole 'Login' nie może być puste.</value>
+  </data>
+  <data name="MainCourseImageId" xml:space="preserve">
+    <value>A9DF6800D94C4149B4AD47E46CC9BD1E</value>
+  </data>
+  <data name="NewPasswordEmptyValidationMessage" xml:space="preserve">
+    <value>Pole 'Nowe hasło' nie może być puste.</value>
+  </data>
+  <data name="PasswordLengthValidationMessage" xml:space="preserve">
+    <value>Hasło musi składać się z minimum {0} znaków.</value>
+  </data>
+  <data name="RateEmptyValidationMessage" xml:space="preserve">
+    <value>Ocena nie może być pusta.</value>
+  </data>
+  <data name="RateValidationMessage" xml:space="preserve">
+    <value>Ocena musi mieścić się w skali 0-10 (liczba całkowita)</value>
+  </data>
+  <data name="RecipeNoteEmptyValidationMessage" xml:space="preserve">
+    <value>Pole notatka nie może być puste.</value>
+  </data>
+  <data name="RecipeNoteLengthValidationMessage" xml:space="preserve">
+    <value>Notatka nie może być dłuższ niż 200 znaków.</value>
+  </data>
+  <data name="RecipeNoteRecipeExistsValidationMessage" xml:space="preserve">
+    <value>Przepis o podanym RecipeId nie istnieje.</value>
+  </data>
+  <data name="RecipeNoteRecipeIdEmptyValidationMessage" xml:space="preserve">
+    <value>Pole RecipeId nie może być puste.</value>
+  </data>
+  <data name="TagsDelimiter" xml:space="preserve">
+    <value>|</value>
+  </data>
+  <data name="UnitEmptyValidationMessage" xml:space="preserve">
+    <value>Nazwa jednostki nie może być pusta.</value>
+  </data>
+  <data name="UnitExistsValidationMessage" xml:space="preserve">
+    <value>Jednostka o takiej nazwie już istnieje.</value>
+  </data>
+  <data name="UnitValidationMessage" xml:space="preserve">
+    <value>Nazwa jednostki musi mieścić się w granicach 1-50 znaków.</value>
+  </data>
+  <data name="UsernameExistsValidationMessage" xml:space="preserve">
+    <value>Użytkownik o podanej nazwie już istnieje.</value>
+  </data>
+</root>

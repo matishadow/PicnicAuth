@@ -6,15 +6,15 @@ using AutoMapper;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using PicnicAuth.Database.DAL;
-using PicnicAuth.Database.DTO;
-using PicnicAuth.Database.Models.Authentication;
-using PicnicAuth.Database.ModelValidators.Interfaces;
 using Swashbuckle.Swagger.Annotations;
+using PicnicAuth.Dto;
+using PicnicAuth.Interfaces.Validation;
+using PicnicAuth.Models.Authentication;
 
 namespace PicnicAuth.Api.Controllers
 {
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     public class CompaniesController : BasePicnicAuthController
     {
@@ -76,7 +76,7 @@ namespace PicnicAuth.Api.Controllers
         [AllowAnonymous]
         public async Task<HttpResponseMessage> Register(RegisterBindingModel model)
         {
-            var companyAccount = new CompanyAccount {UserName = model.UserName, Email = model.Email};
+            CompanyAccount companyAccount = AutoMapper.Map<RegisterBindingModel, CompanyAccount>(model);
 
             IdentityResult result = await CompanyManager.CreateAsync(companyAccount, model.Password);
 

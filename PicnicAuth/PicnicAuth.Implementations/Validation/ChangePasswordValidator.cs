@@ -1,0 +1,30 @@
+﻿using FluentValidation;
+using PicnicAuth.Interfaces.Dependencies;
+using PicnicAuth.Interfaces.Validation;
+using PicnicAuth.Models.Authentication;
+
+namespace PicnicAuth.Implementations.Validation
+{
+    public class ChangePasswordValidator : AbstractContinueValidator<ChangePasswordBindingModel>, IChangePasswordValidator, IRequestDependency
+    {
+        public ChangePasswordValidator()
+        {
+            const int minimalPasswordLength = 10;
+
+            RuleFor(changePassword => changePassword.OldPassword)
+                .NotEmpty()
+                .WithMessage(Models.Properties.Resources.CurrentPasswordEmptyValidationMessage);
+
+            RuleFor(changePassword => changePassword.NewPassword)
+                .NotEmpty()
+                .WithMessage(Models.Properties.Resources.NewPasswordEmptyValidationMessage)
+                .Length(minimalPasswordLength, 100)
+                .WithMessage(string.Format(Models.Properties.Resources.PasswordLengthValidationMessage,
+                    minimalPasswordLength));
+
+            RuleFor(changePassword => changePassword.ConfirmPassword)
+                .Equal(changePassword => changePassword.NewPassword)
+                .WithMessage(Models.Properties.Resources.ConfirmPasswordValidationMessage);
+        }
+    }
+}

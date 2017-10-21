@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Net.Http;
 using PicnicAuth.Enums;
+using PicnicAuth.Interfaces.Dependencies;
 using PicnicAuth.Interfaces.Web;
-using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Implementations.Web
 {

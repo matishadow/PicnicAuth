@@ -5,20 +5,20 @@ using System.Web.Http;
 using AutoMapper;
 using Microsoft.AspNet.Identity;
 using PicnicAuth.Database.DAL;
-using PicnicAuth.Database.DTO;
-using PicnicAuth.Database.Models;
-using PicnicAuth.Database.Models.Authentication;
+using PicnicAuth.Dto;
 using PicnicAuth.Enums;
 using PicnicAuth.Interfaces.Cryptography.Encryption;
 using PicnicAuth.Interfaces.Encoding;
 using PicnicAuth.Interfaces.OneTimePassword;
 using PicnicAuth.Interfaces.Web;
+using PicnicAuth.Models;
+using PicnicAuth.Models.Authentication;
 using Swashbuckle.Swagger.Annotations;
 
 namespace PicnicAuth.Api.Controllers
 {
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     public class AuthUsersSecretsController : BasePicnicAuthController
     {
@@ -28,8 +28,8 @@ namespace PicnicAuth.Api.Controllers
         private readonly IBase32Encoder base32Encoder;
         private readonly IOtpQrCodeUriGenerator otpQrCodeUriGenerator;
 
+        /// <inheritdoc />
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="autoMapper"></param>
         /// <param name="unitOfWork"></param>

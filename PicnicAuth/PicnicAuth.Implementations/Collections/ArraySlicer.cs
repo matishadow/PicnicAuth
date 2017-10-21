@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using PicnicAuth.Interfaces.Collections;
-using PicnicAuth.ServiceInterfaces.Dependencies;
+using PicnicAuth.Interfaces.Dependencies;
 
 namespace PicnicAuth.Implementations.Collections
 {

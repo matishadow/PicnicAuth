@@ -5,18 +5,18 @@ using System.Net.Http;
 using System.Web.Http;
 using Microsoft.AspNet.Identity;
 using PicnicAuth.Database.DAL;
-using PicnicAuth.Database.Models;
 using PicnicAuth.Enums;
 using PicnicAuth.Interfaces.Cryptography.Encryption;
 using PicnicAuth.Interfaces.Encoding;
 using PicnicAuth.Interfaces.OneTimePassword;
 using PicnicAuth.Interfaces.Web;
+using PicnicAuth.Models;
 using QRCoder;
 
 namespace PicnicAuth.Api.Controllers
 {
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     public class QrCodesController : ApiController
     {
@@ -27,6 +27,15 @@ namespace PicnicAuth.Api.Controllers
         private readonly IOtpQrCodeGenerator otpQrCodeGenerator;
         private readonly IBase32Encoder base32Encoder;
 
+        /// <inheritdoc />
+        /// <summary>
+        /// </summary>
+        /// <param name="qrCodeGenerator"></param>
+        /// <param name="httpResponseMessageCreator"></param>
+        /// <param name="unitOfWork"></param>
+        /// <param name="dpapiDecryptor"></param>
+        /// <param name="otpQrCodeGenerator"></param>
+        /// <param name="base32Encoder"></param>
         public QrCodesController(IQrCodeGenerator qrCodeGenerator,
             IHttpResponseMessageCreator httpResponseMessageCreator,
             IUnitOfWork unitOfWork, IDpapiDecryptor dpapiDecryptor, 

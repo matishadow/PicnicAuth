@@ -2,9 +2,9 @@
 using System.Linq;
 using PicnicAuth.Enums;
 using PicnicAuth.Interfaces.Collections;
+using PicnicAuth.Interfaces.Dependencies;
 using PicnicAuth.Interfaces.Encoding;
 using PicnicAuth.Interfaces.OneTimePassword;
-using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Implementations.OneTimePassword
 {

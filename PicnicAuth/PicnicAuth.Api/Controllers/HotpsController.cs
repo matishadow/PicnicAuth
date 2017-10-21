@@ -5,20 +5,16 @@ using System.Web.Http;
 using AutoMapper;
 using Microsoft.AspNet.Identity;
 using PicnicAuth.Database.DAL;
-using PicnicAuth.Database.DTO;
-using PicnicAuth.Database.Models;
-using PicnicAuth.Database.Models.Authentication;
-using PicnicAuth.Enums;
 using PicnicAuth.Interfaces.Cryptography.Encryption;
-using PicnicAuth.Interfaces.Encoding;
 using PicnicAuth.Interfaces.OneTimePassword;
-using PicnicAuth.Interfaces.Web;
+using PicnicAuth.Models;
+using PicnicAuth.Models.Authentication;
 using Swashbuckle.Swagger.Annotations;
 
 namespace PicnicAuth.Api.Controllers
 {
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     public class HotpsController : BasePicnicAuthController
     {
@@ -27,8 +23,8 @@ namespace PicnicAuth.Api.Controllers
         private readonly IDpapiDecryptor dpapiDecryptor;
         private readonly IHotpValidator hotpValidator;
 
+        /// <inheritdoc />
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="autoMapper"></param>
         /// <param name="unitOfWork"></param>

@@ -3,8 +3,8 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using PicnicAuth.Interfaces.Cryptography.Signature;
+using PicnicAuth.Interfaces.Dependencies;
 using PicnicAuth.Interfaces.Encoding;
-using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Implementations.Cryptography.Signature
 {

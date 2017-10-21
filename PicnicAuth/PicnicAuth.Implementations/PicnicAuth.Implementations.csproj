@@ -91,13 +91,23 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Time\UnixTimestampGetter.cs" />
+    <Compile Include="Validation\AbstractContinueValidator.cs" />
+    <Compile Include="Validation\AbstractDatabaseValidator.cs" />
+    <Compile Include="Validation\ChangePasswordValidator.cs" />
+    <Compile Include="Validation\RegisterValidator.cs" />
+    <Compile Include="Validation\SetPasswordValidator.cs" />
     <Compile Include="Web\HttpResponseMessageCreator.cs" />
     <Compile Include="Web\OtpQrCodeUriGenerator.cs" />
+    <Compile Include="Web\AuthUserDtoFiller.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PicnicAuth.Database\PicnicAuth.Database.csproj">
       <Project>{677656d1-a4e1-4236-a438-e74b3104d001}</Project>
       <Name>PicnicAuth.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PicnicAuth.Dto\PicnicAuth.Dto.csproj">
+      <Project>{c9c28516-9531-4e89-95a7-856f4e9a8890}</Project>
+      <Name>PicnicAuth.Dto</Name>
     </ProjectReference>
     <ProjectReference Include="..\PicnicAuth.Enums\PicnicAuth.Enums.csproj">
       <Project>{22e102cd-d00b-407e-9c8c-8467d91e7105}</Project>
@@ -106,6 +116,10 @@
     <ProjectReference Include="..\PicnicAuth.Interfaces\PicnicAuth.Interfaces.csproj">
       <Project>{1140e30d-87f0-4be2-afae-45d1466fed0d}</Project>
       <Name>PicnicAuth.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PicnicAuth.Models\PicnicAuth.Models.csproj">
+      <Project>{7E859755-A618-4875-90CE-C85D00A84AF5}</Project>
+      <Name>PicnicAuth.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

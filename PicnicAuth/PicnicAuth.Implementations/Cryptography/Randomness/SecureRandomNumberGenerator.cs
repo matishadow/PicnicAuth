@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 using PicnicAuth.Interfaces.Cryptography.Randomness;
-using PicnicAuth.ServiceInterfaces.Dependencies;
+using PicnicAuth.Interfaces.Dependencies;
 
 namespace PicnicAuth.Implementations.Cryptography.Randomness
 {
