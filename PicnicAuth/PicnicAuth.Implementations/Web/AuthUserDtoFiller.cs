@@ -1,5 +1,4 @@
-﻿using System;
-using System.Net.Http;
+﻿using System.Net.Http;
 using PicnicAuth.Dto;
 using PicnicAuth.Enums;
 using PicnicAuth.Interfaces.Dependencies;

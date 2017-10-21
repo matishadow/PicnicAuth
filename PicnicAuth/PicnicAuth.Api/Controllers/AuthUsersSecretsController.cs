@@ -27,6 +27,7 @@ namespace PicnicAuth.Api.Controllers
         private readonly IDpapiEncryptor dpapiEncryptor;
         private readonly IBase32Encoder base32Encoder;
         private readonly IOtpQrCodeUriGenerator otpQrCodeUriGenerator;
+        private readonly IAuthUserDtoFiller authUserDtoFiller;
 
         /// <inheritdoc />
         /// <summary>
@@ -37,15 +38,18 @@ namespace PicnicAuth.Api.Controllers
         /// <param name="dpapiEncryptor"></param>
         /// <param name="base32Encoder"></param>
         /// <param name="otpQrCodeUriGenerator"></param>
-        public AuthUsersSecretsController(IMapper autoMapper, IUnitOfWork unitOfWork, 
-            ISecretGenerator secretGenerator, IDpapiEncryptor dpapiEncryptor, 
-            IBase32Encoder base32Encoder, IOtpQrCodeUriGenerator otpQrCodeUriGenerator) : base(autoMapper)
+        /// <param name="authUserDtoFiller"></param>
+        public AuthUsersSecretsController(IMapper autoMapper, IUnitOfWork unitOfWork,
+            ISecretGenerator secretGenerator, IDpapiEncryptor dpapiEncryptor,
+            IBase32Encoder base32Encoder, IOtpQrCodeUriGenerator otpQrCodeUriGenerator,
+            IAuthUserDtoFiller authUserDtoFiller) : base(autoMapper)
         {
             this.unitOfWork = unitOfWork;
             this.secretGenerator = secretGenerator;
             this.dpapiEncryptor = dpapiEncryptor;
             this.base32Encoder = base32Encoder;
             this.otpQrCodeUriGenerator = otpQrCodeUriGenerator;
+            this.authUserDtoFiller = authUserDtoFiller;
         }
 
         /// <summary>
@@ -72,11 +76,8 @@ namespace PicnicAuth.Api.Controllers
             companyRepository.Save();
 
             AuthUserDto authUserDto = AutoMapper.Map<AuthUser, AuthUserDto>(authUser);
-            authUserDto.TotpQrCodeUri = otpQrCodeUriGenerator
-                .GenerateQrCodeUri(OtpType.Totp, Request, authUser.Id, loggedCompany.UserName);
-            authUserDto.HotpQrCodeUri = otpQrCodeUriGenerator
-                .GenerateQrCodeUri(OtpType.Hotp, Request, authUser.Id, loggedCompany.UserName);
-            authUserDto.SecretInBase32 = base32Encoder.Encode(secret);
+            authUserDtoFiller.FillAuthUserDto(
+                authUserDto, Request, authUser, loggedCompany, secret, otpQrCodeUriGenerator, base32Encoder);
 
             return Ok(authUserDto);
         }

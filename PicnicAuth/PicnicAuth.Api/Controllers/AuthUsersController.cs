@@ -25,6 +25,7 @@ namespace PicnicAuth.Api.Controllers
         private readonly IDpapiEncryptor dpapiEncryptor;
         private readonly IBase32Encoder base32Encoder;
         private readonly IOtpQrCodeUriGenerator otpQrCodeUriGenerator;
+        private readonly IAuthUserDtoFiller authUserDtoFiller;
 
         /// <inheritdoc />
         /// <summary>
@@ -35,15 +36,17 @@ namespace PicnicAuth.Api.Controllers
         /// <param name="dpapiEncryptor"></param>
         /// <param name="base32Encoder"></param>
         /// <param name="otpQrCodeUriGenerator"></param>
+        /// <param name="authUserDtoFiller"></param>
         public AuthUsersController(IMapper autoMapper, IUnitOfWork unitOfWork, ISecretGenerator secretGenerator,
             IDpapiEncryptor dpapiEncryptor, IBase32Encoder base32Encoder,
-            IOtpQrCodeUriGenerator otpQrCodeUriGenerator) : base(autoMapper)
+            IOtpQrCodeUriGenerator otpQrCodeUriGenerator, IAuthUserDtoFiller authUserDtoFiller) : base(autoMapper)
         {
             this.unitOfWork = unitOfWork;
             this.secretGenerator = secretGenerator;
             this.dpapiEncryptor = dpapiEncryptor;
             this.base32Encoder = base32Encoder;
             this.otpQrCodeUriGenerator = otpQrCodeUriGenerator;
+            this.authUserDtoFiller = authUserDtoFiller;
         }
 
         /// <summary>
@@ -58,21 +61,20 @@ namespace PicnicAuth.Api.Controllers
         public IHttpActionResult AddUser(AddAuthUser addAuthUser)
         {
             IGenericRepository<CompanyAccount> repository = unitOfWork.Repository<CompanyAccount>();
+
             string loggedCompanyId = RequestContext.Principal.Identity.GetUserId();
             CompanyAccount loggedCompany = repository.GetById(loggedCompanyId);
-
             AuthUser authUser = AutoMapper.Map<AddAuthUser, AuthUser>(addAuthUser);
+
             byte[] secret = secretGenerator.GenerateSecret();
             authUser.Secret = dpapiEncryptor.Encrypt(secret);
+
             loggedCompany.AuthUsers.Add(authUser);
             repository.Save();
 
             AuthUserDto authUserDto = AutoMapper.Map<AuthUser, AuthUserDto>(authUser);
-            authUserDto.TotpQrCodeUri = otpQrCodeUriGenerator
-                .GenerateQrCodeUri(OtpType.Totp, Request, authUser.Id, loggedCompany.UserName);
-            authUserDto.HotpQrCodeUri = otpQrCodeUriGenerator
-                .GenerateQrCodeUri(OtpType.Hotp, Request, authUser.Id, loggedCompany.UserName);
-            authUserDto.SecretInBase32 = base32Encoder.Encode(secret);
+            authUserDtoFiller.FillAuthUserDto(
+                authUserDto, Request, authUser, loggedCompany, secret, otpQrCodeUriGenerator, base32Encoder);
 
             return Created(string.Empty, authUserDto);
         }
