@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentValidation, Version=6.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.6.4.1\lib\Net45\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="QRCoder, Version=1.2.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\QRCoder.1.2.2\lib\net40\QRCoder.dll</HintPath>
     </Reference>
@@ -37,7 +43,13 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\QRCoder.1.2.2\lib\net40\UnityEngine.dll</HintPath>
     </Reference>
@@ -79,9 +91,13 @@
     <Compile Include="OneTimePassword\IOtpTruncator.cs" />
     <Compile Include="OneTimePassword\ISecretGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ICrudService.cs" />
     <Compile Include="Time\IUnixTimestampGetter.cs" />
+    <Compile Include="Validation\IAbstractDatabaseValidator.cs" />
+    <Compile Include="Validation\IChangePasswordValidator.cs" />
+    <Compile Include="Validation\IRegisterValidator.cs" />
+    <Compile Include="Web\IAuthUserDtoFiller.cs" />
     <Compile Include="Web\IHttpResponseMessageCreator.cs" />
+    <Compile Include="Web\ILoggedCompanyGetter.cs" />
     <Compile Include="Web\IOtpQrCodeUriGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -89,12 +105,19 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PicnicAuth.Dto\PicnicAuth.Dto.csproj">
+      <Project>{c9c28516-9531-4e89-95a7-856f4e9a8890}</Project>
+      <Name>PicnicAuth.Dto</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PicnicAuth.Enums\PicnicAuth.Enums.csproj">
       <Project>{22e102cd-d00b-407e-9c8c-8467d91e7105}</Project>
       <Name>PicnicAuth.Enums</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PicnicAuth.Models\PicnicAuth.Models.csproj">
+      <Project>{7e859755-a618-4875-90ce-c85d00a84af5}</Project>
+      <Name>PicnicAuth.Models</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

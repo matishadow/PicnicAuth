@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Net;
 using System.Web.Http.Description;
-using PicnicAuth.Database.Models.Authentication;
+using PicnicAuth.Models.Authentication;
 using Swashbuckle.Swagger;
 
 namespace PicnicAuth.Api.Filters

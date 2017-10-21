@@ -10,8 +10,6 @@ namespace PicnicAuth.Implementations.Cryptography.Encryption
         private readonly IKeyDerivation keyDerivation;
         private readonly ICryptoTransformApplier cryptoTransformApplier;
 
-        private const int DerivationIterations = 1000;
-
         public Encryptor(IRijndaelManagedCreator rijndaelManagedCreator, 
             IKeyDerivation keyDerivation, ICryptoTransformApplier cryptoTransformApplier)
         {

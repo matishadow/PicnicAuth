@@ -1,7 +1,7 @@
 ﻿using System;
 using PicnicAuth.Interfaces.Cryptography.Signature;
+using PicnicAuth.Interfaces.Dependencies;
 using PicnicAuth.Interfaces.OneTimePassword;
-using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Implementations.OneTimePassword
 {

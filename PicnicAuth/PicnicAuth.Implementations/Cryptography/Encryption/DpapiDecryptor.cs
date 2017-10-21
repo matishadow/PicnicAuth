@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 using PicnicAuth.Interfaces.Cryptography.Encryption;
-using PicnicAuth.ServiceInterfaces.Dependencies;
+using PicnicAuth.Interfaces.Dependencies;
 
 namespace PicnicAuth.Implementations.Cryptography.Encryption
 {

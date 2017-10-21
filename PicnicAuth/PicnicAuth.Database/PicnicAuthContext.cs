@@ -6,9 +6,9 @@ using System.Data.Entity.ModelConfiguration.Configuration;
 using System.Linq;
 using System.Reflection;
 using Microsoft.AspNet.Identity.EntityFramework;
-using PicnicAuth.Database.Models;
-using PicnicAuth.Database.Models.Authentication;
-using PicnicAuth.ServiceInterfaces.Dependencies;
+using PicnicAuth.Interfaces.Dependencies;
+using PicnicAuth.Models;
+using PicnicAuth.Models.Authentication;
 
 namespace PicnicAuth.Database
 {

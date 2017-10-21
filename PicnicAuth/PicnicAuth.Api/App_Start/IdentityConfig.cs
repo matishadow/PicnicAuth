@@ -4,7 +4,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.DataProtection;
 using PicnicAuth.Database;
-using PicnicAuth.Database.Models.Authentication;
+using PicnicAuth.Models.Authentication;
 
 namespace PicnicAuth.Api
 {

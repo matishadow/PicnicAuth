@@ -15,7 +15,7 @@ namespace PicnicAuth.Api
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            Bootstrapper.Run();
+            IocInstaller.Run();
         }
     }
 }

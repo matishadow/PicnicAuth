@@ -1,9 +1,9 @@
 ﻿using System.Drawing;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using PicnicAuth.Interfaces.Dependencies;
 using PicnicAuth.Interfaces.Image;
 using PicnicAuth.Interfaces.Web;
-using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Implementations.Web
 {
