@@ -16,7 +16,7 @@ namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
         private const string Hotp3 = "120699";
         private const ulong ExampleCounter = 1000;
 
-        private IHotpVerifier verifier;
+        private IHotpValidator validator;
 
         [SetUp]
         public void SetUp()
@@ -29,7 +29,7 @@ namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
             mockHotpGenerator.Setup(generator => generator.GenerateHotp(1000, ExampleSecret))
                 .Returns(Hotp3);
 
-            verifier = new HotpVerifier(mockHotpGenerator.Object);
+            validator = new HotpValidator(mockHotpGenerator.Object);
         }
 
         [TestCase(ulong.MinValue, new byte[] {0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x21, 0xde, 0xad, 0xbe, 0xef}, Hotp1,
@@ -46,7 +46,7 @@ namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
             ExpectedResult = false)]
         public bool TestIsHotpValid(long counter, byte[] secret, string hotp)
         {
-            return verifier.IsHotpValid(counter, secret, hotp);
+            return validator.IsHotpValid(counter, secret, hotp);
         }
 
         [TestCase(ulong.MinValue, null, "334257")]
@@ -54,7 +54,7 @@ namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
         [TestCase(ulong.MinValue, null, null)]
         public void TestGenerateHotpNullArgument(long counter, byte[] secret, string hotp)
         {
-            Assert.That(() => verifier.IsHotpValid(counter, secret, hotp),
+            Assert.That(() => validator.IsHotpValid(counter, secret, hotp),
                 Throws.TypeOf<ArgumentNullException>());
         }
 
@@ -63,7 +63,7 @@ namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
         [TestCase(ulong.MinValue, new byte[] { }, "")]
         public void TestGenerateHotpEmptySecretOrHotp(long counter, byte[] secret, string hotp)
         {
-            Assert.That(() => verifier.IsHotpValid(counter, secret, hotp),
+            Assert.That(() => validator.IsHotpValid(counter, secret, hotp),
                 Throws.TypeOf<ArgumentException>());
         }
     }

@@ -35,7 +35,7 @@ namespace PicnicAuth.Api
                 TokenEndpointPath = new PathString(tokenUri),
                 Provider = new ApplicationOAuthProvider(PublicClientId),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
-                AllowInsecureHttp = false
+                AllowInsecureHttp = System.Diagnostics.Debugger.IsAttached
             };
 
             // Enable the application to use bearer tokens to authenticate users
