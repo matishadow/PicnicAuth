@@ -40,7 +40,7 @@ namespace PicnicAuth.Implementations.OneTimePassword
             resultInt &= int.MaxValue;
             resultInt %= (uint) Math.Pow(OtpBase, otpDigits);
 
-            return resultInt.ToString();
+            return resultInt.ToString().PadLeft(otpDigits, '0');
         }
     }
 }

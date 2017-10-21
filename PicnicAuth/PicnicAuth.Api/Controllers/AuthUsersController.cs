@@ -121,7 +121,6 @@ namespace PicnicAuth.Api.Controllers
         public IHttpActionResult GetHotpForUser(Guid userId)
         {
             IGenericRepository<CompanyAccount> companyRepository = unitOfWork.Repository<CompanyAccount>();
-            IGenericRepository<AuthUser> authUserRepository = unitOfWork.Repository<AuthUser>();
 
             string loggedCompanyId = RequestContext.Principal.Identity.GetUserId();
             CompanyAccount loggedCompany = companyRepository.GetById(loggedCompanyId);
