@@ -55,9 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseService.cs" />
     <Compile Include="Collections\ArraySlicer.cs" />
-    <Compile Include="CrudService.cs" />
     <Compile Include="Cryptography\Encryption\CryptoTransformApplier.cs" />
     <Compile Include="Cryptography\Encryption\Decryptor.cs" />
     <Compile Include="Cryptography\Encryption\DpapiDecryptor.cs" />

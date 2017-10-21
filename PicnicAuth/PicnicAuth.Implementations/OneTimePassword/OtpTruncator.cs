@@ -30,7 +30,7 @@ namespace PicnicAuth.Implementations.OneTimePassword
             if (hmacSignature.Length != ValidSha1SignatureLength)
                 throw new ArgumentException(Properties.Resources.InvalidSha1LengthExceptionMessage);
 
-            int otpDigits = (int)otpLength;
+            var otpDigits = (int)otpLength;
 
             byte lastByte = hmacSignature.Last();
             int randomStartIndex = lastByte & TruncateMask;
