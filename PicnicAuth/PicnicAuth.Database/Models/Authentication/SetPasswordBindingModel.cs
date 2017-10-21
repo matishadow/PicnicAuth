@@ -1,5 +1,4 @@
 ﻿using FluentValidation.Attributes;
-using PicnicAuth.Database.ModelValidators;
 using PicnicAuth.Database.ModelValidators.Validators;
 
 namespace PicnicAuth.Database.Models.Authentication

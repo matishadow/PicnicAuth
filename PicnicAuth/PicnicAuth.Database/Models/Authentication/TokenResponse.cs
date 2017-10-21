@@ -1,4 +1,6 @@
-﻿namespace PicnicAuth.Database.Models.Authentication
+﻿// ReSharper disable InconsistentNaming
+// in order to be compatible with OAuth Clients
+namespace PicnicAuth.Database.Models.Authentication
 {
     public class TokenResponse
     {

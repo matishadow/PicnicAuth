@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Net;
+﻿using System.Net;
 using System.Net.Http;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web.Http;
 using AutoMapper;
@@ -75,7 +73,7 @@ namespace PicnicAuth.Api.Controllers
         [AllowAnonymous]
         public async Task<HttpResponseMessage> Register(RegisterBindingModel model)
         {
-            var companyAccount = new CompanyAccount {UserName = model.Login, Email = model.Email};
+            var companyAccount = new CompanyAccount {UserName = model.UserName, Email = model.Email};
 
             IdentityResult result = await CompanyManager.CreateAsync(companyAccount, model.Password);
 
@@ -93,48 +91,6 @@ namespace PicnicAuth.Api.Controllers
             }
 
             base.Dispose(disposing);
-        }
-
-        private class ExternalLoginData
-        {
-            public string LoginProvider { get; set; }
-            public string ProviderKey { get; set; }
-            public string UserName { get; set; }
-
-            public IList<Claim> GetClaims()
-            {
-                IList<Claim> claims = new List<Claim>();
-                claims.Add(new Claim(ClaimTypes.NameIdentifier, ProviderKey, null, LoginProvider));
-
-                if (UserName != null)
-                {
-                    claims.Add(new Claim(ClaimTypes.Name, UserName, null, LoginProvider));
-                }
-
-                return claims;
-            }
-
-            public static ExternalLoginData FromIdentity(ClaimsIdentity identity)
-            {
-                Claim providerKeyClaim = identity?.FindFirst(ClaimTypes.NameIdentifier);
-
-                if (string.IsNullOrEmpty(providerKeyClaim?.Issuer) || string.IsNullOrEmpty(providerKeyClaim.Value))
-                {
-                    return null;
-                }
-
-                if (providerKeyClaim.Issuer == ClaimsIdentity.DefaultIssuer)
-                {
-                    return null;
-                }
-
-                return new ExternalLoginData
-                {
-                    LoginProvider = providerKeyClaim.Issuer,
-                    ProviderKey = providerKeyClaim.Value,
-                    UserName = identity.FindFirstValue(ClaimTypes.Name)
-                };
-            }
         }
     }
 }

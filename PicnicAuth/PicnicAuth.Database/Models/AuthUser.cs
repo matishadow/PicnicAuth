@@ -4,9 +4,11 @@ namespace PicnicAuth.Database.Models
 {
     public class AuthUser : Entity
     {
+        private const int HotpStartingValue = 1;
+
         public AuthUser()
         {
-            HotpCounter = 1;
+            HotpCounter = HotpStartingValue;
         }
 
         public byte[] Secret { get; set; }
