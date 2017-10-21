@@ -19,24 +19,27 @@ namespace PicnicAuth.Api.Controllers
     public class CompaniesController : BasePicnicAuthController
     {
         private CompanyManager companyManager;
+        private CompanyManager CompanyManager =>
+            companyManager ?? Request.GetOwinContext().GetUserManager<CompanyManager>();
 
         private readonly IUnitOfWork unitOfWork;
         private readonly IChangePasswordValidator changePasswordValidator;
         private readonly IRegisterValidator registerValidator;
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="autoMapper"></param>
+        /// <param name="unitOfWork"></param>
+        /// <param name="changePasswordValidator"></param>
+        /// <param name="registerValidator"></param>
         public CompaniesController(IMapper autoMapper, IUnitOfWork unitOfWork,
-            IChangePasswordValidator changePasswordValidator, IRegisterValidator registerValidator) : base(autoMapper)
+            IChangePasswordValidator changePasswordValidator, IRegisterValidator registerValidator)
+            : base(autoMapper)
         {
             this.unitOfWork = unitOfWork;
             this.changePasswordValidator = changePasswordValidator;
             this.registerValidator = registerValidator;
-        }
-
-        public CompanyManager CompanyManager
-        {
-            get => companyManager ?? Request.GetOwinContext().GetUserManager<CompanyManager>();
-            private set => companyManager = value;
         }
 
         /// <summary>
@@ -82,6 +85,10 @@ namespace PicnicAuth.Api.Controllers
                 : Request.CreateResponse(HttpStatusCode.Created);
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// </summary>
+        /// <param name="disposing"></param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && companyManager != null)
