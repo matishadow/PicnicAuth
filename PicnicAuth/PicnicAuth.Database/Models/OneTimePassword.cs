@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace PicnicAuth.Database.Models
 {
-    public class TotpPassword
+    public class OneTimePassword
     {
-        public string TotpValue { get; set; }
+        public string OtpValue { get; set; }
     }
 }

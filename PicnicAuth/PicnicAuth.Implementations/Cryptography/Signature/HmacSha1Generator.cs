@@ -27,7 +27,7 @@ namespace PicnicAuth.Implementations.Cryptography.Signature
             return hmacsha1.ComputeHash(input);
         }
 
-        public byte[] GenerateHmacSha1Hash(ulong input, byte[] key)
+        public byte[] GenerateHmacSha1Hash(long input, byte[] key)
         {
             CheckArguments(input, key);
 

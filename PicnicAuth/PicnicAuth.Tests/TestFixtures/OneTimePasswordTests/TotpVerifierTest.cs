@@ -11,7 +11,7 @@ namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
     public class TotpVerifierTest
     {
         private static readonly byte[] ExampleSecret = { 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x21, 0xde, 0xad, 0xbe, 0xef };
-        private const ulong ExampleTimetamp = 1503511830;
+        private const long ExampleTimetamp = 1503511830;
 
         private const string ValidTotp1 = "805192";
         private const string ValidTotp2 = "238563";
@@ -24,7 +24,7 @@ namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
         [SetUp]
         public void SetUp()
         {
-            const ulong exampleTimestampInput = ExampleTimetamp / 30;
+            const long exampleTimestampInput = ExampleTimetamp / 30;
 
             var mockHotpGenerator = new Mock<IHotpGenerator>();
             mockHotpGenerator.Setup(generator => generator.GenerateHotp(exampleTimestampInput, ExampleSecret))
