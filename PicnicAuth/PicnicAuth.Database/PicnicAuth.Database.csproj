@@ -83,6 +83,8 @@
     <Compile Include="DAL\UnitOfWork.cs" />
     <Compile Include="DTO\AddAuthUser.cs" />
     <Compile Include="DTO\AuthUserDto.cs" />
+    <Compile Include="DTO\AuthUserInCompany.cs" />
+    <Compile Include="DTO\CompanyAccountDto.cs" />
     <Compile Include="DTO\DtoEntity.cs" />
     <Compile Include="Models\AuthUser.cs" />
     <Compile Include="Models\OtpValidationResult.cs" />

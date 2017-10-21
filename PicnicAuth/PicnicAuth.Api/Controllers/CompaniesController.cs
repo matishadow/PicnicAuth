@@ -4,8 +4,11 @@ using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web.Http;
+using AutoMapper;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using PicnicAuth.Database.DAL;
+using PicnicAuth.Database.DTO;
 using PicnicAuth.Database.Models.Authentication;
 using PicnicAuth.Database.ModelValidators.Interfaces;
 using Swashbuckle.Swagger.Annotations;
@@ -15,16 +18,19 @@ namespace PicnicAuth.Api.Controllers
     /// <summary>
     /// 
     /// </summary>
-    public class CompaniesController : ApiController 
+    public class CompaniesController : BasePicnicAuthController
     {
         private CompanyManager companyManager;
 
+        private readonly IUnitOfWork unitOfWork;
         private readonly IChangePasswordValidator changePasswordValidator;
         private readonly IRegisterValidator registerValidator;
 
-        public CompaniesController(IChangePasswordValidator changePasswordValidator,
-            IRegisterValidator registerValidator)
+
+        public CompaniesController(IMapper autoMapper, IUnitOfWork unitOfWork,
+            IChangePasswordValidator changePasswordValidator, IRegisterValidator registerValidator) : base(autoMapper)
         {
+            this.unitOfWork = unitOfWork;
             this.changePasswordValidator = changePasswordValidator;
             this.registerValidator = registerValidator;
         }
@@ -45,16 +51,16 @@ namespace PicnicAuth.Api.Controllers
         [Route("api/Companies/Me")]
         [HttpGet]
         [Authorize]
-        public CompanyInfoViewModel Get()
+        public IHttpActionResult GetLoggedCompany()
         {
-            ExternalLoginData externalLogin = ExternalLoginData.FromIdentity(User.Identity as ClaimsIdentity);
+            IGenericRepository<CompanyAccount> repository = unitOfWork.Repository<CompanyAccount>();
+            string loggedCompanyId = RequestContext.Principal.Identity.GetUserId();
+            CompanyAccount loggedCompany = repository.GetById(loggedCompanyId);
 
-            return new CompanyInfoViewModel
-            {
-                Login = User.Identity.GetUserName(),
-                HasRegistered = externalLogin == null,
-                LoginProvider = externalLogin?.LoginProvider
-            };
+            CompanyAccountDto companyAccountDto =
+                AutoMapper.Map<CompanyAccount, CompanyAccountDto>(loggedCompany);
+
+            return Ok(companyAccountDto);
         }
 
         /// <summary>
