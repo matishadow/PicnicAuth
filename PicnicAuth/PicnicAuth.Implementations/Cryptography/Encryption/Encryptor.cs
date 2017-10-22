@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Security.Cryptography;
 using PicnicAuth.Interfaces.Cryptography.Encryption;
+using PicnicAuth.Interfaces.Dependencies;
 
 namespace PicnicAuth.Implementations.Cryptography.Encryption
 {
-    public class Encryptor : RijndaelBasedEncryption, IEncryptor
+    public class Encryptor : RijndaelBasedEncryption, IEncryptor, IRequestDependency
     {
         private readonly IRijndaelManagedCreator rijndaelManagedCreator;
         private readonly IKeyDerivation keyDerivation;
