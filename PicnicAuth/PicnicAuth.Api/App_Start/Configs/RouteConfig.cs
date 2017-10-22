@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Swashbuckle.Application;
 
-namespace PicnicAuth.Api
+namespace PicnicAuth.Api.Configs
 {
     public class RouteConfig
     {

@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
+using PicnicAuth.Api.Configs;
 using PicnicAuth.Models.Authentication;
 
 namespace PicnicAuth.Api.Providers
@@ -16,12 +17,7 @@ namespace PicnicAuth.Api.Providers
 
         public ApplicationOAuthProvider(string publicClientId)
         {
-            if (publicClientId == null)
-            {
-                throw new ArgumentNullException(nameof(publicClientId));
-            }
-
-            this.publicClientId = publicClientId;
+            this.publicClientId = publicClientId ?? throw new ArgumentNullException(nameof(publicClientId));
         }
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)

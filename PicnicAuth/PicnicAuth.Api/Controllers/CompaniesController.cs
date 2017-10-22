@@ -5,6 +5,7 @@ using System.Web.Http;
 using AutoMapper;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using PicnicAuth.Api.Configs;
 using PicnicAuth.Database.DAL;
 using Swashbuckle.Swagger.Annotations;
 using PicnicAuth.Dto;

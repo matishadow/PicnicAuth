@@ -8,12 +8,12 @@ using Autofac.Integration.WebApi;
 using AutoMapper;
 using PicnicAuth.Interfaces.Dependencies;
 
-namespace PicnicAuth.Api
+namespace PicnicAuth.Api.Configs
 {
     /// <summary>
     /// 
     /// </summary>
-    public class IocInstaller
+    public class IocConfig
     {        
         /// <summary>
         /// 

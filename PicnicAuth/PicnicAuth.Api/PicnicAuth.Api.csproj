@@ -243,14 +243,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\IocInstaller.cs" />
-    <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Configs\CorsConfig.cs" />
+    <Compile Include="App_Start\Configs\IocConfig.cs" />
+    <Compile Include="App_Start\Configs\BundleConfig.cs" />
+    <Compile Include="App_Start\Configs\FilterConfig.cs" />
+    <Compile Include="App_Start\Configs\IdentityConfig.cs" />
+    <Compile Include="App_Start\Configs\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="App_Start\SwaggerConfig.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="App_Start\Configs\SwaggerConfig.cs" />
+    <Compile Include="App_Start\Configs\WebApiConfig.cs" />
     <Compile Include="Controllers\TotpsController.cs" />
     <Compile Include="Controllers\HotpsController.cs" />
     <Compile Include="Controllers\AuthUsersSecretsController.cs" />
