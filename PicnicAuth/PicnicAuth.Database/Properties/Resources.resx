@@ -252,4 +252,10 @@
   <data name="CurrentPasswordValidationError" xml:space="preserve">
     <value>Podane hasło nie jest poprawne.</value>
   </data>
+  <data name="SwaggerAuthUserNotFoundMessage" xml:space="preserve">
+    <value>AuthUser has not been found in logged company's collection.</value>
+  </data>
+  <data name="SwaggerCompanyNotLoggedInMessage" xml:space="preserve">
+    <value>Company is not logged in.</value>
+  </data>
 </root>

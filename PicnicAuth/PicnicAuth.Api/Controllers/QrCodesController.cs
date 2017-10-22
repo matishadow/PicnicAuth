@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Microsoft.AspNet.Identity;
 using PicnicAuth.Database.DAL;
+using PicnicAuth.Database.SwaggerResponses;
 using PicnicAuth.Enums;
 using PicnicAuth.Interfaces.Cryptography.Encryption;
 using PicnicAuth.Interfaces.Encoding;
@@ -59,7 +60,7 @@ namespace PicnicAuth.Api.Controllers
         /// <param name="pixelPerModule">The pixel size each b/w module is drawn. (default is 20)</param>
         /// <param name="level">Error correction capability level. (default is M)</param>
         /// <returns>QrCode in PNG format.</returns>
-        [SwaggerResponse(HttpStatusCode.OK, Description = "QrCode as ByteArrayContent")]
+        [SwaggerResponse(HttpStatusCode.OK)]
         [Route("api/QrCodes")]
         [HttpGet]
         public HttpResponseMessage CreateQrImage(string input, int pixelPerModule = 20,
@@ -82,8 +83,8 @@ namespace PicnicAuth.Api.Controllers
         /// <param name="type">Type of OneTimePassword. (default is TOTP)</param>
         /// <returns>QrCode in PNG format as ByteArrayConten.</returns>
         [SwaggerResponse(HttpStatusCode.OK)]
-        [SwaggerResponse(HttpStatusCode.NotFound, Description = "AuthUser has not been found in logged company's collection.")]
-        [SwaggerResponse(HttpStatusCode.Unauthorized, Description = "Company is not logged in.")]
+        [SwaggerAuthUserNotFoundResponse]
+        [SwaggerCompanyNotLoggedInResponse]
         [Route("api/QrCodes/{authUserId}")]
         //[Authorize]
         [HttpGet]

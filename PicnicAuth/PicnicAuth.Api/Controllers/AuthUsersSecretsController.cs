@@ -5,6 +5,7 @@ using System.Web.Http;
 using AutoMapper;
 using Microsoft.AspNet.Identity;
 using PicnicAuth.Database.DAL;
+using PicnicAuth.Database.SwaggerResponses;
 using PicnicAuth.Dto;
 using PicnicAuth.Enums;
 using PicnicAuth.Interfaces.Cryptography.Encryption;
@@ -19,6 +20,7 @@ namespace PicnicAuth.Api.Controllers
 {
     /// <inheritdoc />
     /// <summary>
+    /// Controller used to manage AuthUser's Secret.
     /// </summary>
     public class AuthUsersSecretsController : BasePicnicAuthController
     {
@@ -53,11 +55,14 @@ namespace PicnicAuth.Api.Controllers
         }
 
         /// <summary>
-        /// Get Totp for a user
+        /// Generate new Secret for given AuthUser.
         /// </summary>
-        /// <returns>Totp</returns>
-        [SwaggerResponse(HttpStatusCode.Created, Description = "Company account created")]
-        [SwaggerResponse(HttpStatusCode.BadRequest, Description = "Provided data was not valid")]
+        /// <param name="userId">AuthUser's id in Guid format</param>
+        /// <returns>AuthUserDto with new Secret.</returns>
+        [SwaggerResponse(HttpStatusCode.OK, Description = "AuthUser's Secret has been regenerated.",
+            Type = typeof(AuthUserDto))]
+        [SwaggerAuthUserNotFoundResponse]
+        [SwaggerCompanyNotLoggedInResponse]
         [Route("api/AuthUsers/{userId}/secret")]
         [HttpPatch]
         [Authorize]

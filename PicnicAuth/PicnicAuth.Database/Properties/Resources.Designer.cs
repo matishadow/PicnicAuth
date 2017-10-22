@@ -19,7 +19,7 @@ namespace PicnicAuth.Database.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -417,6 +417,24 @@ namespace PicnicAuth.Database.Properties {
         public static string RecipeNoteRecipeIdEmptyValidationMessage {
             get {
                 return ResourceManager.GetString("RecipeNoteRecipeIdEmptyValidationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AuthUser has not been found in logged company&apos;s collection..
+        /// </summary>
+        public static string SwaggerAuthUserNotFoundMessage {
+            get {
+                return ResourceManager.GetString("SwaggerAuthUserNotFoundMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Company is not logged in..
+        /// </summary>
+        public static string SwaggerCompanyNotLoggedInMessage {
+            get {
+                return ResourceManager.GetString("SwaggerCompanyNotLoggedInMessage", resourceCulture);
             }
         }
         
