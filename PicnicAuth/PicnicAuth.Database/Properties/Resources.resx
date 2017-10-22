@@ -258,4 +258,7 @@
   <data name="SwaggerCompanyNotLoggedInMessage" xml:space="preserve">
     <value>Company is not logged in.</value>
   </data>
+  <data name="SwaggerOtpValidationDoneMessage" xml:space="preserve">
+    <value>Validation has been done.</value>
+  </data>
 </root>

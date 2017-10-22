@@ -100,6 +100,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SwaggerResponses\SwaggerOtpValidationDoneResponse.cs" />
     <Compile Include="SwaggerResponses\SwaggerCompanyNotLoggedInResponse.cs" />
     <Compile Include="SwaggerResponses\SwaggerAuthUserNotFoundResponse.cs" />
   </ItemGroup>

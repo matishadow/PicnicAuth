@@ -439,6 +439,15 @@ namespace PicnicAuth.Database.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Validation has been done..
+        /// </summary>
+        public static string SwaggerOtpValidationDoneMessage {
+            get {
+                return ResourceManager.GetString("SwaggerOtpValidationDoneMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to |.
         /// </summary>
         public static string TagsDelimiter {

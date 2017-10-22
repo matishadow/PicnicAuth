@@ -3,7 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Http;
 using AutoMapper;
-using Microsoft.AspNet.Identity;
+using PicnicAuth.Database.SwaggerResponses;
 using PicnicAuth.Interfaces.Cryptography.Encryption;
 using PicnicAuth.Interfaces.OneTimePassword;
 using PicnicAuth.Interfaces.Web;
@@ -15,6 +15,7 @@ namespace PicnicAuth.Api.Controllers
 {
     /// <inheritdoc />
     /// <summary>
+    /// Controller used to manage Otps based on current time.
     /// </summary>
     public class TotpsController : BasePicnicAuthController
     {
@@ -43,11 +44,13 @@ namespace PicnicAuth.Api.Controllers
         }
 
         /// <summary>
-        /// Get Totp for a user
+        /// Get Totp for given AuthUser. 
         /// </summary>
-        /// <returns>Totp</returns>
-        [SwaggerResponse(HttpStatusCode.Created, Description = "Company account created")]
-        [SwaggerResponse(HttpStatusCode.BadRequest, Description = "Provided data was not valid")]
+        /// <param name="userId">AuthUser's id in Guid format.</param>
+        /// <returns>Time-based One-time Password</returns>
+        [SwaggerResponse(HttpStatusCode.OK, "AuthUser's Totp", typeof(OneTimePassword))]
+        [SwaggerAuthUserNotFoundResponse]
+        [SwaggerCompanyNotLoggedInResponse]
         [Route("api/AuthUsers/{userId}/totp")]
         [HttpGet]
         [Authorize]
@@ -64,12 +67,16 @@ namespace PicnicAuth.Api.Controllers
             return Ok(totpPassword);
         }
 
+
         /// <summary>
-        /// Get Totp for a user
+        /// Validate given Totp for AuthUser
         /// </summary>
-        /// <returns>Totp</returns>
-        [SwaggerResponse(HttpStatusCode.Created, Description = "Company account created")]
-        [SwaggerResponse(HttpStatusCode.BadRequest, Description = "Provided data was not valid")]
+        /// <param name="userId">AuthUser's id in Guid format.</param>
+        /// <param name="totp">OTP to check.</param>
+        /// <returns>Validation result</returns>
+        [SwaggerOtpValidationDoneResponse]
+        [SwaggerAuthUserNotFoundResponse]
+        [SwaggerCompanyNotLoggedInResponse]
         [Route("api/AuthUsers/{userId}/totp/{totp}")]
         [HttpGet]
         [Authorize]

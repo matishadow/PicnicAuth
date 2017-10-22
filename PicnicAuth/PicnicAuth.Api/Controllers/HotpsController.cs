@@ -3,8 +3,8 @@ using System.Linq;
 using System.Net;
 using System.Web.Http;
 using AutoMapper;
-using Microsoft.AspNet.Identity;
 using PicnicAuth.Database.DAL;
+using PicnicAuth.Database.SwaggerResponses;
 using PicnicAuth.Interfaces.Cryptography.Encryption;
 using PicnicAuth.Interfaces.OneTimePassword;
 using PicnicAuth.Interfaces.Web;
@@ -16,6 +16,7 @@ namespace PicnicAuth.Api.Controllers
 {
     /// <inheritdoc />
     /// <summary>
+    /// Controller used to manage Otps based on AuthUser's counter.
     /// </summary>
     public class HotpsController : BasePicnicAuthController
     {
@@ -46,12 +47,15 @@ namespace PicnicAuth.Api.Controllers
             this.loggedCompanyGetter = loggedCompanyGetter;
         }
 
+
         /// <summary>
-        /// Get Totp for a user
+        /// Get Hotp for given AuthUser. 
         /// </summary>
-        /// <returns>Totp</returns>
-        [SwaggerResponse(HttpStatusCode.Created, Description = "Company account created")]
-        [SwaggerResponse(HttpStatusCode.BadRequest, Description = "Provided data was not valid")]
+        /// <param name="userId">AuthUser's id in Guid format.</param>
+        /// <returns>HMAC-based One-time Password</returns>
+        [SwaggerResponse(HttpStatusCode.OK, "AuthUser's Hotp", typeof(OneTimePassword))]
+        [SwaggerAuthUserNotFoundResponse]
+        [SwaggerCompanyNotLoggedInResponse]
         [Route("api/AuthUsers/{userId}/hotp")]
         [HttpGet]
         [Authorize]
@@ -75,12 +79,16 @@ namespace PicnicAuth.Api.Controllers
             return Ok(hotpPassword);
         }
 
+
         /// <summary>
-        /// Get Totp for a user
+        /// Validate given Hotp for AuthUser
         /// </summary>
-        /// <returns>Totp</returns>
-        [SwaggerResponse(HttpStatusCode.Created, Description = "Company account created")]
-        [SwaggerResponse(HttpStatusCode.BadRequest, Description = "Provided data was not valid")]
+        /// <param name="userId">AuthUser's id in Guid format.</param>
+        /// <param name="hotp">OTP to check.</param>
+        /// <returns>Validation result</returns>
+        [SwaggerOtpValidationDoneResponse]
+        [SwaggerAuthUserNotFoundResponse]
+        [SwaggerCompanyNotLoggedInResponse]
         [Route("api/AuthUsers/{userId}/hotp/{hotp}")]
         [HttpGet]
         [Authorize]
