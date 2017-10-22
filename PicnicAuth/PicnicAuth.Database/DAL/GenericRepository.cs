@@ -30,22 +30,12 @@ namespace PicnicAuth.Database.DAL
             IQueryable<T> query = dbSet;
 
             if (filter != null)
-            {
                 query = query.Where(filter);
-            }
 
-            foreach (string includeProperty in includeProperties.Split
-                (new[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
-            {
-                query = query.Include(includeProperty);
-            }
+            query = includeProperties.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries)
+                .Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
 
-            if (orderBy != null)
-            {
-                return orderBy(query).ToList();
-            }
-
-            return query.ToList();
+            return orderBy?.Invoke(query).ToList() ?? query.ToList();
         }
 
         public IEnumerable<T> GetAll()
@@ -74,9 +64,7 @@ namespace PicnicAuth.Database.DAL
         public void Delete(T entity)
         {
             if (context.Entry(entity).State == EntityState.Detached)
-            {
                 dbSet.Attach(entity);
-            }
 
             dbSet.Remove(entity);
         }

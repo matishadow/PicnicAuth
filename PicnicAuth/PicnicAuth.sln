@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicnicAuth.Api", "PicnicAuth.Api\PicnicAuth.Api.csproj", "{57AF1C6B-5C73-4C91-8C3A-2505CE495E15}"
 EndProject
@@ -14,6 +14,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicnicAuth.Tests", "PicnicAuth.Tests\PicnicAuth.Tests.csproj", "{4703E046-3272-4DDA-9C9A-4AE590BC7104}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicnicAuth.Enums", "PicnicAuth.Enums\PicnicAuth.Enums.csproj", "{22E102CD-D00B-407E-9C8C-8467D91E7105}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicnicAuth.Dto", "PicnicAuth.Dto\PicnicAuth.Dto.csproj", "{C9C28516-9531-4E89-95A7-856F4E9A8890}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicnicAuth.Models", "PicnicAuth.Models\PicnicAuth.Models.csproj", "{7E859755-A618-4875-90CE-C85D00A84AF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,8 +49,19 @@ Global
 		{22E102CD-D00B-407E-9C8C-8467D91E7105}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22E102CD-D00B-407E-9C8C-8467D91E7105}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22E102CD-D00B-407E-9C8C-8467D91E7105}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9C28516-9531-4E89-95A7-856F4E9A8890}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9C28516-9531-4E89-95A7-856F4E9A8890}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9C28516-9531-4E89-95A7-856F4E9A8890}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9C28516-9531-4E89-95A7-856F4E9A8890}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E859755-A618-4875-90CE-C85D00A84AF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E859755-A618-4875-90CE-C85D00A84AF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E859755-A618-4875-90CE-C85D00A84AF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E859755-A618-4875-90CE-C85D00A84AF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E05DD98D-1177-4D5D-93C6-35E5F3ED05AC}
 	EndGlobalSection
 EndGlobal

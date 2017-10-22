@@ -24,13 +24,13 @@ namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
             var mockBase32Encoder = new Mock<IBase32Encoder>();
             mockBase32Encoder.Setup(mock => mock.Encode(fixedRandomBytes)).Returns("JBSWY3DPEHPK3PXP");
 
-            generator = new SecretGenerator(mockRandomNumberGenerator.Object, mockBase32Encoder.Object);
+            generator = new SecretGenerator(mockRandomNumberGenerator.Object);
         }
 
         [Test]
         public void TestGenerateSecret()
         {
-            string secret = generator.GenerateSecret();
+            byte[] secret = generator.GenerateSecret();
             Assert.AreEqual(secret.Length, PreferredSecretLength);
         }
     }

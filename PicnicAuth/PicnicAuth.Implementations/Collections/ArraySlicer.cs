@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Linq;
 using PicnicAuth.Interfaces.Collections;
+using PicnicAuth.Interfaces.Dependencies;
 
 namespace PicnicAuth.Implementations.Collections
 {
-    public class ArraySlicer : IArraySlicer
+    public class ArraySlicer : IArraySlicer, IRequestDependency
     {
         public T[] Slice<T>(T[] array, int beginIndex, int endIndex)
         {

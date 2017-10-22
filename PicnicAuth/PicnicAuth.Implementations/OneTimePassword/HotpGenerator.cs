@@ -1,10 +1,11 @@
 ﻿using System;
 using PicnicAuth.Interfaces.Cryptography.Signature;
+using PicnicAuth.Interfaces.Dependencies;
 using PicnicAuth.Interfaces.OneTimePassword;
 
 namespace PicnicAuth.Implementations.OneTimePassword
 {
-    public class HotpGenerator : IHotpGenerator
+    public class HotpGenerator : IHotpGenerator, IRequestDependency
     {
         private readonly IHmacSha1Generator hmacSha1Generator;
         private readonly IOtpTruncator otpTruncator;
@@ -15,7 +16,7 @@ namespace PicnicAuth.Implementations.OneTimePassword
             this.otpTruncator = otpTruncator;
         }
 
-        public string GenerateHotp(ulong counter, byte[] secret)
+        public string GenerateHotp(long counter, byte[] secret)
         {
             if (secret == null)
                 throw new ArgumentNullException();

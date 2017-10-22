@@ -2,6 +2,6 @@
 {
     public interface IULongConverter
     {
-        byte[] ConvertToBytesBigEndian(ulong input);
+        byte[] ConvertToBytesBigEndian(long input);
     }
 }

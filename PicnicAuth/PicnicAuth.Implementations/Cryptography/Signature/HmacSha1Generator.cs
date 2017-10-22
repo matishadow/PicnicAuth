@@ -3,11 +3,12 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using PicnicAuth.Interfaces.Cryptography.Signature;
+using PicnicAuth.Interfaces.Dependencies;
 using PicnicAuth.Interfaces.Encoding;
 
 namespace PicnicAuth.Implementations.Cryptography.Signature
 {
-    public class HmacSha1Generator : IHmacSha1Generator
+    public class HmacSha1Generator : IHmacSha1Generator, IRequestDependency
     {
         private readonly IULongConverter uLongConverter;
         private readonly IUtf8Converter utf8Converter;
@@ -26,7 +27,7 @@ namespace PicnicAuth.Implementations.Cryptography.Signature
             return hmacsha1.ComputeHash(input);
         }
 
-        public byte[] GenerateHmacSha1Hash(ulong input, byte[] key)
+        public byte[] GenerateHmacSha1Hash(long input, byte[] key)
         {
             CheckArguments(input, key);
 

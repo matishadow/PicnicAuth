@@ -1,11 +1,12 @@
 ﻿using System.Drawing;
 using PicnicAuth.Enums;
+using PicnicAuth.Interfaces.Dependencies;
 using PicnicAuth.Interfaces.Encoding;
 using PicnicAuth.Interfaces.OneTimePassword;
 
 namespace PicnicAuth.Implementations.OneTimePassword
 {
-    public class OtpQrCodeGenerator : IOtpQrCodeGenerator
+    public class OtpQrCodeGenerator : IOtpQrCodeGenerator, IRequestDependency
     {
         private readonly IQrCodeGenerator qrCodeGenerator;
         private readonly IKeyUriCreator keyUriCreator;

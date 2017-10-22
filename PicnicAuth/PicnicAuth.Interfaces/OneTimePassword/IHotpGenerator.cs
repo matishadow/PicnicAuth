@@ -2,6 +2,6 @@
 {
     public interface IHotpGenerator
     {
-        string GenerateHotp(ulong counter, byte[] secret);
+        string GenerateHotp(long counter, byte[] secret);
     }
 }

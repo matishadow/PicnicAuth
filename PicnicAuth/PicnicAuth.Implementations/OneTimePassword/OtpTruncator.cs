@@ -2,12 +2,13 @@
 using System.Linq;
 using PicnicAuth.Enums;
 using PicnicAuth.Interfaces.Collections;
+using PicnicAuth.Interfaces.Dependencies;
 using PicnicAuth.Interfaces.Encoding;
 using PicnicAuth.Interfaces.OneTimePassword;
 
 namespace PicnicAuth.Implementations.OneTimePassword
 {
-    public class OtpTruncator : IOtpTruncator
+    public class OtpTruncator : IOtpTruncator, IRequestDependency
     {
         private const int ValidSha1SignatureLength = 20;
         private const int TruncateMask = 0b1111;
@@ -29,7 +30,7 @@ namespace PicnicAuth.Implementations.OneTimePassword
             if (hmacSignature.Length != ValidSha1SignatureLength)
                 throw new ArgumentException(Properties.Resources.InvalidSha1LengthExceptionMessage);
 
-            int otpDigits = (int)otpLength;
+            var otpDigits = (int)otpLength;
 
             byte lastByte = hmacSignature.Last();
             int randomStartIndex = lastByte & TruncateMask;
@@ -39,7 +40,7 @@ namespace PicnicAuth.Implementations.OneTimePassword
             resultInt &= int.MaxValue;
             resultInt %= (uint) Math.Pow(OtpBase, otpDigits);
 
-            return resultInt.ToString();
+            return resultInt.ToString().PadLeft(otpDigits, '0');
         }
     }
 }

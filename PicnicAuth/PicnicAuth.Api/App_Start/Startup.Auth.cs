@@ -4,6 +4,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
+using PicnicAuth.Api.Configs;
 using PicnicAuth.Api.Providers;
 using PicnicAuth.Database;
 
@@ -35,7 +36,7 @@ namespace PicnicAuth.Api
                 TokenEndpointPath = new PathString(tokenUri),
                 Provider = new ApplicationOAuthProvider(PublicClientId),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
-                AllowInsecureHttp = false
+                AllowInsecureHttp = System.Diagnostics.Debugger.IsAttached
             };
 
             // Enable the application to use bearer tokens to authenticate users

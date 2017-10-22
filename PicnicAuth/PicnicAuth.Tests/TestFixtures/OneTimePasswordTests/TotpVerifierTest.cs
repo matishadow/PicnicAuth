@@ -11,7 +11,7 @@ namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
     public class TotpVerifierTest
     {
         private static readonly byte[] ExampleSecret = { 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x21, 0xde, 0xad, 0xbe, 0xef };
-        private const ulong ExampleTimetamp = 1503511830;
+        private const long ExampleTimetamp = 1503511830;
 
         private const string ValidTotp1 = "805192";
         private const string ValidTotp2 = "238563";
@@ -19,12 +19,12 @@ namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
 
         private const string InvalidTotp = "123456";
 
-        private ITotpVerifier verifier;
+        private ITotpValidator validator;
 
         [SetUp]
         public void SetUp()
         {
-            const ulong exampleTimestampInput = ExampleTimetamp / 30;
+            const long exampleTimestampInput = ExampleTimetamp / 30;
 
             var mockHotpGenerator = new Mock<IHotpGenerator>();
             mockHotpGenerator.Setup(generator => generator.GenerateHotp(exampleTimestampInput, ExampleSecret))
@@ -38,7 +38,7 @@ namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
             mockUnixTimestampGetter.Setup(getter => getter.GetUnixTimestamp())
                 .Returns((long)ExampleTimetamp);
 
-            verifier = new TotpVerifier(mockUnixTimestampGetter.Object, mockHotpGenerator.Object);
+            validator = new TotpValidator(mockUnixTimestampGetter.Object, mockHotpGenerator.Object);
         }
 
         [TestCase(new byte[] {0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x21, 0xde, 0xad, 0xbe, 0xef}, ValidTotp1,
@@ -51,7 +51,7 @@ namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
             ExpectedResult = false)]
         public bool TestIsTotpValid(byte[] secret, string hotp)
         {
-            return verifier.IsTotpValid(secret, hotp);
+            return validator.IsTotpValid(secret, hotp);
         }
 
         [TestCase(null, "334257")]
@@ -59,7 +59,7 @@ namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
         [TestCase(null, null)]
         public void TestGenerateHotpNullArgument(byte[] secret, string hotp)
         {
-            Assert.That(() => verifier.IsTotpValid(secret, hotp),
+            Assert.That(() => validator.IsTotpValid(secret, hotp),
                 Throws.TypeOf<ArgumentNullException>());
         }
 
@@ -68,7 +68,7 @@ namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
         [TestCase(new byte[] { }, "")]
         public void TestGenerateHotpEmptySecretOrHotp(byte[] secret, string hotp)
         {
-            Assert.That(() => verifier.IsTotpValid(secret, hotp),
+            Assert.That(() => validator.IsTotpValid(secret, hotp),
                 Throws.TypeOf<ArgumentException>());
         }
     }

@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PicnicAuth.Interfaces.Dependencies;
 using PicnicAuth.Interfaces.Encoding;
 
 namespace PicnicAuth.Implementations.Encoding
 {
-    public class Utf8Converter : IUtf8Converter
+    public class Utf8Converter : IUtf8Converter, IRequestDependency
     {
         public byte[] ConvertToBytes(string input)
         {

@@ -1,11 +1,12 @@
 ﻿using System;
 using PicnicAuth.Interfaces.Cryptography.Signature;
+using PicnicAuth.Interfaces.Dependencies;
 using PicnicAuth.Interfaces.OneTimePassword;
 using PicnicAuth.Interfaces.Time;
 
 namespace PicnicAuth.Implementations.OneTimePassword
 {
-    public class TotpGenerator : ITotpGenerator
+    public class TotpGenerator : ITotpGenerator, IRequestDependency
     {
         private const int TotpTimeWindow = 30;
 
@@ -28,7 +29,7 @@ namespace PicnicAuth.Implementations.OneTimePassword
             if (secret.Length == byte.MinValue)
                 throw new ArgumentException();
 
-            var currentTimestamp = (ulong)unixTimestampGetter.GetUnixTimestamp();
+            long currentTimestamp = unixTimestampGetter.GetUnixTimestamp();
             byte[] hmac = hmacSha1Generator.GenerateHmacSha1Hash(currentTimestamp / TotpTimeWindow, secret);
             string otp = otpTruncator.Truncate(hmac);
 

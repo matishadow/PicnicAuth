@@ -2,8 +2,8 @@
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using PicnicAuth.Interfaces.Dependencies;
 using PicnicAuth.Interfaces.Image;
-using PicnicAuth.ServiceInterfaces.Dependencies;
 
 namespace PicnicAuth.Implementations.Image
 {

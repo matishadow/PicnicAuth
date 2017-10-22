@@ -2,6 +2,6 @@
 {
     public interface ISecretGenerator
     {
-        string GenerateSecret();
+        byte[] GenerateSecret();
     }
 }
