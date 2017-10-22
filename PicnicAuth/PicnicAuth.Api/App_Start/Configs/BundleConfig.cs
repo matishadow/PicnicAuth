@@ -1,10 +1,20 @@
 ﻿using System.Web.Optimization;
 
-namespace PicnicAuth.Api
+namespace PicnicAuth.Api.Configs
 {
-    public class BundleConfig
+    /// <summary>
+    /// Default class from ASP.NET project.
+    /// Used to combine multiple resources into one file
+    /// in order to reduce download time.
+    /// 
+    /// For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
+    /// </summary>
+    public static class BundleConfig
     {
-        // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
+        /// <summary>
+        /// Registers js, css files into one bundle file.
+        /// </summary>
+        /// <param name="bundles"></param>
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(

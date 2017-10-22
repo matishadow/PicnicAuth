@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Microsoft.AspNet.Identity;
 using PicnicAuth.Database.DAL;
+using PicnicAuth.Database.SwaggerResponses;
 using PicnicAuth.Enums;
 using PicnicAuth.Interfaces.Cryptography.Encryption;
 using PicnicAuth.Interfaces.Encoding;
@@ -12,11 +13,14 @@ using PicnicAuth.Interfaces.OneTimePassword;
 using PicnicAuth.Interfaces.Web;
 using PicnicAuth.Models;
 using QRCoder;
+using Swashbuckle.Swagger.Annotations;
 
 namespace PicnicAuth.Api.Controllers
 {
     /// <inheritdoc />
     /// <summary>
+    /// Controller responsible for generating Qr Codes.
+    /// Capable of setting ECCLevel and PixelPerModule parameters.
     /// </summary>
     public class QrCodesController : ApiController
     {
@@ -50,9 +54,13 @@ namespace PicnicAuth.Api.Controllers
         }
 
         /// <summary>
-        /// Generate Qr image for a given string
+        /// Generate Qr Code for given string. 
         /// </summary>
-        /// <returns>QR Code in PNG format</returns>
+        /// <param name="input">Data to encode into QrCode.</param>
+        /// <param name="pixelPerModule">The pixel size each b/w module is drawn. (default is 20)</param>
+        /// <param name="level">Error correction capability level. (default is M)</param>
+        /// <returns>QrCode in PNG format.</returns>
+        [SwaggerResponse(HttpStatusCode.OK)]
         [Route("api/QrCodes")]
         [HttpGet]
         public HttpResponseMessage CreateQrImage(string input, int pixelPerModule = 20,
@@ -64,10 +72,19 @@ namespace PicnicAuth.Api.Controllers
             return returnMessage;
         }
 
+
         /// <summary>
-        /// Generate Qr image for a user
+        /// Generate Qr Code for an AuthUser using his Secret in KeyUri format.
         /// </summary>
-        /// <returns>QR Code in PNG format</returns>
+        /// <param name="authUserId">User's Id in Guid format.</param>
+        /// <param name="issuer">Also known as Company name.</param>
+        /// <param name="pixelPerModule">The pixel size each b/w module is drawn. (default is 20)</param>
+        /// <param name="level">Error correction capability level. (default is M)</param>
+        /// <param name="type">Type of OneTimePassword. (default is TOTP)</param>
+        /// <returns>QrCode in PNG format as ByteArrayConten.</returns>
+        [SwaggerResponse(HttpStatusCode.OK)]
+        [SwaggerAuthUserNotFoundResponse]
+        [SwaggerCompanyNotLoggedInResponse]
         [Route("api/QrCodes/{authUserId}")]
         //[Authorize]
         [HttpGet]

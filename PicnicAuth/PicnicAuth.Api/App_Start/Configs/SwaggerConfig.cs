@@ -1,15 +1,14 @@
 using System;
 using System.Reflection;
 using System.Web.Http;
-using System.Xml.XPath;
-using WebActivatorEx;
-using PicnicAuth.Api;
+using PicnicAuth.Api.Configs;
 using PicnicAuth.Api.Filters;
 using Swashbuckle.Application;
+using WebActivatorEx;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
-namespace PicnicAuth.Api
+namespace PicnicAuth.Api.Configs
 {
     public class SwaggerConfig
     {

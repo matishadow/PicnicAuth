@@ -6,10 +6,12 @@ using Microsoft.Owin.Security.DataProtection;
 using PicnicAuth.Database;
 using PicnicAuth.Models.Authentication;
 
-namespace PicnicAuth.Api
+namespace PicnicAuth.Api.Configs
 {
-    // Configure the application user manager used in this application. CompanyManager is defined in ASP.NET Identity and is used by the application.
-
+    /// <inheritdoc />
+    /// <summary>
+    /// Configure the application user manager used in this application.CompanyManager is defined in ASP.NET Identity and is used by the application.
+    /// </summary>
     public class CompanyManager : UserManager<CompanyAccount>
     {
         public CompanyManager(IUserStore<CompanyAccount> store)

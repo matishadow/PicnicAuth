@@ -1,12 +1,11 @@
 ﻿using System.Net.Http.Headers;
 using System.Web.Http;
-using System.Web.Http.Cors;
 using FluentValidation.WebApi;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 using PicnicAuth.Api.Filters;
 
-namespace PicnicAuth.Api
+namespace PicnicAuth.Api.Configs
 {
     public static class WebApiConfig
     {
@@ -34,16 +33,11 @@ namespace PicnicAuth.Api
                 new { id = RouteParameter.Optional }
             );
 
-            ConfigureCors(configuration);
+            CorsConfig.ConfigureCors(configuration);
 
             FluentValidationModelValidatorProvider.Configure(configuration);
         }
 
-        private static void ConfigureCors(HttpConfiguration configuration)
-        {
-            string corsWildcard = Properties.Resources.CorsAllowAllWildcard;
-            var cors = new EnableCorsAttribute(corsWildcard, corsWildcard, corsWildcard);
-            configuration.EnableCors(cors);
-        }
+       
     }
 }
