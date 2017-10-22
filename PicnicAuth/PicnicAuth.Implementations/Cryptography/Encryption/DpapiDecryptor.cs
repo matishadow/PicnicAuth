@@ -11,22 +11,23 @@ namespace PicnicAuth.Implementations.Cryptography.Encryption
         public string DecryptToString(byte[] input, byte[] optionalEntropy = null,
             DataProtectionScope scope = DataProtectionScope.CurrentUser)
         {
-            byte[] decryptedBytes = input;
-            try
-            {
-                decryptedBytes = DecryptToBytes(input, optionalEntropy, scope);
-            }
-            catch (CryptographicException)
-            {
-            }
+      
+            byte[] decryptedBytes = DecryptToBytes(input, optionalEntropy, scope);
             return System.Text.Encoding.UTF8.GetString(decryptedBytes);
         }
 
         public byte[] DecryptToBytes(byte[] input, byte[] optionalEntropy = null,
             DataProtectionScope scope = DataProtectionScope.CurrentUser)
         {
-            byte[] bytes = ProtectedData.Unprotect(input, optionalEntropy, scope);
-            return bytes;
+            byte[] decryptedBytes = input;
+            try
+            {
+                decryptedBytes = ProtectedData.Unprotect(input, optionalEntropy, scope);
+            }
+            catch (CryptographicException)
+            {
+            }
+            return decryptedBytes;
         }
     }
 }
