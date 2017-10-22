@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using PicnicAuth.Api.Configs;
 using PicnicAuth.Database.DAL;
+using PicnicAuth.Database.SwaggerResponses;
 using Swashbuckle.Swagger.Annotations;
 using PicnicAuth.Dto;
 using PicnicAuth.Interfaces.Validation;
@@ -16,6 +17,7 @@ namespace PicnicAuth.Api.Controllers
 {
     /// <inheritdoc />
     /// <summary>
+    /// Manage Companies (based on ASP.NET identity users)
     /// </summary>
     public class CompaniesController : BasePicnicAuthController
     {
@@ -44,11 +46,11 @@ namespace PicnicAuth.Api.Controllers
         }
 
         /// <summary>
-        /// Get information about logged company.
+        /// Get logged company.
         /// </summary>
         /// <returns>Information about logged company</returns>
-        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(CompanyInfoViewModel))]
-        [SwaggerResponse(HttpStatusCode.Unauthorized, Description = "Not logged in")]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(CompanyAccountDto))]
+        [SwaggerCompanyNotLoggedInResponse]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
         [Route("api/Companies/Me")]
         [HttpGet]
@@ -68,9 +70,10 @@ namespace PicnicAuth.Api.Controllers
         /// <summary>
         /// Create a new company account.
         /// </summary>
-        /// <param name="model"></param>
-        /// <returns>Account created</returns>
-        [SwaggerResponse(HttpStatusCode.Created, Description = "Company account created")]
+        /// <param name="model">Account creation data.</param>
+        /// <returns>Created Company account.</returns>
+        [SwaggerResponse(HttpStatusCode.Created, Description = "Company account created",
+            Type = typeof(IdentityResult))]
         [SwaggerResponse(HttpStatusCode.BadRequest, Description = "Provided data was not valid")]
         [Route("api/Companies")]
         [HttpPost]

@@ -3,6 +3,7 @@ using System.Web.Http;
 using AutoMapper;
 using Microsoft.AspNet.Identity;
 using PicnicAuth.Database.DAL;
+using PicnicAuth.Database.SwaggerResponses;
 using PicnicAuth.Enums;
 using PicnicAuth.Interfaces.Cryptography.Encryption;
 using PicnicAuth.Interfaces.Encoding;
@@ -17,6 +18,7 @@ namespace PicnicAuth.Api.Controllers
 {
     /// <inheritdoc />
     /// <summary>
+    /// Controller to manage AuthUsers by logged company.
     /// </summary>
     public class AuthUsersController : BasePicnicAuthController
     {
@@ -50,11 +52,12 @@ namespace PicnicAuth.Api.Controllers
         }
 
         /// <summary>
-        /// Create a new company account.
+        /// Create new AuthUser and add it to logged company's collection.
         /// </summary>
-        /// <returns>Account created</returns>
-        [SwaggerResponse(HttpStatusCode.Created, Description = "Company account created")]
-        [SwaggerResponse(HttpStatusCode.BadRequest, Description = "Provided data was not valid")]
+        /// <param name="addAuthUser">AuthUser creation model.</param>
+        /// <returns>Created AuthUser</returns>
+        [SwaggerCompanyNotLoggedInResponse]
+        [SwaggerResponse(HttpStatusCode.Created, "AuthUsers has been created.", Type = typeof(AuthUserDto))]
         [Route("api/AuthUsers")]
         [HttpPost]
         [Authorize]
