@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using System;
+using System.Security.Cryptography;
 using System.Text;
 using PicnicAuth.Interfaces.Cryptography.Encryption;
 using PicnicAuth.Interfaces.Dependencies;
@@ -10,7 +11,15 @@ namespace PicnicAuth.Implementations.Cryptography.Encryption
         public byte[] Encrypt(byte[] input, byte[] optionalEntropy = null,
             DataProtectionScope scope = DataProtectionScope.CurrentUser)
         {
-            return ProtectedData.Protect(input, optionalEntropy, scope);
+            byte[] protectedBytes = input;
+            try
+            {
+                protectedBytes = ProtectedData.Protect(input, optionalEntropy, scope);
+            }
+            catch (CryptographicException)
+            {
+            }
+            return protectedBytes;
         }
 
         public byte[] Encrypt(string input, byte[] optionalEntropy = null,
