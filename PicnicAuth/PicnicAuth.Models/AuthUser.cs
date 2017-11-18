@@ -14,6 +14,7 @@ namespace PicnicAuth.Models
         public byte[] Secret { get; set; }
         public string ExternalId { get; set; }
         public string UserName { get; set; }
+        public string Email { get; set; }
         public long HotpCounter { get; set; }
 
         public CompanyAccount Company { get; set; }
