@@ -9,10 +9,13 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using PicnicAuth.Interfaces.Dependencies;
 using PicnicAuth.Models;
 using PicnicAuth.Models.Authentication;
+using PicnicAuth.Models.Authentication.Identity;
 
 namespace PicnicAuth.Database
 {
-    public class PicnicAuthContext : IdentityDbContext<CompanyAccount, IdentityRole, string, IdentityUserLogin, IdentityUserRole, IdentityUserClaim>, ISelfRequestDependency
+    public class PicnicAuthContext :
+        IdentityDbContext<CompanyAccount, Role, Guid, CompanyAccountLogin, CompanyAccountRole, CompanyAccountClaim>,
+        ISelfRequestDependency
     {
         public PicnicAuthContext() : base("name=picnicauthdb")
         {

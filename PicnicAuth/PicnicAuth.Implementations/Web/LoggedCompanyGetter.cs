@@ -1,4 +1,5 @@
-﻿using System.Web.Http.Controllers;
+﻿using System;
+using System.Web.Http.Controllers;
 using Microsoft.AspNet.Identity;
 using PicnicAuth.Database.DAL;
 using PicnicAuth.Interfaces.Dependencies;
@@ -19,7 +20,7 @@ namespace PicnicAuth.Implementations.Web
         public CompanyAccount GetLoggedCompany(HttpRequestContext httpRequestContext)
         {
             IGenericRepository<CompanyAccount> companyRepository = unitOfWork.Repository<CompanyAccount>();
-            string loggedCompanyId = httpRequestContext.Principal.Identity.GetUserId();
+            var loggedCompanyId = new Guid(httpRequestContext.Principal.Identity.GetUserId());
             CompanyAccount loggedCompany = companyRepository.GetById(loggedCompanyId);
 
             return loggedCompany;
