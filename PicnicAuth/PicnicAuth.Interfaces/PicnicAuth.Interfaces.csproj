@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections\IArraySlicer.cs" />
+    <Compile Include="Collections\ICollectionLimiter.cs" />
     <Compile Include="Cryptography\Encryption\ICryptoTransformApplier.cs" />
     <Compile Include="Cryptography\Encryption\IDecryptor.cs" />
     <Compile Include="Cryptography\Encryption\IDpapiDecryptor.cs" />

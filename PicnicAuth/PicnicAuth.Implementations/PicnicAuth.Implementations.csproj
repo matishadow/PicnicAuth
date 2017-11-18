@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections\ArraySlicer.cs" />
+    <Compile Include="Collections\CollectionLimiter.cs" />
     <Compile Include="Cryptography\Encryption\CryptoTransformApplier.cs" />
     <Compile Include="Cryptography\Encryption\Decryptor.cs" />
     <Compile Include="Cryptography\Encryption\DpapiDecryptor.cs" />
