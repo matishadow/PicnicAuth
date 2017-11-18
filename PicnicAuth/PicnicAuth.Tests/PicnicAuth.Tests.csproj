@@ -82,9 +82,12 @@
     <Compile Include="TestFixtures\CryptographyTests\EncryptionTests\RijndaelManagedCreatorTest.cs" />
     <Compile Include="TestFixtures\CryptographyTests\EncryptionTests\EncryptorTest.cs" />
     <Compile Include="TestFixtures\GenericPropertyTest.cs" />
+    <Compile Include="TestFixtures\Models\AuthUserTest.cs" />
     <Compile Include="TestFixtures\Models\CompanyAccountRoleStoreTest.cs" />
     <Compile Include="TestFixtures\Models\CompanyAccountUserStoreTest.cs" />
+    <Compile Include="TestFixtures\Models\EntityTest.cs" />
     <Compile Include="TestFixtures\Models\OneTimePasswordTest.cs" />
+    <Compile Include="TestFixtures\Models\OtpValidationResultTest.cs" />
     <Compile Include="TestFixtures\Models\ResourcesTest.cs" />
     <Compile Include="TestFixtures\Models\RoleTest.cs" />
     <Compile Include="TestFixtures\OneTimePasswordTests\TotpVerifierTest.cs" />

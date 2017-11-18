@@ -2,9 +2,9 @@
 
 namespace PicnicAuth.Models
 {
-    public abstract class Entity
+    public class Entity
     {
-        protected Entity()
+        public Entity()
         {
             Id = Guid.NewGuid();
         }
