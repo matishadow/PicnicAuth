@@ -70,7 +70,7 @@ namespace PicnicAuth.Api.Controllers
         {
             IGenericRepository<CompanyAccount> companyRepository = unitOfWork.Repository<CompanyAccount>();
 
-            string loggedCompanyId = RequestContext.Principal.Identity.GetUserId();
+            var loggedCompanyId = new Guid(User.Identity.GetUserId());
             CompanyAccount loggedCompany = companyRepository.GetById(loggedCompanyId);
 
             AuthUser authUser = loggedCompany.AuthUsers.SingleOrDefault(user => user.Id == userId);

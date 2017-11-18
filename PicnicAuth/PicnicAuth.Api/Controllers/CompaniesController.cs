@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -58,7 +59,7 @@ namespace PicnicAuth.Api.Controllers
         public IHttpActionResult GetLoggedCompany()
         {
             IGenericRepository<CompanyAccount> repository = unitOfWork.Repository<CompanyAccount>();
-            string loggedCompanyId = RequestContext.Principal.Identity.GetUserId();
+            var loggedCompanyId = new Guid(User.Identity.GetUserId());
             CompanyAccount loggedCompany = repository.GetById(loggedCompanyId);
 
             CompanyAccountDto companyAccountDto =

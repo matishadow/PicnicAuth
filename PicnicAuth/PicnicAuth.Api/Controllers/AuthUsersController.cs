@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Web.Http;
 using AutoMapper;
 using Microsoft.AspNet.Identity;
@@ -65,7 +66,7 @@ namespace PicnicAuth.Api.Controllers
         {
             IGenericRepository<CompanyAccount> repository = unitOfWork.Repository<CompanyAccount>();
 
-            string loggedCompanyId = RequestContext.Principal.Identity.GetUserId();
+            var loggedCompanyId = new Guid(User.Identity.GetUserId());
             CompanyAccount loggedCompany = repository.GetById(loggedCompanyId);
             AuthUser authUser = AutoMapper.Map<AddAuthUser, AuthUser>(addAuthUser);
 
