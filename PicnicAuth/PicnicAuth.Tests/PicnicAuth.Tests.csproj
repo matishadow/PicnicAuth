@@ -89,7 +89,7 @@
     <Compile Include="TestFixtures\OneTimePasswordTests\OtpQrCodeGeneratorTest.cs" />
     <Compile Include="TestFixtures\CryptographyTests\RandomnessTests\SecureRandomNumberGeneratorTest.cs" />
     <Compile Include="TestFixtures\CryptographyTests\HashingTests\LibrarySha1HasherTest.cs" />
-    <Compile Include="TestFixtures\EncodingTests\ULongConverterTest.cs" />
+    <Compile Include="TestFixtures\EncodingTests\LongConverterTest.cs" />
     <Compile Include="TestFixtures\EncodingTests\Base64DecoderTest.cs" />
     <Compile Include="TestFixtures\EncodingTests\Base64EncoderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

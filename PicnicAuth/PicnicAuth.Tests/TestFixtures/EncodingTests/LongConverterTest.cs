@@ -4,7 +4,7 @@ using PicnicAuth.Implementations.Encoding;
 namespace PicnicAuth.Tests.TestFixtures.EncodingTests
 {
     [TestFixture]
-    public class ULongConverterTest
+    public class LongConverterTest
     {
         private Interfaces.Encoding.IULongConverter converter;
 
@@ -14,9 +14,9 @@ namespace PicnicAuth.Tests.TestFixtures.EncodingTests
             converter = new ULongConverter();
         }
 
-        [TestCase(10000U, ExpectedResult = new byte[] {0, 0, 0, 0, 0, 0, 0x27, 0x10})]
-        [TestCase(0U, ExpectedResult = new byte[] {0, 0, 0, 0, 0, 0, 0, 0})]
-        [TestCase(ulong.MaxValue, 
+        [TestCase(10000, ExpectedResult = new byte[] {0, 0, 0, 0, 0, 0, 0x27, 0x10})]
+        [TestCase(0, ExpectedResult = new byte[] {0, 0, 0, 0, 0, 0, 0, 0})]
+        [TestCase(long.MaxValue, 
             ExpectedResult = new byte[] {0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff })]
         public byte[] TestConvertToBytesBigEndian(long input)
         {

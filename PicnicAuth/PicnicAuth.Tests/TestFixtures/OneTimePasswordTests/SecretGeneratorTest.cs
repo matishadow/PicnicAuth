@@ -10,7 +10,7 @@ namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
     [TestFixture]
     public class SecretGeneratorTest
     {
-        private const int PreferredSecretLength = 16;
+        private const int PreferredSecretLength = 10;
         private ISecretGenerator generator;
 
         [SetUp]
