@@ -53,6 +53,27 @@ namespace PicnicAuth.Api.Controllers
         }
 
         /// <summary>
+        /// Get AuthUsers logged company.
+        /// </summary>
+        /// <returns>Array of AuthUsers</returns>
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(AuthUsersInCompany))]
+        [SwaggerCompanyNotLoggedInResponse]
+        [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
+        [Route("api/Companies/Me/AuthUsers")]
+        [HttpGet]
+        [Authorize]
+        public IHttpActionResult GetAuthUsersForLoggedCompany()
+        {
+            IGenericRepository<CompanyAccount> repository = unitOfWork.Repository<CompanyAccount>();
+            var loggedCompanyId = new Guid(User.Identity.GetUserId());
+            CompanyAccount loggedCompany = repository.GetById(loggedCompanyId);
+
+            AuthUsersInCompany authUsersInCompany = AutoMapper.Map<CompanyAccount, AuthUsersInCompany>(loggedCompany);
+
+            return Ok(authUsersInCompany);
+        }
+
+        /// <summary>
         /// Create new AuthUser and add it to logged company's collection.
         /// </summary>
         /// <param name="addAuthUser">AuthUser creation model.</param>
