@@ -44,6 +44,7 @@
     <Compile Include="AddAuthUser.cs" />
     <Compile Include="AuthUserDto.cs" />
     <Compile Include="AuthUserInCompany.cs" />
+    <Compile Include="AuthUsersInCompany.cs" />
     <Compile Include="CompanyAccountDto.cs" />
     <Compile Include="DtoEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
