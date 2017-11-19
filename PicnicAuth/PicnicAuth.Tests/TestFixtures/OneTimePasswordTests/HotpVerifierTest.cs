@@ -49,6 +49,23 @@ namespace PicnicAuth.Tests.TestFixtures.OneTimePasswordTests
             return validator.IsHotpValid(counter, secret, hotp);
         }
 
+        [TestCase(long.MinValue, new byte[] { 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x21, 0xde, 0xad, 0xbe, 0xef }, Hotp1,
+            ExpectedResult = true)]
+        [TestCase(long.MaxValue, new byte[] { 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x21, 0xde, 0xad, 0xbe, 0xef }, Hotp2,
+            ExpectedResult = true)]
+        [TestCase(ExampleCounter, new byte[] { 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x21, 0xde, 0xad, 0xbe, 0xef }, Hotp3,
+            ExpectedResult = true)]
+        [TestCase(long.MinValue, new byte[] { 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x21, 0xde, 0xad, 0xbe, 0xef }, Hotp2,
+            ExpectedResult = false)]
+        [TestCase(long.MaxValue, new byte[] { 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x21, 0xde, 0xad, 0xbe, 0xef }, Hotp3,
+            ExpectedResult = false)]
+        [TestCase(ExampleCounter, new byte[] { 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x21, 0xde, 0xad, 0xbe, 0xef }, Hotp1,
+            ExpectedResult = false)]
+        public bool TestIsHotpValidInWindow(long counter, byte[] secret, string hotp)
+        {
+            return validator.IsHotpValidInWindow(counter, secret, hotp, l => { });
+        }
+
         [TestCase(long.MinValue, null, "334257")]
         [TestCase(long.MinValue, new byte[] {0, 0, 0, 0, 0, 0}, null)]
         [TestCase(long.MinValue, null, null)]

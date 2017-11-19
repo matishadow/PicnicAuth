@@ -73,6 +73,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TestFixtures\CollectionsTests\CollectionLimiterTest.cs" />
     <Compile Include="TestFixtures\Dtos\AddAuthUserTest.cs" />
     <Compile Include="TestFixtures\Dtos\AuthUserDtoTest.cs" />
     <Compile Include="TestFixtures\Dtos\AuthUserInCompanyTest.cs" />
@@ -178,7 +179,9 @@
   <ItemGroup>
     <None Include="Resources\ExampleOtpQrCode.bmp" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="TestFixtures\Database\" />
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
