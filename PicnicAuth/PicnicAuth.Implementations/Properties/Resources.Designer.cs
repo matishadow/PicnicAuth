@@ -22,21 +22,21 @@ namespace PicnicAuth.Implementations.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        public Resources() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PicnicAuth.Implementations.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace PicnicAuth.Implementations.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace PicnicAuth.Implementations.Properties {
         /// <summary>
         ///   Looks up a localized string similar to EndIndex cannot be before StartIndex..
         /// </summary>
-        internal static string ArraySlicerEndBeforeStartExceptionMessage {
+        public static string ArraySlicerEndBeforeStartExceptionMessage {
             get {
                 return ResourceManager.GetString("ArraySlicerEndBeforeStartExceptionMessage", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace PicnicAuth.Implementations.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Key cannot be an empty array..
         /// </summary>
-        internal static string HmacSha1EmptyKeyExceptionMessage {
+        public static string HmacSha1EmptyKeyExceptionMessage {
             get {
                 return ResourceManager.GetString("HmacSha1EmptyKeyExceptionMessage", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace PicnicAuth.Implementations.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Sha1 signature must be of length 20..
         /// </summary>
-        internal static string InvalidSha1LengthExceptionMessage {
+        public static string InvalidSha1LengthExceptionMessage {
             get {
                 return ResourceManager.GetString("InvalidSha1LengthExceptionMessage", resourceCulture);
             }

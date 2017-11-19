@@ -4,7 +4,7 @@ namespace PicnicAuth.Dto
 {
     public class DtoEntity
     {
-        protected DtoEntity()
+        public DtoEntity()
         {
             Id = Guid.NewGuid();
         }

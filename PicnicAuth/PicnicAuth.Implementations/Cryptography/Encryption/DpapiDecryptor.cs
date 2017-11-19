@@ -11,7 +11,6 @@ namespace PicnicAuth.Implementations.Cryptography.Encryption
         public string DecryptToString(byte[] input, byte[] optionalEntropy = null,
             DataProtectionScope scope = DataProtectionScope.CurrentUser)
         {
-      
             byte[] decryptedBytes = DecryptToBytes(input, optionalEntropy, scope);
             return System.Text.Encoding.UTF8.GetString(decryptedBytes);
         }
@@ -19,14 +18,8 @@ namespace PicnicAuth.Implementations.Cryptography.Encryption
         public byte[] DecryptToBytes(byte[] input, byte[] optionalEntropy = null,
             DataProtectionScope scope = DataProtectionScope.CurrentUser)
         {
-            byte[] decryptedBytes = input;
-            try
-            {
-                decryptedBytes = ProtectedData.Unprotect(input, optionalEntropy, scope);
-            }
-            catch (CryptographicException)
-            {
-            }
+            byte[] decryptedBytes = ProtectedData.Unprotect(input, optionalEntropy, scope);
+
             return decryptedBytes;
         }
     }
