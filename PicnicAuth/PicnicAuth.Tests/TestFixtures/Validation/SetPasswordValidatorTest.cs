@@ -19,7 +19,7 @@ namespace PicnicAuth.Tests.TestFixtures.Validation
         public void TestValidation()
         {
             var setPasswordValidator = new SetPasswordValidator();
-            var setPasswordBindingModel = new SetPasswordBindingModel()
+            var setPasswordBindingModel = new SetPasswordBindingModel
             {
                 ConfirmPassword = "aaaaaaaaaaaaaaaaaaaa",
                 NewPassword = "aaaaaaaaaaaaaaaaaaaa"
