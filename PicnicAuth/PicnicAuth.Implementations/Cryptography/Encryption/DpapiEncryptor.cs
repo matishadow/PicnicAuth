@@ -3,6 +3,7 @@ using System.Security.Cryptography;
 using System.Text;
 using PicnicAuth.Interfaces.Cryptography.Encryption;
 using PicnicAuth.Interfaces.Dependencies;
+using UnityEngine;
 
 namespace PicnicAuth.Implementations.Cryptography.Encryption
 {
@@ -11,14 +12,8 @@ namespace PicnicAuth.Implementations.Cryptography.Encryption
         public byte[] Encrypt(byte[] input, byte[] optionalEntropy = null,
             DataProtectionScope scope = DataProtectionScope.CurrentUser)
         {
-            byte[] protectedBytes = input;
-            try
-            {
-                protectedBytes = ProtectedData.Protect(input, optionalEntropy, scope);
-            }
-            catch (CryptographicException)
-            {
-            }
+            byte[] protectedBytes = ProtectedData.Protect(input, optionalEntropy, scope);
+
             return protectedBytes;
         }
 
