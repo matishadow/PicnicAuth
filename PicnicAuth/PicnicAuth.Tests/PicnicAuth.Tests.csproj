@@ -73,7 +73,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TestFixtures\Dtos\AddAuthUserTest.cs" />
+    <Compile Include="TestFixtures\Dtos\AuthUserDtoTest.cs" />
+    <Compile Include="TestFixtures\Dtos\AuthUserInCompanyTest.cs" />
     <Compile Include="TestFixtures\Dtos\AuthUsersInCompanyTest.cs" />
+    <Compile Include="TestFixtures\Dtos\CompanyAccountDtoTest.cs" />
+    <Compile Include="TestFixtures\Dtos\DtoEntityTest.cs" />
     <Compile Include="TestFixtures\EncodingTests\Base32DecoderTest.cs" />
     <Compile Include="TestFixtures\CollectionsTests\ArraySlicerTest.cs" />
     <Compile Include="TestFixtures\CryptographyTests\EncryptionTests\CryptoTransformApplierTest.cs" />
