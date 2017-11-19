@@ -82,6 +82,13 @@
     <Compile Include="TestFixtures\CryptographyTests\EncryptionTests\RijndaelManagedCreatorTest.cs" />
     <Compile Include="TestFixtures\CryptographyTests\EncryptionTests\EncryptorTest.cs" />
     <Compile Include="TestFixtures\GenericPropertyTest.cs" />
+    <Compile Include="TestFixtures\Models\Authentication\ChangePasswordBindingModelTest.cs" />
+    <Compile Include="TestFixtures\Models\Authentication\CompanyAccountTest.cs" />
+    <Compile Include="TestFixtures\Models\Authentication\CompanyInfoViewModelTest.cs" />
+    <Compile Include="TestFixtures\Models\Authentication\RegisterBindingModelTest.cs" />
+    <Compile Include="TestFixtures\Models\Authentication\SetPasswordBindingModelTest.cs" />
+    <Compile Include="TestFixtures\Models\Authentication\TokenErrorResponseTest.cs" />
+    <Compile Include="TestFixtures\Models\Authentication\TokenResponseTest.cs" />
     <Compile Include="TestFixtures\Models\AuthUserTest.cs" />
     <Compile Include="TestFixtures\Models\CompanyAccountRoleStoreTest.cs" />
     <Compile Include="TestFixtures\Models\CompanyAccountUserStoreTest.cs" />
@@ -124,6 +131,10 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PicnicAuth.Api\PicnicAuth.Api.csproj">
+      <Project>{57AF1C6B-5C73-4C91-8C3A-2505CE495E15}</Project>
+      <Name>PicnicAuth.Api</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PicnicAuth.Database\PicnicAuth.Database.csproj">
       <Project>{677656D1-A4E1-4236-A438-E74B3104D001}</Project>
       <Name>PicnicAuth.Database</Name>
