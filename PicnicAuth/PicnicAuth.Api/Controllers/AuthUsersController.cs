@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Web.Http;
 using AutoMapper;
 using Microsoft.AspNet.Identity;
@@ -10,6 +11,7 @@ using PicnicAuth.Interfaces.Encoding;
 using PicnicAuth.Interfaces.OneTimePassword;
 using PicnicAuth.Interfaces.Web;
 using PicnicAuth.Dto;
+using PicnicAuth.Interfaces.Collections;
 using PicnicAuth.Models;
 using PicnicAuth.Models.Authentication;
 using Swashbuckle.Swagger.Annotations;
@@ -28,6 +30,7 @@ namespace PicnicAuth.Api.Controllers
         private readonly IBase32Encoder base32Encoder;
         private readonly IOtpQrCodeUriGenerator otpQrCodeUriGenerator;
         private readonly IAuthUserDtoFiller authUserDtoFiller;
+        private readonly ICollectionLimiter collectionLimiter;
 
         /// <inheritdoc />
         /// <summary>
@@ -39,9 +42,11 @@ namespace PicnicAuth.Api.Controllers
         /// <param name="base32Encoder"></param>
         /// <param name="otpQrCodeUriGenerator"></param>
         /// <param name="authUserDtoFiller"></param>
+        /// <param name="collectionLimiter"></param>
         public AuthUsersController(IMapper autoMapper, IUnitOfWork unitOfWork, ISecretGenerator secretGenerator,
             IDpapiEncryptor dpapiEncryptor, IBase32Encoder base32Encoder,
-            IOtpQrCodeUriGenerator otpQrCodeUriGenerator, IAuthUserDtoFiller authUserDtoFiller) : base(autoMapper)
+            IOtpQrCodeUriGenerator otpQrCodeUriGenerator, IAuthUserDtoFiller authUserDtoFiller,
+            ICollectionLimiter collectionLimiter) : base(autoMapper)
         {
             this.unitOfWork = unitOfWork;
             this.secretGenerator = secretGenerator;
@@ -49,6 +54,29 @@ namespace PicnicAuth.Api.Controllers
             this.base32Encoder = base32Encoder;
             this.otpQrCodeUriGenerator = otpQrCodeUriGenerator;
             this.authUserDtoFiller = authUserDtoFiller;
+            this.collectionLimiter = collectionLimiter;
+        }
+
+        /// <summary>
+        /// Get AuthUsers logged company.
+        /// </summary>
+        /// <returns>Array of AuthUsers</returns>
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(AuthUsersInCompany))]
+        [SwaggerCompanyNotLoggedInResponse]
+        [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
+        [Route("api/Companies/Me/AuthUsers")]
+        [HttpGet]
+        [Authorize]
+        public IHttpActionResult GetAuthUsersForLoggedCompany(int page = 1, int pageCount = 10)
+        {
+            IGenericRepository<CompanyAccount> repository = unitOfWork.Repository<CompanyAccount>();
+            var loggedCompanyId = new Guid(User.Identity.GetUserId());
+            CompanyAccount loggedCompany = repository.GetById(loggedCompanyId);
+            loggedCompany.AuthUsers = collectionLimiter.Limit(loggedCompany.AuthUsers, page, pageCount);
+
+            AuthUsersInCompany authUsersInCompany = AutoMapper.Map<CompanyAccount, AuthUsersInCompany>(loggedCompany);
+
+            return Ok(authUsersInCompany);
         }
 
         /// <summary>
@@ -65,7 +93,7 @@ namespace PicnicAuth.Api.Controllers
         {
             IGenericRepository<CompanyAccount> repository = unitOfWork.Repository<CompanyAccount>();
 
-            string loggedCompanyId = RequestContext.Principal.Identity.GetUserId();
+            var loggedCompanyId = new Guid(User.Identity.GetUserId());
             CompanyAccount loggedCompany = repository.GetById(loggedCompanyId);
             AuthUser authUser = AutoMapper.Map<AddAuthUser, AuthUser>(addAuthUser);
 

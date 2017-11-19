@@ -60,6 +60,12 @@
     <Compile Include="Authentication\ChangePasswordBindingModel.cs" />
     <Compile Include="Authentication\CompanyAccount.cs" />
     <Compile Include="Authentication\CompanyInfoViewModel.cs" />
+    <Compile Include="Authentication\Identity\CompanyAccountClaim.cs" />
+    <Compile Include="Authentication\Identity\CompanyAccountLogin.cs" />
+    <Compile Include="Authentication\Identity\CompanyAccountRole.cs" />
+    <Compile Include="Authentication\Identity\CompanyAccountRoleStore.cs" />
+    <Compile Include="Authentication\Identity\CompanyAccountUserStore.cs" />
+    <Compile Include="Authentication\Identity\Role.cs" />
     <Compile Include="Authentication\RegisterBindingModel.cs" />
     <Compile Include="Authentication\SetPasswordBindingModel.cs" />
     <Compile Include="Authentication\TokenErrorResponse.cs" />

@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using System;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.DataProtection;
 using PicnicAuth.Database;
 using PicnicAuth.Models.Authentication;
+using PicnicAuth.Models.Authentication.Identity;
 
 namespace PicnicAuth.Api.Configs
 {
@@ -12,9 +14,9 @@ namespace PicnicAuth.Api.Configs
     /// <summary>
     /// Configure the application user manager used in this application.CompanyManager is defined in ASP.NET Identity and is used by the application.
     /// </summary>
-    public class CompanyManager : UserManager<CompanyAccount>
+    public class CompanyManager : UserManager<CompanyAccount, Guid>
     {
-        public CompanyManager(IUserStore<CompanyAccount> store)
+        public CompanyManager(IUserStore<CompanyAccount, Guid> store)
             : base(store)
         {
         }
@@ -22,9 +24,9 @@ namespace PicnicAuth.Api.Configs
         public static CompanyManager Create(IdentityFactoryOptions<CompanyManager> options,
             IOwinContext context)
         {
-            var manager = new CompanyManager(new UserStore<CompanyAccount>(context.Get<PicnicAuthContext>()));
+            var manager = new CompanyManager(new CompanyAccountUserStore(context.Get<PicnicAuthContext>()));
             // Configure validation logic for usernames
-            manager.UserValidator = new UserValidator<CompanyAccount>(manager)
+            manager.UserValidator = new UserValidator<CompanyAccount, Guid>(manager)
             {
                 AllowOnlyAlphanumericUserNames = false,
                 RequireUniqueEmail = true
@@ -42,7 +44,7 @@ namespace PicnicAuth.Api.Configs
             if (dataProtectionProvider != null)
             {
                 manager.UserTokenProvider =
-                    new DataProtectorTokenProvider<CompanyAccount>(dataProtectionProvider.Create("ASP.NET Identity"));
+                    new DataProtectorTokenProvider<CompanyAccount, Guid>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
             return manager;
         }

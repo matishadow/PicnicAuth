@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using System;
+using FluentValidation;
 using PicnicAuth.Models.Authentication;
 
 namespace PicnicAuth.Implementations.Validation
