@@ -13,18 +13,18 @@ namespace PicnicAuth.Implementations.Validation
 
             RuleFor(changePassword => changePassword.OldPassword)
                 .NotEmpty()
-                .WithMessage(Models.Properties.Resources.CurrentPasswordEmptyValidationMessage);
+                .WithMessage(Database.Properties.Resources.CurrentPasswordEmptyValidationMessage);
 
             RuleFor(changePassword => changePassword.NewPassword)
                 .NotEmpty()
-                .WithMessage(Models.Properties.Resources.NewPasswordEmptyValidationMessage)
+                .WithMessage(Database.Properties.Resources.NewPasswordEmptyValidationMessage)
                 .Length(minimalPasswordLength, 100)
-                .WithMessage(string.Format(Models.Properties.Resources.PasswordLengthValidationMessage,
+                .WithMessage(string.Format(Database.Properties.Resources.PasswordLengthValidationMessage,
                     minimalPasswordLength));
 
             RuleFor(changePassword => changePassword.ConfirmPassword)
                 .Equal(changePassword => changePassword.NewPassword)
-                .WithMessage(Models.Properties.Resources.ConfirmPasswordValidationMessage);
+                .WithMessage(Database.Properties.Resources.ConfirmPasswordValidationMessage);
         }
     }
 }

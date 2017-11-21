@@ -89,7 +89,9 @@
     <Compile Include="TestFixtures\CollectionsTests\CollectionLimiterTest.cs" />
     <Compile Include="TestFixtures\CryptographyTests\EncryptionTests\DpapiDecryptorTest.cs" />
     <Compile Include="TestFixtures\CryptographyTests\EncryptionTests\DpapiEncryptorTest.cs" />
-    <Compile Include="TestFixtures\Database\TestPicnicAuthContext.cs" />
+    <Compile Include="TestFixtures\Database\PicnicAuthContextTest.cs" />
+    <Compile Include="TestFixtures\Database\PicnicAuthDatabaseInitializerTest.cs" />
+    <Compile Include="TestFixtures\Database\ResourcesTest.cs" />
     <Compile Include="TestFixtures\Dtos\AddAuthUserTest.cs" />
     <Compile Include="TestFixtures\Dtos\AuthUserDtoTest.cs" />
     <Compile Include="TestFixtures\Dtos\AuthUserInCompanyTest.cs" />

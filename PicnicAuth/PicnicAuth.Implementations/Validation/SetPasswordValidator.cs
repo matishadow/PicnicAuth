@@ -12,12 +12,12 @@ namespace PicnicAuth.Implementations.Validation
 
             RuleFor(setPassword => setPassword.NewPassword)
                 .Length(minimalPasswordLength, 100)
-                .WithMessage(string.Format(Models.Properties.Resources.PasswordLengthValidationMessage, minimalPasswordLength))
+                .WithMessage(string.Format(Database.Properties.Resources.PasswordLengthValidationMessage, minimalPasswordLength))
                 .NotEmpty();
 
             RuleFor(setPassword => setPassword.ConfirmPassword)
                 .Matches(setPassword => setPassword.NewPassword)
-                .WithMessage(Models.Properties.Resources.ConfirmPasswordValidationMessage);
+                .WithMessage(Database.Properties.Resources.ConfirmPasswordValidationMessage);
         }
     }
 }

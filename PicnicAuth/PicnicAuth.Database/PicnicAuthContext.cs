@@ -54,8 +54,7 @@ namespace PicnicAuth.Database
         {
             foreach (Type type in configurationTypes)
             {
-                if (type.BaseType == null) continue;
-                Type entityType = type.BaseType.GetGenericArguments().Single();
+                Type entityType = type?.BaseType?.GetGenericArguments().Single();
 
                 object entityConfig = assembly.CreateInstance(type.FullName);
                 addMethod.MakeGenericMethod(entityType)
