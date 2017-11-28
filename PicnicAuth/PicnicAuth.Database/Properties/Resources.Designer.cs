@@ -61,34 +61,7 @@ namespace PicnicAuth.Database.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 9CCFA6BD1C364830910E4B024858DDC0.
-        /// </summary>
-        public static string AppetizerImageId {
-            get {
-                return ResourceManager.GetString("AppetizerImageId", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to przystawka|appetizer.
-        /// </summary>
-        public static string AppetizerTags {
-            get {
-                return ResourceManager.GetString("AppetizerTags", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pole &apos;Potwierdź hasło&apos; nie może być puste..
-        /// </summary>
-        public static string ConfirmPasswordEmptyValidationMessage {
-            get {
-                return ResourceManager.GetString("ConfirmPasswordEmptyValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Wartości w polach nowe hasło oraz potwierdzenie nowego hasła są różne..
+        ///   Looks up a localized string similar to Values in New password and Confirm password must be the same..
         /// </summary>
         public static string ConfirmPasswordValidationMessage {
             get {
@@ -97,61 +70,7 @@ namespace PicnicAuth.Database.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Opis przepisu nie może być pusty..
-        /// </summary>
-        public static string CreateRecipeDescriptionEmptyValidationMessage {
-            get {
-                return ResourceManager.GetString("CreateRecipeDescriptionEmptyValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Opis przepisu nie może przekraczać {0} znaków..
-        /// </summary>
-        public static string CreateRecipeDescriptionLengthValidationMessage {
-            get {
-                return ResourceManager.GetString("CreateRecipeDescriptionLengthValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to W przepisie musi znajdować się przynajmniej jeden składnik..
-        /// </summary>
-        public static string CreateRecipeIngredientsEmptyValidationMessage {
-            get {
-                return ResourceManager.GetString("CreateRecipeIngredientsEmptyValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Przynajmniej jeden ze składników nie znajduje się w bazie danych..
-        /// </summary>
-        public static string CreateRecipeIngredientsExistsValidationMessage {
-            get {
-                return ResourceManager.GetString("CreateRecipeIngredientsExistsValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Nazwa przepisu nie może być pusta..
-        /// </summary>
-        public static string CreateRecipeTitleEmptyValidationMessage {
-            get {
-                return ResourceManager.GetString("CreateRecipeTitleEmptyValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Nazwa przepisu nie może przekraczać 100 znaków..
-        /// </summary>
-        public static string CreateRecipeTitleLengthValidationMessage {
-            get {
-                return ResourceManager.GetString("CreateRecipeTitleLengthValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pole &apos;Hasło&apos; nie może być puste..
+        ///   Looks up a localized string similar to Current Password field cannot be empty..
         /// </summary>
         public static string CurrentPasswordEmptyValidationMessage {
             get {
@@ -160,52 +79,7 @@ namespace PicnicAuth.Database.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Podane hasło nie jest poprawne..
-        /// </summary>
-        public static string CurrentPasswordValidationError {
-            get {
-                return ResourceManager.GetString("CurrentPasswordValidationError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 43410B819BFB4FDC8F5BF892976FEE47.
-        /// </summary>
-        public static string DessertImageId {
-            get {
-                return ResourceManager.GetString("DessertImageId", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to deser|desssert|sweet.
-        /// </summary>
-        public static string DessertTags {
-            get {
-                return ResourceManager.GetString("DessertTags", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to F62716B6F62716B6F62716B6F62716B6.
-        /// </summary>
-        public static string DiGgeRetsae {
-            get {
-                return ResourceManager.GetString("DiGgeRetsae", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Długość opisu nie może przekraczać 100 znaków..
-        /// </summary>
-        public static string EditIngredientQuantityDescriptionValidationMessage {
-            get {
-                return ResourceManager.GetString("EditIngredientQuantityDescriptionValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pole &apos;Adres e-mail&apos; nie może być puste..
+        ///   Looks up a localized string similar to Email field cannot be empty..
         /// </summary>
         public static string EmailEmptyValidationMessage {
             get {
@@ -214,7 +88,7 @@ namespace PicnicAuth.Database.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Podany adres email jest już zajęty..
+        ///   Looks up a localized string similar to Email already exists in the database..
         /// </summary>
         public static string EmailExistsValidationMessage {
             get {
@@ -223,7 +97,7 @@ namespace PicnicAuth.Database.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Podany adres email nie przechodzi walidacji wyrażeniem regularnym..
+        ///   Looks up a localized string similar to Typed email address does not pass regex validation..
         /// </summary>
         public static string EmailRegexValidationMessage {
             get {
@@ -232,106 +106,7 @@ namespace PicnicAuth.Database.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Komentarz nie może być pusty..
-        /// </summary>
-        public static string EmptyCommentValidationMessage {
-            get {
-                return ResourceManager.GetString("EmptyCommentValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pole {0} nie może być puste..
-        /// </summary>
-        public static string EmptyGenericValidationMessage {
-            get {
-                return ResourceManager.GetString("EmptyGenericValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Nie możesz usunąć czyjegoś rekordu..
-        /// </summary>
-        public static string GenericNotOwnerDeleteMessage {
-            get {
-                return ResourceManager.GetString("GenericNotOwnerDeleteMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Nie możesz edytować czyjegoś rekordu..
-        /// </summary>
-        public static string GenericNowOwnerPutMessage {
-            get {
-                return ResourceManager.GetString("GenericNowOwnerPutMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Nazwa składnika nie może być pusta..
-        /// </summary>
-        public static string IngredientNameEmptyValidationMessage {
-            get {
-                return ResourceManager.GetString("IngredientNameEmptyValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Nazwa składnika musi mieścić się w granicach 1-100 znaków..
-        /// </summary>
-        public static string IngredientNameLengthValidationMessage {
-            get {
-                return ResourceManager.GetString("IngredientNameLengthValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Mamy już składnik o takiej nazwie i w tej jednostce..
-        /// </summary>
-        public static string IngredientNameUniqueValidationMessage {
-            get {
-                return ResourceManager.GetString("IngredientNameUniqueValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Składnik o podanym Id nie istnieje..
-        /// </summary>
-        public static string IngredientQuantityIngredientValidationMessage {
-            get {
-                return ResourceManager.GetString("IngredientQuantityIngredientValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ilość musi być liczbą dodatnią..
-        /// </summary>
-        public static string IngredientQuantityQuantityValidationMessage {
-            get {
-                return ResourceManager.GetString("IngredientQuantityQuantityValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Jednostka o podanym Id nie istnieje..
-        /// </summary>
-        public static string IngredientUnitExistMessage {
-            get {
-                return ResourceManager.GetString("IngredientUnitExistMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Komentarz nie może przekraczać {0} znaków..
-        /// </summary>
-        public static string InputCommentValidationMessage {
-            get {
-                return ResourceManager.GetString("InputCommentValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pole &apos;Login&apos; nie może być puste..
+        ///   Looks up a localized string similar to Login field cannot be empty..
         /// </summary>
         public static string LoginEmptyValidationMessage {
             get {
@@ -340,16 +115,7 @@ namespace PicnicAuth.Database.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A9DF6800D94C4149B4AD47E46CC9BD1E.
-        /// </summary>
-        public static string MainCourseImageId {
-            get {
-                return ResourceManager.GetString("MainCourseImageId", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pole &apos;Nowe hasło&apos; nie może być puste..
+        ///   Looks up a localized string similar to New Password field cannot be empty..
         /// </summary>
         public static string NewPasswordEmptyValidationMessage {
             get {
@@ -358,65 +124,11 @@ namespace PicnicAuth.Database.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hasło musi składać się z minimum {0} znaków..
+        ///   Looks up a localized string similar to Password length must be between 10 and 100 characters..
         /// </summary>
         public static string PasswordLengthValidationMessage {
             get {
                 return ResourceManager.GetString("PasswordLengthValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ocena nie może być pusta..
-        /// </summary>
-        public static string RateEmptyValidationMessage {
-            get {
-                return ResourceManager.GetString("RateEmptyValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ocena musi mieścić się w skali 0-10 (liczba całkowita).
-        /// </summary>
-        public static string RateValidationMessage {
-            get {
-                return ResourceManager.GetString("RateValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pole notatka nie może być puste..
-        /// </summary>
-        public static string RecipeNoteEmptyValidationMessage {
-            get {
-                return ResourceManager.GetString("RecipeNoteEmptyValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Notatka nie może być dłuższ niż 200 znaków..
-        /// </summary>
-        public static string RecipeNoteLengthValidationMessage {
-            get {
-                return ResourceManager.GetString("RecipeNoteLengthValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Przepis o podanym RecipeId nie istnieje..
-        /// </summary>
-        public static string RecipeNoteRecipeExistsValidationMessage {
-            get {
-                return ResourceManager.GetString("RecipeNoteRecipeExistsValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pole RecipeId nie może być puste..
-        /// </summary>
-        public static string RecipeNoteRecipeIdEmptyValidationMessage {
-            get {
-                return ResourceManager.GetString("RecipeNoteRecipeIdEmptyValidationMessage", resourceCulture);
             }
         }
         
@@ -448,43 +160,7 @@ namespace PicnicAuth.Database.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to |.
-        /// </summary>
-        public static string TagsDelimiter {
-            get {
-                return ResourceManager.GetString("TagsDelimiter", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Nazwa jednostki nie może być pusta..
-        /// </summary>
-        public static string UnitEmptyValidationMessage {
-            get {
-                return ResourceManager.GetString("UnitEmptyValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Jednostka o takiej nazwie już istnieje..
-        /// </summary>
-        public static string UnitExistsValidationMessage {
-            get {
-                return ResourceManager.GetString("UnitExistsValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Nazwa jednostki musi mieścić się w granicach 1-50 znaków..
-        /// </summary>
-        public static string UnitValidationMessage {
-            get {
-                return ResourceManager.GetString("UnitValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Użytkownik o podanej nazwie już istnieje..
+        ///   Looks up a localized string similar to Username already exits in the database..
         /// </summary>
         public static string UsernameExistsValidationMessage {
             get {

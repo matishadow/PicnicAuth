@@ -29,7 +29,7 @@ namespace PicnicAuth.Models.Properties {
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        public Resources() {
+        internal Resources() {
         }
         
         /// <summary>
@@ -57,132 +57,6 @@ namespace PicnicAuth.Models.Properties {
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pole &apos;Potwierdź hasło&apos; nie może być puste..
-        /// </summary>
-        public static string ConfirmPasswordEmptyValidationMessage {
-            get {
-                return ResourceManager.GetString("ConfirmPasswordEmptyValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Wartości w polach nowe hasło oraz potwierdzenie nowego hasła są różne..
-        /// </summary>
-        public static string ConfirmPasswordValidationMessage {
-            get {
-                return ResourceManager.GetString("ConfirmPasswordValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pole &apos;Hasło&apos; nie może być puste..
-        /// </summary>
-        public static string CurrentPasswordEmptyValidationMessage {
-            get {
-                return ResourceManager.GetString("CurrentPasswordEmptyValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Podane hasło nie jest poprawne..
-        /// </summary>
-        public static string CurrentPasswordValidationError {
-            get {
-                return ResourceManager.GetString("CurrentPasswordValidationError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pole &apos;Adres e-mail&apos; nie może być puste..
-        /// </summary>
-        public static string EmailEmptyValidationMessage {
-            get {
-                return ResourceManager.GetString("EmailEmptyValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Podany adres email jest już zajęty..
-        /// </summary>
-        public static string EmailExistsValidationMessage {
-            get {
-                return ResourceManager.GetString("EmailExistsValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Podany adres email nie przechodzi walidacji wyrażeniem regularnym..
-        /// </summary>
-        public static string EmailRegexValidationMessage {
-            get {
-                return ResourceManager.GetString("EmailRegexValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pole {0} nie może być puste..
-        /// </summary>
-        public static string EmptyGenericValidationMessage {
-            get {
-                return ResourceManager.GetString("EmptyGenericValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Nie możesz usunąć czyjegoś rekordu..
-        /// </summary>
-        public static string GenericNotOwnerDeleteMessage {
-            get {
-                return ResourceManager.GetString("GenericNotOwnerDeleteMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Nie możesz edytować czyjegoś rekordu..
-        /// </summary>
-        public static string GenericNowOwnerPutMessage {
-            get {
-                return ResourceManager.GetString("GenericNowOwnerPutMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pole &apos;Login&apos; nie może być puste..
-        /// </summary>
-        public static string LoginEmptyValidationMessage {
-            get {
-                return ResourceManager.GetString("LoginEmptyValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pole &apos;Nowe hasło&apos; nie może być puste..
-        /// </summary>
-        public static string NewPasswordEmptyValidationMessage {
-            get {
-                return ResourceManager.GetString("NewPasswordEmptyValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hasło musi składać się z minimum {0} znaków..
-        /// </summary>
-        public static string PasswordLengthValidationMessage {
-            get {
-                return ResourceManager.GetString("PasswordLengthValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Użytkownik o podanej nazwie już istnieje..
-        /// </summary>
-        public static string UsernameExistsValidationMessage {
-            get {
-                return ResourceManager.GetString("UsernameExistsValidationMessage", resourceCulture);
             }
         }
     }

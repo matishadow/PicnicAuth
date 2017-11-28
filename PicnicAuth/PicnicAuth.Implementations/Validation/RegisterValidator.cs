@@ -12,29 +12,29 @@ namespace PicnicAuth.Implementations.Validation
         {
             RuleFor(register => register.Email)
                 .NotEmpty()
-                .WithMessage(Models.Properties.Resources.EmailEmptyValidationMessage)
+                .WithMessage(Database.Properties.Resources.EmailEmptyValidationMessage)
                 .EmailAddress()
-                .WithMessage(Models.Properties.Resources.EmailRegexValidationMessage)
+                .WithMessage(Database.Properties.Resources.EmailRegexValidationMessage)
                 .Must((model, s) => IsFieldUnique<CompanyAccount>(user => user.Email == model.Email))
-                .WithMessage(Models.Properties.Resources.EmailExistsValidationMessage);
+                .WithMessage(Database.Properties.Resources.EmailExistsValidationMessage);
 
             RuleFor(register => register.UserName)
                 .NotEmpty()
-                .WithMessage(Models.Properties.Resources.LoginEmptyValidationMessage)
+                .WithMessage(Database.Properties.Resources.LoginEmptyValidationMessage)
                 .Must((model, s) => IsFieldUnique<CompanyAccount>(user => user.UserName == model.UserName))
-                .WithMessage(Models.Properties.Resources.UsernameExistsValidationMessage);
+                .WithMessage(Database.Properties.Resources.UsernameExistsValidationMessage);
 
             const int minimalPasswordLength = 10;
             RuleFor(register => register.Password)
                 .NotEmpty()
-                .WithMessage(Models.Properties.Resources.CurrentPasswordEmptyValidationMessage)
+                .WithMessage(Database.Properties.Resources.CurrentPasswordEmptyValidationMessage)
                 .Length(minimalPasswordLength, 100)
-                .WithMessage(string.Format(Models.Properties.Resources.PasswordLengthValidationMessage,
+                .WithMessage(string.Format(Database.Properties.Resources.PasswordLengthValidationMessage,
                     minimalPasswordLength));
 
             RuleFor(register => register.ConfirmPassword)
                 .Equal(register => register.Password)
-                .WithMessage(Models.Properties.Resources.ConfirmPasswordValidationMessage);
+                .WithMessage(Database.Properties.Resources.ConfirmPasswordValidationMessage);
         }
     }
 }
