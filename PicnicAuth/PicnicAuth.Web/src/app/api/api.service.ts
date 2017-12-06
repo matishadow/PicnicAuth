@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { CompanyService } from "../company/company.service";
 import {
   Http,
   Response,
@@ -19,9 +20,7 @@ export class ApiService {
     'Accept': "application/json"
   });
 
-  constructor(
-    private readonly http: Http,
-  ) { }
+  constructor(private readonly http: Http, private readonly companyService: CompanyService) { }
 
   post(endpoint: string, parameters?: any, headers?: Headers) {
     return this.sendRequest(RequestMethod.Post, endpoint, headers, parameters);
@@ -51,6 +50,7 @@ export class ApiService {
   ) {
     const mergedHeaders = this.mergeHeaders(
       this.sharedHeaders,
+      this.companyService.authHeaders,
       headers
     );
     const options = new RequestOptions({
@@ -69,7 +69,7 @@ export class ApiService {
         return body;
       }).catch(error => {
         if (error.status === 401) {
-          // this.userService.unauthorized();
+          this.companyService.unauthorized();
         }
         let message: string = "Error";
         try {
@@ -118,7 +118,8 @@ export class ApiService {
     return [environment.apiUrl, endpoint].join("/");
   }
 
-  getHeaders(bearerTokenValue: string) {
-    return { header: "Authorization", value: bearerTokenValue}
+  getHeaders() {
+    const company = this.companyService.authHeaders.toJSON();
+    return { header: "Authorization", value: company.Authorization[0] }
   }
 }
