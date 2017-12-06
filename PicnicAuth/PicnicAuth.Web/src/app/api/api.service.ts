@@ -39,6 +39,10 @@ export class ApiService {
     return this.sendRequest(RequestMethod.Put, endpoint, headers, parameters);
   }
 
+  patch(endpoint: string, parameters?: any, headers?: Headers) {
+    return this.sendRequest(RequestMethod.Patch, endpoint, headers, parameters);
+  }
+
   sendRequest(
     method: RequestMethod,
     endpoint: string,
