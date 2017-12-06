@@ -3,7 +3,6 @@ import { Headers } from "@angular/http";
 import { Observable } from "rxjs/Observable";
 import { ApiService } from "../api/api.service";
 import { TokenResponse } from "../models/token-response"
-import { endpoints } from "../consts/endpoints";
 
 
 @Injectable()
@@ -13,9 +12,9 @@ export class TokensApiService {
 
   login(username: string, password: string): Observable<TokenResponse> {
     return this.api.post(
-      endpoints.login,
+      "tokens",
       `username=${username}&password=${password}&grant_type=password`,
-      new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' })
+      new Headers({ "Content-Type": "application/x-www-form-urlencoded" })
     );
   }
 }
