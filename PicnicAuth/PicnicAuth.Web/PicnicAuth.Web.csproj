@@ -16,6 +16,11 @@
     
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="src\app\api\" />
+    <Folder Include="src\app\tokens\" />
+  </ItemGroup>
+
   <PropertyGroup>
     <NgProjectAssetsFile Condition="'$(ProjectAssetsFile)' != ''">$(ProjectAssetsFile)</NgProjectAssetsFile>
     <NgProjectAssetsFile Condition="'$(NgProjectAssetsFile)' == ''">$(BaseIntermediateOutputPath)/project.assets.json</NgProjectAssetsFile>
