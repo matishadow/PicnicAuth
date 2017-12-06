@@ -18,7 +18,7 @@
 
   <ItemGroup>
     <Folder Include="src\app\api\" />
-    <Folder Include="src\app\tokens\" />
+    <Folder Include="src\app\models\" />
   </ItemGroup>
 
   <PropertyGroup>
