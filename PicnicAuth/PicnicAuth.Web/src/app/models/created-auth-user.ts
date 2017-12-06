@@ -1,4 +1,4 @@
-export class CreateAuthUser {
+export class CreatedAuthUser {
   externalId: string;
   userName: string;
   email: string;
