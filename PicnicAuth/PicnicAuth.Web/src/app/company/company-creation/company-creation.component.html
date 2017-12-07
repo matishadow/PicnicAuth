@@ -1,0 +1,20 @@
+<form (ngSubmit)="createCompany()" #addCompanyForm="ngForm">
+  <div class="o-form__form-item">
+    <label class="o-form__label" for="username">Login:</label>
+    <input class="o-form__input" id="username" type="text" name="username" [(ngModel)]="addCompanyArgument.username" required>
+  </div>
+  <div class="o-form__form-item">
+    <label class="o-form__label" for="email">Adres e-mail:</label>
+    <input class="o-form__input" id="email" type="email" name="email" [(ngModel)]="addCompanyArgument.email" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}">
+  </div>
+  <div class="o-form__form-item">
+    <label class="o-form__label" for="password">Hasło:</label>
+    <input #password="ngModel" class="o-form__input" id="password" type="password" name="password" [(ngModel)]="addCompanyArgument.password" required minlength="10" maxlength="100">
+  </div>
+  <div class="o-form__form-item">
+    <label class="o-form__label" for="password">Potwierdź hasło:</label>
+    <input #confirmPassword="ngModel" class="o-form__input" id="confirmPassword" type="password" name="confirmPassword" [(ngModel)]="addCompanyArgument.confirmPassword" required minlength="10" maxlength="100">
+  </div>
+  <input type="submit" value="Zarejestruj się" class="o-form__hiddenSubmit" />
+</form>
+<button (click)="createCompany()" class="o-btn o-btn--color o-btn--right" [(disabled)]="!addCompanyForm.form.valid || addCompanyArgument.password != addCompanyArgument.confirmPassword">Zarejestruj się</button>
