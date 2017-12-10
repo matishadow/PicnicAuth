@@ -1,0 +1,15 @@
+<header class="header">
+  <div class="o-centered">
+    <div class="header__hamb" [ngClass]="{'active': menuOpened}" (click)="changeMenuState()"></div>
+    <nav class="header__nav" [ngClass]="{'active': menuOpened}">
+      <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li *ngIf="isLoggedIn"><a routerLink="/auth-users">Auth Users</a></li>
+        <li *ngIf="!isLoggedIn"><a routerLink="/company/login">Login</a></li>
+        <li *ngIf="!isLoggedIn"><a routerLink="/company/add">Create Company Account</a></li>
+        <li><a routerLink="/info">Project Information</a></li>
+        <li><a href="https://picnicauth.gear.host/swagger/ui/index">API Documentation</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

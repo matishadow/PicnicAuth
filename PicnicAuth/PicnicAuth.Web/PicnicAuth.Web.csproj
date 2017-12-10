@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <Folder Include="src\app\api\" />
+    <Folder Include="src\app\base\" />
   </ItemGroup>
 
   <PropertyGroup>
