@@ -20,5 +20,9 @@
     <div class="o-btn-wrapper">
       <button (click)="login()" class="o-btn o-btn--color o-btn--right" [(disabled)]="!loginForm.form.valid">Get API Key</button>
     </div>
-  </div>
+
+    <div class="o-form__box">
+      <label class="apikey__label" *ngIf="apiKey !== undefined">API Key:</label>
+      <label class="apikey__value">{{apiKey}}</label>
+    </div>
 </div>
