@@ -6,7 +6,7 @@ export class NotifierService {
   private notifications: Array<Object>;
 
   constructor() {
-    this.time = 2000;
+    this.time = 4000;
     this.notifications = [];
   }
 
