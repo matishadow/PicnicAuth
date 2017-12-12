@@ -1,0 +1,5 @@
+<div class="notifier">
+  <div class="notifier__notif" *ngFor="let notif of notifications" [ngClass]="'notifier__notif--'+ notif.type">
+    {{ notif.text }}
+  </div>
+</div>

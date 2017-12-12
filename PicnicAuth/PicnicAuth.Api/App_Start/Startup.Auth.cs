@@ -35,7 +35,7 @@ namespace PicnicAuth.Api
             {
                 TokenEndpointPath = new PathString(tokenUri),
                 Provider = new ApplicationOAuthProvider(PublicClientId),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(300),
                 AllowInsecureHttp = System.Diagnostics.Debugger.IsAttached
             };
 

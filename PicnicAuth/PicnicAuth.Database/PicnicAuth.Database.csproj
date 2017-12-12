@@ -116,7 +116,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="EntityConfigurations\" />
     <Folder Include="Resources\" />
     <Folder Include="SeedLists\" />
   </ItemGroup>

@@ -1,0 +1,25 @@
+<div class="o-content-wrapper">
+  <div class="o-form">
+    <span class="o-title o-title--underline">Login</span>
+    <span class="o-subtitle">Login into PicnicAuth</span>
+
+    <div class="o-form__box">
+      <form (ngSubmit)="login()" #loginForm="ngForm">
+        <div class="o-form__form-item">
+          <label class="o-form__label" for="username">Login:</label>
+          <input class="o-form__input" id="username" type="text" name="username" [(ngModel)]="loginModel.username" required>
+        </div>
+        <div class="o-form__form-item">
+          <label class="o-form__label" for="password">Password:</label>
+          <input class="o-form__input" id="password" type="password" name="password" [(ngModel)]="loginModel.password" required>
+        </div>
+        <input type="submit" value="Login" class="o-form__hiddenSubmit" />
+      </form>
+    </div>
+
+    <div class="o-btn-wrapper">
+      <a routerLink="/company/add" class="o-btn">Register</a>
+      <button (click)="login()" class="o-btn o-btn--color" [(disabled)]="!loginForm.form.valid">Login</button>
+    </div>
+  </div>
+</div>
