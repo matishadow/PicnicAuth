@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CompanyCreationComponent } from './company/company-creation/company-creation.component';
 
 @Component({
   selector: 'app-root',
