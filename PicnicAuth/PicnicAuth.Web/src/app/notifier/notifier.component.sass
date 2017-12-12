@@ -1,0 +1,31 @@
+@import '../../styles.sass'
+
+.notifier
+  position: fixed;
+  top: 0
+  left: 0
+  width: 100%
+  z-index: 9999
+
+  &__notif
+    width: 100%
+    height: 50px
+    line-height: 50px
+    background: red
+    text-align: center
+    font-size: 25px
+
+    &--warning
+      background: yellow;
+
+    &--success
+      background: green;
+
+    @media all and (max-width: 800px)
+      font-size: 20px;
+
+    @media all and (max-width: 450px)
+      font-size: 16px;
+      height: auto;
+      line-height: 1em;
+      padding: 10px 5px;

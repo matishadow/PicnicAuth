@@ -1,0 +1,32 @@
+<div class="o-content-wrapper">
+<div class="o-form">
+<span class="o-title o-title--underline">Create Account</span>
+<span class="o-subtitle">Create a new company account.</span>
+
+  <div class="o-form__box">
+    <form (ngSubmit)="createCompany()" #addCompanyForm="ngForm">
+      <div class="o-form__form-item">
+        <label class="o-form__label" for="username">Login:</label>
+        <input class="o-form__input" id="username" type="text" name="username" [(ngModel)]="addCompanyArgument.username" required>
+      </div>
+      <div class="o-form__form-item">
+        <label class="o-form__label" for="email">Email address:</label>
+        <input class="o-form__input" id="email" type="email" name="email" [(ngModel)]="addCompanyArgument.email" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}">
+      </div>
+      <div class="o-form__form-item">
+        <label class="o-form__label" for="password">Password:</label>
+        <input #password="ngModel" class="o-form__input" id="password" type="password" name="password" [(ngModel)]="addCompanyArgument.password" required minlength="10" maxlength="100">
+      </div>
+      <div class="o-form__form-item">
+        <label class="o-form__label" for="password">Confirm password:</label>
+        <input #confirmPassword="ngModel" class="o-form__input" id="confirmPassword" type="password" name="confirmPassword" [(ngModel)]="addCompanyArgument.confirmPassword" required minlength="10" maxlength="100">
+      </div>
+      <input type="submit" value="Register" class="o-form__hiddenSubmit" />
+    </form>
+    <button (click)="createCompany()" class="o-btn o-btn--color o-btn--right" [(disabled)]="!addCompanyForm.form.valid || addCompanyArgument.password != addCompanyArgument.confirmPassword">Register</button>
+
+  </div>
+</div>
+</div>
+
+

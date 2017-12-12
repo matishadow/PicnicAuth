@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicnicAuth.Dto", "PicnicAut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicnicAuth.Models", "PicnicAuth.Models\PicnicAuth.Models.csproj", "{7E859755-A618-4875-90CE-C85D00A84AF5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicnicAuth.Web", "PicnicAuth.Web\PicnicAuth.Web.csproj", "{03C0C393-7F52-40DE-B94E-1C57EAF54463}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{7E859755-A618-4875-90CE-C85D00A84AF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E859755-A618-4875-90CE-C85D00A84AF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E859755-A618-4875-90CE-C85D00A84AF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03C0C393-7F52-40DE-B94E-1C57EAF54463}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03C0C393-7F52-40DE-B94E-1C57EAF54463}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03C0C393-7F52-40DE-B94E-1C57EAF54463}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03C0C393-7F52-40DE-B94E-1C57EAF54463}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

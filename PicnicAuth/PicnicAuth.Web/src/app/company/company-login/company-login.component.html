@@ -1,0 +1,28 @@
+<div class="o-content-wrapper">
+  <div class="o-form">
+    <span class="o-title o-title--underline">Get API key</span>
+    <span class="o-subtitle">Get API key for client library.</span>
+
+    <div class="o-form__box">
+      <form (ngSubmit)="login()" #loginForm="ngForm">
+        <div class="o-form__form-item">
+          <label class="o-form__label" for="username">Login:</label>
+          <input class="o-form__input" id="username" type="text" name="username" [(ngModel)]="username" required>
+        </div>
+        <div class="o-form__form-item">
+          <label class="o-form__label" for="password">Password:</label>
+          <input class="o-form__input" id="password" type="password" name="password" [(ngModel)]="password" required>
+        </div>
+        <input type="submit" value="Get API Key" class="o-form__hiddenSubmit" />
+      </form>
+    </div>
+
+    <div class="o-btn-wrapper">
+      <button (click)="login()" class="o-btn o-btn--color o-btn--right" [(disabled)]="!loginForm.form.valid">Get API Key</button>
+    </div>
+
+    <div class="o-form__box">
+      <label class="apikey__label" *ngIf="apiKey !== undefined">API Key:</label>
+      <label class="apikey__value">{{apiKey}}</label>
+    </div>
+</div>

@@ -12,11 +12,11 @@ namespace PicnicAuth.Api.Configs
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapHttpRoute(
-                "swagger_root",
+                "index",
                 string.Empty,
                 null,
                 null,
-                new RedirectHandler(message => message.RequestUri.ToString(), "swagger"));
+                new RedirectHandler(message => message.RequestUri.ToString(), "index.html"));
 
             routes.MapRoute(
                 "Default",
