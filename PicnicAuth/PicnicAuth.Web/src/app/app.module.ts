@@ -17,6 +17,8 @@ import { HeaderComponent } from './header/header.component';
 import { NotifierComponent } from './notifier/notifier.component';
 import { TokensComponent } from './tokens/tokens/tokens.component';
 import { CompanyLoginComponent } from './company/company-login/company-login.component';
+import { HowToComponent } from './how-to/how-to.component';
+import { InfoComponent } from './info/info.component';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { CompanyLoginComponent } from './company/company-login/company-login.com
     TokensComponent,
     CompanyLoginComponent,
     HomeComponent,
+    HowToComponent,
+    InfoComponent,
   ],
   imports: [
     HttpModule,
